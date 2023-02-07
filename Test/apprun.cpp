@@ -5,8 +5,8 @@
 	SDK.初始化(_pluginkey, _apidata);
 	nlohmann::json json;
 	json["sdkv"] = SDK版本;
-	json["appname"] = "C++SDK";
-	return json.dump().c_str();
+	json["appname"] = Text::GBKTOUTF8("C++SDK中文名测试");
+	return Text::UTF8TOGBK(json.dump()).c_str();
 }
 
 整数型 _AppStart()
@@ -26,6 +26,6 @@
 
 整数型 _ControlPanel()
 {
-	SDK.输出日志(Text::UTF8TOGBK("666").c_str());
+	SDK.输出日志("123",32768,16777215);
 	return 启用响应::启用响应_完成;
 }
