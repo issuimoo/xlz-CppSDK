@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="json">
+      <UniqueIdentifier>{d247e616-d1af-497b-83ed-09236df15de2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text">
+      <UniqueIdentifier>{6e7fab79-2b6f-4f21-ae6f-b99c9277727f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SDK.cpp">
@@ -23,6 +29,9 @@
     </ClCompile>
     <ClCompile Include="SDK_Info.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Text\Text.cpp">
+      <Filter>Text</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -35,5 +44,19 @@
     <ClInclude Include="SDK_Info.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="json\json.hpp">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="json\json_fwd.hpp">
+      <Filter>json</Filter>
+    </ClInclude>
+    <ClInclude Include="Text\Text.hpp">
+      <Filter>Text</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="json\LICENSE.MIT">
+      <Filter>json</Filter>
+    </None>
   </ItemGroup>
 </Project>
