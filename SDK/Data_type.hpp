@@ -12,7 +12,7 @@ typedef const char*			文本型;		// 易语言文本型(GBK)
 typedef const std::uint8_t* 字节集;		// 易语言字节集
 typedef std::uintptr_t		子程序指针;	// 易语言子程序指针
 
-static const char* SDK版本 = "C++ 1.0";
+static const char* SDK版本 = "CSDK 1.0";
 
 enum 消息处理 : 整数型
 {
