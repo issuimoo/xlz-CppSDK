@@ -108,10 +108,10 @@
 字节集 API::silk解码(文本型 音频文件路径)
 {
 	if (_access(".\\main\\corn\\ffmpeg.exe", 00) == -1)
-		输出日志("->corn文件夹缺少语音转码库，请自行到官网或交流群下载");
+		输出日志("silk解码->corn文件夹缺少语音转码库，请自行到官网或交流群下载");
 		return;
 	if (_access(音频文件路径, 00) == -1)
-		输出日志("->音频文件不存在");
+		输出日志("silk解码->音频文件不存在");
 		return;
 	if (_access(".\\main\\data\\voice\\", 00) == -1)
 		_mkdir(".\\main\\data\\voice\\");
@@ -140,7 +140,7 @@
 		system(fmt::format(".\\main\\corn\\ffmpeg -f s16le -ar 24000 -ac 1 -i  \"{}.pcm\" \"{}.mp3\"", Name, Name).c_str());
 	}
 	buff.clear();
-	std::fstream bin2(Name, std::ios::in);
+	std::fstream bin2(Name + ".mp3", std::ios::in);
 	while (getline(bin2, buff)) {}
 	bin2.close();
 	system(fmt::format("del \"{}.mp3\"", Name).c_str());
