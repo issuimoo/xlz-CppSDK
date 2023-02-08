@@ -12,6 +12,11 @@ typedef const char*			文本型;		// 易语言文本型(GBK)
 typedef const std::uint8_t* 字节集;		// 易语言字节集
 typedef std::uintptr_t		子程序指针;	// 易语言子程序指针
 
+enum emoji : 整数型
+{
+	惊讶
+};
+
 enum 消息处理 : 整数型
 {
 	消息处理_忽略,

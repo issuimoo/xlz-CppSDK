@@ -26,6 +26,6 @@
 
 整数型 _ControlPanel()
 {
-	SDK.发送群消息(3498896843, 829179397, "C++SDKTest", false);
+
 	return 启用响应::启用响应_完成;
 }
