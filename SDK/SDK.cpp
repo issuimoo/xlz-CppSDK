@@ -142,6 +142,7 @@
 	buff.clear();
 	std::fstream bin2(Name, std::ios::in);
 	while (getline(bin2, buff)) {}
+	bin2.close();
 	system(fmt::format("del \"{}.mp3\"", Name).c_str());
 	system(fmt::format("del \"{}.pcm\"", Name).c_str());
 	return (unsigned char*)buff.c_str();
