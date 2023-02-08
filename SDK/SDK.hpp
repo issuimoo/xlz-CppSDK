@@ -1,4 +1,7 @@
 #include <Windows.h>
+#include <direct.h>
+#include <fstream>
+#include <io.h>
 
 #include "Data_type.hpp"
 #include "json/json.hpp"
@@ -31,6 +34,12 @@ public:
 	文本型 发送好友json消息(长整数型 框架QQ, 长整数型 好友QQ, 文本型 json代码, 长整数型* Random = nullptr, 整数型* Req = nullptr);
 	文本型 发送群json消息(长整数型 框架QQ, 长整数型 群号, 文本型 json代码, 逻辑型 匿名发送 = false);
 	文本型 上传好友图片(长整数型 框架QQ, 长整数型 好友QQ, 字节集 pic, 逻辑型 是否闪照 = false, 整数型 宽度 = 0, 整数型 高度 = 0, 逻辑型 动图 = false, 文本型 预览文字 = "");
+	文本型 上传群图片(长整数型 框架QQ, 长整数型 群号, 字节集 pic, 逻辑型 是否闪照 = false, 整数型 宽度 = 0, 整数型 高度 = 0, 逻辑型 动图 = false, 文本型 预览文字 = "");
+	文本型 上传好友语音(长整数型 框架QQ, 长整数型 好友QQ, 字节集 audio, 语音类型 类型 = 语音类型::普通语音, 文本型 语音文字 = "", 整数型 时长 = 0);
+	文本型 上传群语音(长整数型 框架QQ, 长整数型 群号, 字节集 audio, 语音类型 类型 = 语音类型::普通语音, 文本型 语音文字 = "", 整数型 时长 = 0);
+	文本型 上传头像(长整数型 框架QQ, 字节集 pic);
+	字节集 silk解码(文本型 音频文件路径);
+
 
 
 private:
