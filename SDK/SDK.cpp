@@ -3,14 +3,6 @@
 {
 	return fmt::format("[bq{}]", (int)表情).c_str();
 }
-文本型 API::SDK信息()
-{
-	nlohmann::json json;
-	json["SDKV"] = SDK版本;
-	json["pluginkey"] = pluginkey;
-	json["appapi"] = apidata;
-	return json.dump().c_str();
-}
 文本型 API::初始化(文本型 _pluginkey, 文本型 _apidata, 文本型 Name)
 {
 	pluginkey = _pluginkey;
@@ -109,10 +101,10 @@
 {
 	if (_access(".\\main\\corn\\ffmpeg.exe", 00) == -1)
 		输出日志("silk解码->corn文件夹缺少语音转码库，请自行到官网或交流群下载");
-		return;
+		return {};
 	if (_access(音频文件路径, 00) == -1)
 		输出日志("silk解码->音频文件不存在");
-		return;
+		return {};
 	if (_access(".\\main\\data\\voice\\", 00) == -1)
 		_mkdir(".\\main\\data\\voice\\");
 	std::string voicefile = 音频文件路径;
@@ -128,7 +120,7 @@
 	}
 	else
 	{
-		return;
+		return {};
 	}
 	if (buff.substr(0,5) == "#!AMR")
 	{

@@ -19,7 +19,6 @@ public:
 class API : public API_Text
 {
 public:
-	文本型 SDK信息();
 	文本型 初始化(文本型 _pluginkey, 文本型 _apidata, 文本型 Name);
 	整数型 取API函数地址(文本型 函数名);
 	文本型 输出日志(文本型 日志, 整数型 文字颜色 = 32768, 整数型 背景颜色 = 16777215);
@@ -46,5 +45,5 @@ private:
 	文本型 pluginkey;
 	nlohmann::json apidata;
 protected:
-	const char* SDK版本 = "CSDK 1.0";
+	const char* SDK版本 = "5.1.7";
 }static SDK;
