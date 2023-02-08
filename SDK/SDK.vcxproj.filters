@@ -27,12 +27,6 @@
     <ClCompile Include="SDK.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Data_type.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK_Info.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Text\Text.cpp">
       <Filter>Text</Filter>
     </ClCompile>
@@ -48,9 +42,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Data_type.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK_Info.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="json\json.hpp">

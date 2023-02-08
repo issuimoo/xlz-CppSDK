@@ -154,11 +154,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Data_type.cpp" />
     <ClCompile Include="fmt\format.cc" />
     <ClCompile Include="fmt\os.cc" />
     <ClCompile Include="SDK.cpp" />
-    <ClCompile Include="SDK_Info.cpp" />
     <ClCompile Include="Text\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -179,7 +177,6 @@
     <ClInclude Include="json\json_fwd.hpp" />
     <ClInclude Include="SDK.hpp" />
     <ClInclude Include="Data_type.hpp" />
-    <ClInclude Include="SDK_Info.hpp" />
     <ClInclude Include="Text\Text.hpp" />
   </ItemGroup>
   <ItemGroup>
