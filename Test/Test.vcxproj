@@ -102,7 +102,7 @@
       <ExceptionHandling>Async</ExceptionHandling>
       <ControlFlowGuard>Guard</ControlFlowGuard>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDK\json\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDK\Text\;$(SolutionDir)SDK\Draw\;$(SolutionDir)SDK\stb\;$(SolutionDir)SDK\simpleini\;$(SolutionDir)SDK\;$(SolutionDir)SDK\magic_enum\;$(SolutionDir)SDK\ImPlot\;$(SolutionDir)SDK\ImNodes\;$(SolutionDir)SDK\json\;$(SolutionDir)SDK\ImGui\;$(SolutionDir)SDK\fmt\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

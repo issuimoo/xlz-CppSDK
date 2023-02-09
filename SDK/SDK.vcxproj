@@ -107,7 +107,7 @@
       <EnableParallelCodeGeneration>false</EnableParallelCodeGeneration>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <EnableModules>true</EnableModules>
-      <AdditionalIncludeDirectories>$(SolutionDir)SDK\;$(SolutionDir)SDK\json\;$(SolutionDir)SDK\fmt\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDK\Text\;$(SolutionDir)SDK\Draw\;$(SolutionDir)SDK\stb\;$(SolutionDir)SDK\simpleini\;$(SolutionDir)SDK\;$(SolutionDir)SDK\magic_enum\;$(SolutionDir)SDK\ImPlot\;$(SolutionDir)SDK\ImNodes\;$(SolutionDir)SDK\json\;$(SolutionDir)SDK\ImGui\;$(SolutionDir)SDK\fmt\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -154,12 +154,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Draw\ImGuiDx11Draw.cpp" />
+    <ClCompile Include="Draw\ImGuiEX.cpp" />
     <ClCompile Include="fmt\format.cc" />
     <ClCompile Include="fmt\os.cc" />
+    <ClCompile Include="ImGui\Font.cpp" />
+    <ClCompile Include="ImGui\imgui.cpp" />
+    <ClCompile Include="ImGui\imgui_demo.cpp" />
+    <ClCompile Include="ImGui\imgui_draw.cpp" />
+    <ClCompile Include="ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="ImGui\imgui_stdlib.cpp" />
+    <ClCompile Include="ImGui\imgui_tables.cpp" />
+    <ClCompile Include="ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="ImNodes\imnodes.cpp" />
+    <ClCompile Include="ImPlot\implot.cpp" />
+    <ClCompile Include="ImPlot\implot_demo.cpp" />
+    <ClCompile Include="ImPlot\implot_items.cpp" />
     <ClCompile Include="SDK.cpp" />
+    <ClCompile Include="simpleini\ConvertUTF.c" />
+    <ClCompile Include="stb\stb_vorbis.c" />
     <ClCompile Include="Text\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Draw\ImGuiDx11Draw.hpp" />
+    <ClInclude Include="Draw\ImGuiEX.hpp" />
     <ClInclude Include="fmt\args.h" />
     <ClInclude Include="fmt\chrono.h" />
     <ClInclude Include="fmt\color.h" />
@@ -173,15 +192,63 @@
     <ClInclude Include="fmt\ranges.h" />
     <ClInclude Include="fmt\std.h" />
     <ClInclude Include="fmt\xchar.h" />
+    <ClInclude Include="ImGui\Font.h" />
+    <ClInclude Include="ImGui\imconfig.h" />
+    <ClInclude Include="ImGui\imgui.h" />
+    <ClInclude Include="ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="ImGui\imgui_internal.h" />
+    <ClInclude Include="ImGui\imgui_stdlib.h" />
+    <ClInclude Include="ImGui\imstb_rectpack.h" />
+    <ClInclude Include="ImGui\imstb_textedit.h" />
+    <ClInclude Include="ImGui\imstb_truetype.h" />
+    <ClInclude Include="ImNodes\imnodes.h" />
+    <ClInclude Include="ImNodes\imnodes_internal.h" />
+    <ClInclude Include="ImPlot\implot.h" />
+    <ClInclude Include="ImPlot\implot_internal.h" />
     <ClInclude Include="json\json.hpp" />
     <ClInclude Include="json\json_fwd.hpp" />
+    <ClInclude Include="magic_enum\magic_enum.hpp" />
+    <ClInclude Include="magic_enum\magic_enum_containers.hpp" />
+    <ClInclude Include="magic_enum\magic_enum_format.hpp" />
+    <ClInclude Include="magic_enum\magic_enum_fuse.hpp" />
+    <ClInclude Include="magic_enum\magic_enum_switch.hpp" />
     <ClInclude Include="SDK.hpp" />
     <ClInclude Include="Data_type.hpp" />
+    <ClInclude Include="simpleini\ConvertUTF.h" />
+    <ClInclude Include="simpleini\SimpleIni.h" />
+    <ClInclude Include="stb\stb_connected_components.h" />
+    <ClInclude Include="stb\stb_c_lexer.h" />
+    <ClInclude Include="stb\stb_divide.h" />
+    <ClInclude Include="stb\stb_ds.h" />
+    <ClInclude Include="stb\stb_dxt.h" />
+    <ClInclude Include="stb\stb_easy_font.h" />
+    <ClInclude Include="stb\stb_herringbone_wang_tile.h" />
+    <ClInclude Include="stb\stb_hexwave.h" />
+    <ClInclude Include="stb\stb_image.h" />
+    <ClInclude Include="stb\stb_image_resize.h" />
+    <ClInclude Include="stb\stb_image_write.h" />
+    <ClInclude Include="stb\stb_include.h" />
+    <ClInclude Include="stb\stb_leakcheck.h" />
+    <ClInclude Include="stb\stb_perlin.h" />
+    <ClInclude Include="stb\stb_rect_pack.h" />
+    <ClInclude Include="stb\stb_sprintf.h" />
+    <ClInclude Include="stb\stb_textedit.h" />
+    <ClInclude Include="stb\stb_tilemap_editor.h" />
+    <ClInclude Include="stb\stb_truetype.h" />
+    <ClInclude Include="stb\stb_voxel_render.h" />
     <ClInclude Include="Text\Text.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="fmt\LICENSE.rst" />
+    <None Include="ImNodes\LICENSE.md" />
+    <None Include="ImPlot\LICENSE" />
     <None Include="json\LICENSE.MIT" />
+    <None Include="magic_enum\LICENSE" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ImGui\LICENSE.txt" />
+    <Text Include="simpleini\LICENCE.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

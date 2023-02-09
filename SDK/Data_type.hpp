@@ -12,6 +12,7 @@ typedef const char*			文本型;		// 易语言文本型(GBK)
 typedef const std::uint8_t* 字节集;		// 易语言字节集
 typedef std::uintptr_t		子程序指针;	// 易语言子程序指针
 
+#pragma pack(4)
 enum emoji : 整数型
 {
 	惊讶
@@ -690,7 +691,7 @@ struct __declspec(align(4)) 群消息数据
 	整数型 消息分片序列;
 	整数型 消息分片数量;
 	长整数型 消息分片标识;
-	整数型 消息类型;   //消息subtype
+	消息类型 消息类型;   //消息subtype
 	文本型 发送人群头衔;   //发送者QQ群头衔
 	文本型 消息内容;   //消息内容
 	文本型 回复对象消息内容;   //如果是回复消息,这个变量保存回复的消息的信息
@@ -1122,3 +1123,4 @@ struct __declspec(align(4)) 插件消息发送数据
 	文本型 插件调用API信息;   //此插件通过哪个API利用哪些参数数据进行消息发送的,如:发送群消息(框架QQ:10001,目标群号:111101,消息内容:$message,匿名发送:假)
 	文本型 消息内容;
 };
+#pragma pack()

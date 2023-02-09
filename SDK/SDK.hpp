@@ -3,10 +3,13 @@
 #include <fstream>
 #include <io.h>
 
+#include "ImGuiDx11Draw.hpp"
+#include "magic_enum.hpp"
 #include "Data_type.hpp"
-#include "json/json.hpp"
-#include "Text/Text.hpp"
-#include "fmt/format.h"
+#include "SimpleIni.h"
+#include "json.hpp"
+#include "Text.hpp"
+#include "format.h"
 
 #define DLLOUT extern "C" __declspec(dllexport)
 
@@ -19,7 +22,7 @@ public:
 class API : public API_Text
 {
 public:
-	文本型 初始化(文本型 _pluginkey, 文本型 _apidata, 文本型 Name);
+	文本型 初始化(文本型 _pluginkey, 文本型 _apidata, 文本型 插件名称, 文本型 插件作者, 文本型 插件版本, 文本型 插件说明, 整数型 被启用处理函数, 整数型 被禁用处理函数, 整数型 将被卸载处理函数, 整数型 插件菜单处理函数, 整数型 私聊消息处理函数, 整数型 群聊消息处理函数, 整数型 频道推送统一处理函数, 整数型 事件消息处理函数);
 	整数型 取API函数地址(文本型 函数名);
 	文本型 输出日志(文本型 日志, 整数型 文字颜色 = 32768, 整数型 背景颜色 = 16777215);
 	文本型 发送好友消息(长整数型 框架QQ, 长整数型 好友QQ, 文本型 发送内容, 长整数型* Random = nullptr, 整数型* Req = nullptr);
@@ -42,8 +45,8 @@ public:
 
 
 private:
-	文本型 pluginkey;
+	std::string pluginkey;
 	nlohmann::json apidata;
 protected:
-	const char* SDK版本 = "5.1.7";
+	const char* SDK版本 = "CSDK 1.0";
 }static SDK;
