@@ -111,6 +111,10 @@
       <BufferSecurityCheck>true</BufferSecurityCheck>
       <UseStandardPreprocessor>true</UseStandardPreprocessor>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <OmitFramePointers>false</OmitFramePointers>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <Link>
       <SubSystem>

@@ -2,7 +2,21 @@
 
 文本型 apprun(文本型 _apidata, 文本型 _pluginkey)
 {
-	return SDK.初始化(_pluginkey, _apidata,"测试","遂沫","1.0","",(整数型)&_AppStart, (整数型)&_AppEnd, (整数型)&_AppUnload, (整数型)&_ControlPanel,0, (整数型)&_OnGroup,0,0);
+	return SDK.初始化(
+		_pluginkey,
+		_apidata,
+		"测试",
+		"遂沫",
+		"1.0",
+		"",
+		(整数型)&_AppStart,
+		(整数型)&_AppEnd,
+		(整数型)&_AppUnload,
+		(整数型)&_ControlPanel,
+		0,
+		(整数型)&_OnGroup,
+		0,
+		0);
 }
 
 整数型 _AppStart()

@@ -105,6 +105,14 @@
       <AdditionalIncludeDirectories>$(SolutionDir)SDK\Text\;$(SolutionDir)SDK\Draw\;$(SolutionDir)SDK\stb\;$(SolutionDir)SDK\simpleini\;$(SolutionDir)SDK\;$(SolutionDir)SDK\magic_enum\;$(SolutionDir)SDK\ImPlot\;$(SolutionDir)SDK\ImNodes\;$(SolutionDir)SDK\json\;$(SolutionDir)SDK\ImGui\;$(SolutionDir)SDK\fmt\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <EnableModules>true</EnableModules>
       <BufferSecurityCheck>true</BufferSecurityCheck>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>false</OmitFramePointers>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
