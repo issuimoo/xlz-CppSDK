@@ -124,7 +124,8 @@
 }
 字节集 API::silk解码(文本型 音频文件路径)
 {
-	if (_access(".\\main\\corn\\ffmpeg.exe", 00) == -1) //判断转码程序是否存在
+	if (_access(".\\main\\corn\\ffmpeg.exe", 00) == -1 || 
+		_access(".\\main\\corn\\silk_v3_decoder.exe", 00) == -1) //判断转码程序是否存在
 		输出日志("silk解码->corn文件夹缺少语音转码库，请自行到官网或交流群下载"); //不存在输出错误日志
 		return {};
 	if (_access(音频文件路径, 00) == -1) //判断音频文件是否存在
@@ -165,8 +166,129 @@
 	bin2.close(); //关闭文件
 	system(std::format("del \"{}.mp3\"", Name).c_str()); //删除硬盘文件
 	system(std::format("del \"{}.pcm\"", Name).c_str()); //删除硬盘文件
+	输出日志("silk解码->解码完成");
 	return (unsigned char*)buffer2; //返回缓冲区 请使用delete []释放内存缓存区
 }
+字节集 API::silk编码(文本型 音频文件路径)
+{
+	if (_access(".\\main\\corn\\ffmpeg.exe", 00) == -1 ||
+		_access(".\\main\\corn\\silk_v3_decoder.exe", 00) == -1) //判断转码程序是否存在
+		输出日志("silk编码->corn文件夹缺少语音转码库，请自行到官网或交流群下载"); //不存在输出错误日志
+	return {};
+	if (_access(音频文件路径, 00) == -1) //判断音频文件是否存在
+		输出日志("silk编码->音频文件不存在"); //不存在输出错误日志
+	return {};
+	if (_access(".\\main\\data\\voice\\", 00) == -1) //判断缓存目录是否存在
+		_mkdir(".\\main\\data\\voice\\"); //不存在就创建
+	std::string voicefile = 音频文件路径; //const char* 转 string
+	std::string Name = std::format(".\\main\\data\\voice\\{}.{}",
+		std::to_string(10 * rand() % RAND_MAX + 1),
+		voicefile.substr(voicefile.find_last_of('.') + 1)); //新文件路径名
+	system(std::format(".\\main\\corn\\ffmpeg -i \"{}\" -f s16le -ar 24000 -ac 1 -acodec pcm_s16le \"{}.pcm\"", 音频文件路径, Name).c_str());
+	system(std::format(".\\main\\corn\\silkencoder pts -i \"{}.pcm\" -o \"{}.silk\" -s 24000", Name, Name).c_str());
+	std::fstream bin(Name + ".silk", std::ios::in | std::ios::binary);
+	bin.seekg(0, bin.end);
+	unsigned int length = bin.tellg();
+	bin.seekg(0, bin.beg);
+	char* buffer = new char[length];
+	bin.read(buffer, length);
+	bin.close();
+	system(std::format("del \"{}.pcm\"", Name).c_str());
+	system(std::format("del \"{}.silk\"", Name).c_str());
+	输出日志("silk编码->编码完成");
+	return (unsigned char*)buffer;
+}
+字节集 API::amr编码(文本型 音频文件路径)
+{
+	if (_access(".\\main\\corn\\ffmpeg.exe", 00) == -1 ||
+		_access(".\\main\\corn\\silk_v3_decoder.exe", 00) == -1) //判断转码程序是否存在
+		输出日志("amr编码->corn文件夹缺少语音转码库，请自行到官网或交流群下载"); //不存在输出错误日志
+	return {};
+	if (_access(音频文件路径, 00) == -1) //判断音频文件是否存在
+		输出日志("amr编码->音频文件不存在"); //不存在输出错误日志
+	return {};
+	if (_access(".\\main\\data\\voice\\", 00) == -1) //判断缓存目录是否存在
+		_mkdir(".\\main\\data\\voice\\"); //不存在就创建
+	std::string voicefile = 音频文件路径; //const char* 转 string
+	std::string Name = std::format(".\\main\\data\\voice\\{}.{}",
+		std::to_string(10 * rand() % RAND_MAX + 1),
+		voicefile.substr(voicefile.find_last_of('.') + 1)); //新文件路径名
+	system(std::format(".\\main\\corn\\ffmpeg -i \"{}\" -f wav \"{}.wav\"", 音频文件路径, Name).c_str());
+	system(std::format(".\\main\\corn\\ffmpeg -i \"{}.wav\" -ar 8000 -ab 12.2k -ac 1 \"{}.amr\"", Name, Name).c_str());
+	std::fstream bin(Name + ".amr", std::ios::in | std::ios::binary);
+	bin.seekg(0, bin.end);
+	unsigned int length = bin.tellg();
+	bin.seekg(0, bin.beg);
+	char* buffer = new char[length];
+	bin.read(buffer, length);
+	bin.close();
+	system(std::format("del \"{}.wav\"", Name).c_str());
+	system(std::format("del \"{}.amr\"", Name).c_str());
+	输出日志("amr编码->编码完成");
+	return (unsigned char*)buffer;
+}
+文本型 API::设置群名片(长整数型 框架QQ, 长整数型 群号, 长整数型 群成员QQ, 文本型 新名片)
+{
+	return ((文本型(*)(文本型, 长整数型, 长整数型, 长整数型, 文本型))取API函数地址("设置群名片"))(pluginkey.c_str(), 框架QQ, 群号, 群成员QQ, 新名片);
+}
+文本型 API::取昵称_从缓存(文本型 对方QQ)
+{
+	return ((文本型(*)(文本型, 文本型))取API函数地址("取昵称_从缓存"))(pluginkey.c_str(), 对方QQ);
+}
+文本型 API::强制取昵称(长整数型 框架QQ, 文本型 对方QQ)
+{
+	return ((文本型(*)(文本型, 长整数型, 文本型))取API函数地址("强制取昵称"))(pluginkey.c_str(), 框架QQ, 对方QQ);
+}
+文本型 API::取群名称_从缓存(文本型 群号)
+{
+	return ((文本型(*)(文本型, 文本型))取API函数地址("取群名称_从缓存"))(pluginkey.c_str(), 群号);
+}
+文本型 API::获取skey(长整数型 框架QQ)
+{
+	return ((文本型(*)(文本型, 长整数型))取API函数地址("获取skey"))(pluginkey.c_str(), 框架QQ);
+}
+文本型 API::获取pskey(长整数型 框架QQ, 文本型 域)
+{
+	return ((文本型(*)(文本型, 长整数型, 文本型))取API函数地址("获取pskey"))(pluginkey.c_str(), 框架QQ, 域);
+}
+文本型 API::获取clientkey(长整数型 框架QQ)
+{
+	return ((文本型(*)(文本型, 长整数型))取API函数地址("获取clientkey"))(pluginkey.c_str(), 框架QQ);
+}
+文本型 API::取框架QQ()
+{
+	return ((文本型(*)(文本型))取API函数地址("取框架QQ"))(pluginkey.c_str());
+}
+文本型 API::取好友列表(长整数型 框架QQ, 好友信息** 数据)
+{
+	return ((文本型(*)(文本型, 长整数型, 好友信息**))取API函数地址("取好友列表"))(pluginkey.c_str(), 框架QQ, 数据);
+}
+文本型 API::取群列表(长整数型 框架QQ, 群信息** 数据)
+{
+	return ((文本型(*)(文本型, 长整数型, 群信息**))取API函数地址("取群列表"))(pluginkey.c_str(), 框架QQ, 数据);
+}
+文本型 API::取群成员列表(长整数型 框架QQ, 长整数型 群号, 群成员信息** 数据)
+{
+	return ((文本型(*)(文本型, 长整数型, 长整数型, 群成员信息**))取API函数地址("取群成员列表"))(pluginkey.c_str(), 框架QQ, 群号, 数据);
+}
+逻辑型 API::设置管理员(长整数型 框架QQ, 长整数型 群号, 长整数型 群成员QQ, 逻辑型 取消管理)
+{
+	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 长整数型, 逻辑型))取API函数地址("设置管理员"))(pluginkey.c_str(), 框架QQ, 群号, 群成员QQ, 取消管理);
+}
+文本型 API::取管理层列表(长整数型 框架QQ, 长整数型 群号)
+{
+	return ((文本型(*)(文本型, 长整数型, 长整数型))取API函数地址("取管理层列表"))(pluginkey.c_str(), 框架QQ, 群号);
+}
+文本型 API::取群名片(长整数型 框架QQ, 长整数型 群号, 长整数型 群成员QQ)
+{
+	return ((文本型(*)(文本型, 长整数型, 长整数型, 长整数型))取API函数地址("取群名片"))(pluginkey.c_str(), 框架QQ, 群号, 群成员QQ);
+}
+
+
+
+
+
+
 
 
 
