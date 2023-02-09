@@ -162,7 +162,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json\json.hpp" />
-    <ClInclude Include="json\json_fwd.hpp" />
     <ClInclude Include="SDK.hpp" />
     <ClInclude Include="Data_type.hpp" />
     <ClInclude Include="Text\Text.hpp" />

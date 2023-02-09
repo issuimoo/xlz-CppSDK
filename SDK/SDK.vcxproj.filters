@@ -38,9 +38,6 @@
     <ClInclude Include="json\json.hpp">
       <Filter>json</Filter>
     </ClInclude>
-    <ClInclude Include="json\json_fwd.hpp">
-      <Filter>json</Filter>
-    </ClInclude>
     <ClInclude Include="Text\Text.hpp">
       <Filter>Text</Filter>
     </ClInclude>
