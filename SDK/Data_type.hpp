@@ -12,7 +12,6 @@ typedef const char*			文本型;		// 易语言文本型(GBK)
 typedef const std::uint8_t* 字节集;		// 易语言字节集
 typedef std::uintptr_t		子程序指针;	// 易语言子程序指针
 
-#pragma pack(4)
 enum emoji : 整数型
 {
 	惊讶
@@ -563,6 +562,8 @@ enum 服务代号 : 整数型
 	SVIPQQ音乐 = 110,
 	QQ大会员 = 113,
 };
+
+#pragma pack(4)
 
 struct __declspec(align(4)) 私聊消息数据
 {

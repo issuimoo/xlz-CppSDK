@@ -3,13 +3,9 @@
 #include <fstream>
 #include <io.h>
 
-#include "ImGuiDx11Draw.hpp"
-#include "magic_enum.hpp"
 #include "Data_type.hpp"
-#include "SimpleIni.h"
 #include "json.hpp"
 #include "Text.hpp"
-#include "format.h"
 
 #define DLLOUT extern "C" __declspec(dllexport)
 

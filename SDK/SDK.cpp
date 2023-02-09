@@ -1,7 +1,7 @@
 ﻿#include "SDK.hpp"
 文本型 API_Text::小黄豆表情(emoji 表情)
 {
-	return fmt::format("[bq{}]", (int)表情).c_str();
+	return std::format("[bq{}]", (int)表情).c_str();
 }
 文本型 API::初始化(文本型 _pluginkey, 文本型 _apidata, 文本型 插件名称, 文本型 插件作者, 文本型 插件版本, 文本型 插件说明, 整数型 被启用处理函数, 整数型 被禁用处理函数, 整数型 将被卸载处理函数, 整数型 插件菜单处理函数, 整数型 私聊消息处理函数, 整数型 群聊消息处理函数, 整数型 频道推送统一处理函数, 整数型 事件消息处理函数)
 {
@@ -42,7 +42,7 @@
 	if (apidata.find(func) != apidata.end())
 		return apidata[func];
 	else
-		MessageBox(NULL, fmt::format("未找到该函数: {}", 函数名).c_str(), "错误", NULL);
+		MessageBox(NULL, std::format("未找到该函数: {}", 函数名).c_str(), "错误", NULL);
 		return 0;
 }
 文本型 API::输出日志(文本型 日志, 整数型 文字颜色, 整数型 背景颜色)
@@ -93,28 +93,28 @@
 {
 	std::string ret = ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 逻辑型, 字节集, 整数型))取API函数地址("上传好友图片"))(pluginkey.c_str(), 框架QQ, 好友QQ, 是否闪照, pic, strlen((char*)pic) + 1);
 	ret.pop_back();
-	ret += fmt::format(",wide={},high={},cartoon={},str={}]", 宽度, 高度, (bool)动图, 预览文字);
+	ret += std::format(",wide={},high={},cartoon={},str={}]", 宽度, 高度, (bool)动图, 预览文字);
 	return ret.c_str();
 }
 文本型 API::上传群图片(长整数型 框架QQ, 长整数型 群号, 字节集 pic, 逻辑型 是否闪照, 整数型 宽度, 整数型 高度, 逻辑型 动图, 文本型 预览文字)
 {
 	std::string ret = ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 逻辑型, 字节集, 整数型))取API函数地址("上传群图片"))(pluginkey.c_str(), 框架QQ, 群号, 是否闪照, pic, strlen((char*)pic) + 1);
 	ret.pop_back();
-	ret += fmt::format(",wide={},high={},cartoon={},str={}]", 宽度, 高度, (bool)动图, 预览文字);
+	ret += std::format(",wide={},high={},cartoon={},str={}]", 宽度, 高度, (bool)动图, 预览文字);
 	return ret.c_str();
 }
 文本型 API::上传好友语音(长整数型 框架QQ, 长整数型 好友QQ, 字节集 audio, 语音类型 类型, 文本型 语音文字, 整数型 时长)
 {
 	std::string ret = ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 语音类型, 文本型, 字节集, 整数型))取API函数地址("上传好友语音"))(pluginkey.c_str(), 框架QQ, 好友QQ, 类型, 语音文字, audio, strlen((char*)audio) + 1);
 	ret.pop_back();
-	ret += fmt::format(",time={}]", 时长);
+	ret += std::format(",time={}]", 时长);
 	return ret.c_str();
 }
 文本型 API::上传群语音(长整数型 框架QQ, 长整数型 群号, 字节集 audio, 语音类型 类型, 文本型 语音文字, 整数型 时长)
 {
 	std::string ret = ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 语音类型, 文本型, 字节集, 整数型))取API函数地址("上传群语音"))(pluginkey.c_str(), 框架QQ, 群号, 类型, 语音文字, audio, strlen((char*)audio) + 1);
 	ret.pop_back();
-	ret += fmt::format(",time={}]", 时长);
+	ret += std::format(",time={}]", 时长);
 	return ret.c_str();
 }
 文本型 API::上传头像(长整数型 框架QQ, 字节集 pic)
@@ -132,7 +132,7 @@
 	if (_access(".\\main\\data\\voice\\", 00) == -1)
 		_mkdir(".\\main\\data\\voice\\");
 	std::string voicefile = 音频文件路径;
-	std::string Name = fmt::format(".\\main\\data\\voice\\{}.{}",
+	std::string Name = std::format(".\\main\\data\\voice\\{}.{}",
 		std::to_string(10 * rand() % RAND_MAX + 1),
 		voicefile.substr(voicefile.find_last_of('.') + 1));
 	std::string buff;
@@ -148,19 +148,19 @@
 	}
 	if (buff.substr(0,5) == "#!AMR")
 	{
-		system(fmt::format(".\\main\\corn\\ffmpeg -i \"{}\" \"{}.mp3\"", 音频文件路径, Name).c_str());
+		system(std::format(".\\main\\corn\\ffmpeg -i \"{}\" \"{}.mp3\"", 音频文件路径, Name).c_str());
 	}
 	else
 	{
-		system(fmt::format(".\\main\\corn\\silk_v3_decoder \"{}\" \"{}.pcm\"", 音频文件路径, Name).c_str());
-		system(fmt::format(".\\main\\corn\\ffmpeg -f s16le -ar 24000 -ac 1 -i  \"{}.pcm\" \"{}.mp3\"", Name, Name).c_str());
+		system(std::format(".\\main\\corn\\silk_v3_decoder \"{}\" \"{}.pcm\"", 音频文件路径, Name).c_str());
+		system(std::format(".\\main\\corn\\ffmpeg -f s16le -ar 24000 -ac 1 -i  \"{}.pcm\" \"{}.mp3\"", Name, Name).c_str());
 	}
 	buff.clear();
 	std::fstream bin2(Name + ".mp3", std::ios::in);
 	while (getline(bin2, buff)) {}
 	bin2.close();
-	system(fmt::format("del \"{}.mp3\"", Name).c_str());
-	system(fmt::format("del \"{}.pcm\"", Name).c_str());
+	system(std::format("del \"{}.mp3\"", Name).c_str());
+	system(std::format("del \"{}.pcm\"", Name).c_str());
 	return (unsigned char*)buff.c_str();
 }
 
