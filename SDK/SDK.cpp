@@ -165,7 +165,7 @@
 	bin2.close(); //关闭文件
 	system(std::format("del \"{}.mp3\"", Name).c_str()); //删除硬盘文件
 	system(std::format("del \"{}.pcm\"", Name).c_str()); //删除硬盘文件
-	return (unsigned char*)buffer2; //返回缓冲区
+	return (unsigned char*)buffer2; //返回缓冲区 请使用delete []释放内存缓存区
 }
 
 
