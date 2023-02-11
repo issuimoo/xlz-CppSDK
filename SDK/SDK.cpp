@@ -1,11 +1,11 @@
 ﻿#include "SDK.hpp"
-文本型 API_Text::小黄豆表情(emoji 表情)
+std::string API_Text::小黄豆表情(emoji 表情)
 {
 	return std::format("[bq{}]", (int)表情).c_str();
 }
-文本型 API::初始化(文本型 _pluginkey, 文本型 _apidata, 文本型 插件名称, 文本型 插件作者, 文本型 插件版本, 文本型 插件说明, 整数型 被启用处理函数, 整数型 被禁用处理函数, 整数型 将被卸载处理函数, 整数型 插件菜单处理函数, 整数型 私聊消息处理函数, 整数型 群聊消息处理函数, 整数型 频道推送统一处理函数, 整数型 事件消息处理函数)
+std::string API::初始化(std::string _pluginkey, std::string _apidata, std::string 插件名称, std::string 插件作者, std::string 插件版本, std::string 插件说明, std::int32_t 被启用处理函数, std::int32_t 被禁用处理函数, std::int32_t 将被卸载处理函数, std::int32_t 插件菜单处理函数, std::int32_t 私聊消息处理函数, std::int32_t 群聊消息处理函数, std::int32_t 频道推送统一处理函数, std::int32_t 事件消息处理函数)
 {
-	pluginkey = _pluginkey; //不知道是什么bug,但pluginkey必须为string类型,貌似因为_pluginkey会释放
+	pluginkey = _pluginkey; //不知道是什么bug,但pluginkey.c_str()必须为string类型,貌似因为_pluginkey会释放
 	apidata = nlohmann::json::parse(Text::GBKTOUTF8(_apidata));
 	nlohmann::json json;
 	json["sdkv"] = SDK版本;
@@ -37,7 +37,7 @@
 	}
 	return Text::UTF8TOGBK(json.dump()).c_str();
 }
-整数型 API::取API函数地址(文本型 函数名)
+std::int32_t API::取API函数地址(std::string 函数名)
 {
 	std::string func = Text::GBKTOUTF8(函数名);
 	if (apidata.find(func) != apidata.end())
@@ -46,89 +46,21 @@
 		MessageBox(NULL, std::format("未找到该函数: {}", 函数名).c_str(), "错误", NULL);
 		return 0;
 }
-文本型 API::输出日志(文本型 日志, 整数型 文字颜色, 整数型 背景颜色)
+std::string API::输出日志(std::string 日志, std::int32_t 文字颜色, std::int32_t 背景颜色)
 {
-	return ((文本型(WINAPI*)(文本型, 文本型, 整数型, 整数型))取API函数地址("输出日志"))(pluginkey.c_str(), 日志, 文字颜色, 背景颜色);
+	return ((const char*(WINAPI*)(const char*, const char*, std::int32_t, std::int32_t))取API函数地址("输出日志"))(pluginkey.c_str(), 日志.c_str(), 文字颜色, 背景颜色);
 }
-文本型 API::发送好友消息(长整数型 框架QQ, 长整数型 好友QQ, 文本型 发送内容, 长整数型* Random, 整数型* Req)
+std::string API::发送好友消息(std::int64_t 框架QQ, std::int64_t 好友QQ, std::string 发送内容, std::int64_t& Random, std::int32_t& Req)
 {
-	return ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 文本型, 长整数型*, 整数型*))取API函数地址("发送好友消息"))(pluginkey.c_str(), 框架QQ, 好友QQ, 发送内容, Random, Req);
+	return ((const char*(WINAPI*)(const char*, std::int64_t, std::int64_t, const char* , std::int64_t&, std::int32_t&))取API函数地址("发送好友消息"))(pluginkey.c_str(), 框架QQ, 好友QQ, 发送内容.c_str(), Random, Req);
 }
-文本型 API::发送群消息(长整数型 框架QQ, 长整数型 群号, 文本型 发送内容, 逻辑型 匿名发送)
-{
-	return ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 文本型, 逻辑型))取API函数地址("发送群消息"))(pluginkey.c_str(), 框架QQ, 群号, 发送内容, 匿名发送);
-}
-文本型 API::发送群临时消息(长整数型 框架QQ, 长整数型 群ID, 长整数型 对方QQ, 文本型 发送内容, 长整数型* Random, 整数型* Req)
-{
-	return ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 长整数型, 文本型, 长整数型*, 整数型*))取API函数地址("发送群临时消息"))(pluginkey.c_str(), 框架QQ, 群ID, 对方QQ, 发送内容, Random, Req);
-}
-文本型 API::添加好友(长整数型 框架QQ, 长整数型 对方QQ, 文本型 问题答案, 文本型 备注)
-{
-	return ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 文本型, 文本型))取API函数地址("添加好友"))(pluginkey.c_str(), 框架QQ, 对方QQ, 问题答案, 备注);
-}
-文本型 API::添加群(长整数型 框架QQ, 长整数型 群号, 文本型 验证消息)
-{
-	return ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 文本型))取API函数地址("添加群"))(pluginkey.c_str(), 框架QQ, 群号, 验证消息);
-}
-文本型 API::删除好友(长整数型 框架QQ, 长整数型 对方QQ)
-{
-	return ((文本型(WINAPI*)(文本型, 长整数型, 长整数型))取API函数地址("删除好友"))(pluginkey.c_str(), 框架QQ, 对方QQ);
-}
-文本型 API::置屏蔽好友(长整数型 框架QQ, 长整数型 对方QQ, 逻辑型 是否屏蔽)
-{
-	return ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 逻辑型))取API函数地址("置屏蔽好友"))(pluginkey.c_str(), 框架QQ, 对方QQ, 是否屏蔽);
-}
-文本型 API::置特别关心好友(长整数型 框架QQ, 长整数型 对方QQ, 逻辑型 是否关心)
-{
-	return ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 逻辑型))取API函数地址("置特别关心好友"))(pluginkey.c_str(), 框架QQ, 对方QQ, 是否关心);
-}
-文本型 API::发送好友json消息(长整数型 框架QQ, 长整数型 好友QQ, 文本型 json代码, 长整数型* Random, 整数型* Req)
-{
-	return ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 文本型, 长整数型*, 整数型*))取API函数地址("发送好友json消息"))(pluginkey.c_str(), 框架QQ, 好友QQ, json代码, Random, Req);
-}
-文本型 API::发送群json消息(长整数型 框架QQ, 长整数型 群号, 文本型 json代码, 逻辑型 匿名发送)
-{
-	return ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 文本型, 逻辑型))取API函数地址("发送群json消息"))(pluginkey.c_str(), 框架QQ, 群号, json代码, 匿名发送);
-}
-文本型 API::上传好友图片(长整数型 框架QQ, 长整数型 好友QQ, 字节集 pic, 逻辑型 是否闪照, 整数型 宽度, 整数型 高度, 逻辑型 动图, 文本型 预览文字)
-{
-	std::string ret = ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 逻辑型, 字节集, 整数型))取API函数地址("上传好友图片"))(pluginkey.c_str(), 框架QQ, 好友QQ, 是否闪照, pic, strlen((char*)pic) + 1);
-	ret.pop_back();
-	ret += std::format(",wide={},high={},cartoon={},str={}]", 宽度, 高度, (bool)动图, 预览文字);
-	return ret.c_str();
-}
-文本型 API::上传群图片(长整数型 框架QQ, 长整数型 群号, 字节集 pic, 逻辑型 是否闪照, 整数型 宽度, 整数型 高度, 逻辑型 动图, 文本型 预览文字)
-{
-	std::string ret = ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 逻辑型, 字节集, 整数型))取API函数地址("上传群图片"))(pluginkey.c_str(), 框架QQ, 群号, 是否闪照, pic, strlen((char*)pic) + 1);
-	ret.pop_back();
-	ret += std::format(",wide={},high={},cartoon={},str={}]", 宽度, 高度, (bool)动图, 预览文字);
-	return ret.c_str();
-}
-文本型 API::上传好友语音(长整数型 框架QQ, 长整数型 好友QQ, 字节集 audio, 语音类型 类型, 文本型 语音文字, 整数型 时长)
-{
-	std::string ret = ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 语音类型, 文本型, 字节集, 整数型))取API函数地址("上传好友语音"))(pluginkey.c_str(), 框架QQ, 好友QQ, 类型, 语音文字, audio, strlen((char*)audio) + 1);
-	ret.pop_back();
-	ret += std::format(",time={}]", 时长);
-	return ret.c_str();
-}
-文本型 API::上传群语音(长整数型 框架QQ, 长整数型 群号, 字节集 audio, 语音类型 类型, 文本型 语音文字, 整数型 时长)
-{
-	std::string ret = ((文本型(WINAPI*)(文本型, 长整数型, 长整数型, 语音类型, 文本型, 字节集, 整数型))取API函数地址("上传群语音"))(pluginkey.c_str(), 框架QQ, 群号, 类型, 语音文字, audio, strlen((char*)audio) + 1);
-	ret.pop_back();
-	ret += std::format(",time={}]", 时长);
-	return ret.c_str();
-}
-文本型 API::上传头像(长整数型 框架QQ, 字节集 pic)
-{
-	return ((文本型(*)(文本型, 长整数型, 字节集))取API函数地址("上传头像"))(pluginkey.c_str(), 框架QQ, pic);
-}
-字节集 API::silk解码(文本型 音频文件路径)
+const std::int8_t* API::silk解码(std::string 音频文件路径)
 {
 	if (_access(".\\main\\corn\\ffmpeg.exe", 00) == -1 || 
 		_access(".\\main\\corn\\silk_v3_decoder.exe", 00) == -1) //判断转码程序是否存在
 		输出日志("silk解码->corn文件夹缺少语音转码库，请自行到官网或交流群下载"); //不存在输出错误日志
 		return {};
-	if (_access(音频文件路径, 00) == -1) //判断音频文件是否存在
+	if (_access(音频文件路径.c_str(), 00) == -1) //判断音频文件是否存在
 		输出日志("silk解码->音频文件不存在"); //不存在输出错误日志
 		return {};
 	if (_access(".\\main\\data\\voice\\", 00) == -1) //判断缓存目录是否存在
@@ -167,15 +99,15 @@
 	system(std::format("del \"{}.mp3\"", Name).c_str()); //删除硬盘文件
 	system(std::format("del \"{}.pcm\"", Name).c_str()); //删除硬盘文件
 	输出日志("silk解码->解码完成");
-	return (unsigned char*)buffer2; //返回缓冲区 请使用delete []释放内存缓存区
+	return (std::int8_t*)buffer2; //返回缓冲区 请使用delete []释放内存缓存区
 }
-字节集 API::silk编码(文本型 音频文件路径)
+const std::int8_t* API::silk编码(std::string 音频文件路径)
 {
 	if (_access(".\\main\\corn\\ffmpeg.exe", 00) == -1 ||
 		_access(".\\main\\corn\\silk_v3_decoder.exe", 00) == -1) //判断转码程序是否存在
 		输出日志("silk编码->corn文件夹缺少语音转码库，请自行到官网或交流群下载"); //不存在输出错误日志
 	return {};
-	if (_access(音频文件路径, 00) == -1) //判断音频文件是否存在
+	if (_access(音频文件路径.c_str(), 00) == -1) //判断音频文件是否存在
 		输出日志("silk编码->音频文件不存在"); //不存在输出错误日志
 	return {};
 	if (_access(".\\main\\data\\voice\\", 00) == -1) //判断缓存目录是否存在
@@ -196,15 +128,15 @@
 	system(std::format("del \"{}.pcm\"", Name).c_str());
 	system(std::format("del \"{}.silk\"", Name).c_str());
 	输出日志("silk编码->编码完成");
-	return (unsigned char*)buffer;
+	return (std::int8_t*)buffer;
 }
-字节集 API::amr编码(文本型 音频文件路径)
+const std::int8_t* API::amr编码(std::string 音频文件路径)
 {
 	if (_access(".\\main\\corn\\ffmpeg.exe", 00) == -1 ||
 		_access(".\\main\\corn\\silk_v3_decoder.exe", 00) == -1) //判断转码程序是否存在
 		输出日志("amr编码->corn文件夹缺少语音转码库，请自行到官网或交流群下载"); //不存在输出错误日志
 	return {};
-	if (_access(音频文件路径, 00) == -1) //判断音频文件是否存在
+	if (_access(音频文件路径.c_str(), 00) == -1) //判断音频文件是否存在
 		输出日志("amr编码->音频文件不存在"); //不存在输出错误日志
 	return {};
 	if (_access(".\\main\\data\\voice\\", 00) == -1) //判断缓存目录是否存在
@@ -225,216 +157,5 @@
 	system(std::format("del \"{}.wav\"", Name).c_str());
 	system(std::format("del \"{}.amr\"", Name).c_str());
 	输出日志("amr编码->编码完成");
-	return (unsigned char*)buffer;
+	return (std::int8_t*)buffer;
 }
-文本型 API::设置群名片(长整数型 框架QQ, 长整数型 群号, 长整数型 群成员QQ, 文本型 新名片)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型, 长整数型, 文本型))取API函数地址("设置群名片"))(pluginkey.c_str(), 框架QQ, 群号, 群成员QQ, 新名片);
-}
-文本型 API::取昵称_从缓存(文本型 对方QQ)
-{
-	return ((文本型(*)(文本型, 文本型))取API函数地址("取昵称_从缓存"))(pluginkey.c_str(), 对方QQ);
-}
-文本型 API::强制取昵称(长整数型 框架QQ, 文本型 对方QQ)
-{
-	return ((文本型(*)(文本型, 长整数型, 文本型))取API函数地址("强制取昵称"))(pluginkey.c_str(), 框架QQ, 对方QQ);
-}
-文本型 API::取群名称_从缓存(文本型 群号)
-{
-	return ((文本型(*)(文本型, 文本型))取API函数地址("取群名称_从缓存"))(pluginkey.c_str(), 群号);
-}
-文本型 API::获取skey(长整数型 框架QQ)
-{
-	return ((文本型(*)(文本型, 长整数型))取API函数地址("获取skey"))(pluginkey.c_str(), 框架QQ);
-}
-文本型 API::获取pskey(长整数型 框架QQ, 文本型 域)
-{
-	return ((文本型(*)(文本型, 长整数型, 文本型))取API函数地址("获取pskey"))(pluginkey.c_str(), 框架QQ, 域);
-}
-文本型 API::获取clientkey(长整数型 框架QQ)
-{
-	return ((文本型(*)(文本型, 长整数型))取API函数地址("获取clientkey"))(pluginkey.c_str(), 框架QQ);
-}
-文本型 API::取框架QQ()
-{
-	return ((文本型(*)(文本型))取API函数地址("取框架QQ"))(pluginkey.c_str());
-}
-文本型 API::取好友列表(长整数型 框架QQ, 好友信息** 数据)
-{
-	return ((文本型(*)(文本型, 长整数型, 好友信息**))取API函数地址("取好友列表"))(pluginkey.c_str(), 框架QQ, 数据);
-}
-文本型 API::取群列表(长整数型 框架QQ, 群信息** 数据)
-{
-	return ((文本型(*)(文本型, 长整数型, 群信息**))取API函数地址("取群列表"))(pluginkey.c_str(), 框架QQ, 数据);
-}
-文本型 API::取群成员列表(长整数型 框架QQ, 长整数型 群号, 群成员信息** 数据)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型, 群成员信息**))取API函数地址("取群成员列表"))(pluginkey.c_str(), 框架QQ, 群号, 数据);
-}
-逻辑型 API::设置管理员(长整数型 框架QQ, 长整数型 群号, 长整数型 群成员QQ, 逻辑型 取消管理)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 长整数型, 逻辑型))取API函数地址("设置管理员"))(pluginkey.c_str(), 框架QQ, 群号, 群成员QQ, 取消管理);
-}
-文本型 API::取管理层列表(长整数型 框架QQ, 长整数型 群号)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型))取API函数地址("取管理层列表"))(pluginkey.c_str(), 框架QQ, 群号);
-}
-文本型 API::取群名片(长整数型 框架QQ, 长整数型 群号, 长整数型 群成员QQ)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型, 长整数型))取API函数地址("取群名片"))(pluginkey.c_str(), 框架QQ, 群号, 群成员QQ);
-}
-文本型 API::取个性签名(长整数型 框架QQ, 长整数型 对方QQ)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型))取API函数地址("取个性签名"))(pluginkey.c_str(), 框架QQ, 对方QQ);
-}
-逻辑型 API::修改昵称(长整数型 框架QQ, 文本型 昵称)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 文本型))取API函数地址("修改昵称"))(pluginkey.c_str(), 框架QQ, 昵称);
-}
-逻辑型 API::修改个性签名(长整数型 框架QQ, 文本型 签名, 文本型 签名地点)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 文本型, 文本型))取API函数地址("修改个性签名"))(pluginkey.c_str(), 框架QQ, 签名, 签名地点);
-}
-逻辑型 API::删除群成员(长整数型 框架QQ, 长整数型 群号, 长整数型 群成员QQ, 逻辑型 拒绝加群申请)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 长整数型, 逻辑型))取API函数地址("删除群成员"))(pluginkey.c_str(), 框架QQ, 群号, 群成员QQ, 拒绝加群申请);
-}
-逻辑型 API::禁言群成员(长整数型 框架QQ, 长整数型 群号, 长整数型 群成员QQ, 整数型 禁言时长)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 长整数型, 整数型))取API函数地址("禁言群成员"))(pluginkey.c_str(), 框架QQ, 群号, 群成员QQ, 禁言时长);
-}
-逻辑型 API::退群(长整数型 框架QQ, 长整数型 群号)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型))取API函数地址("退群"))(pluginkey.c_str(), 框架QQ, 群号);
-}
-逻辑型 API::解散群(长整数型 框架QQ, 长整数型 群号)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型))取API函数地址("解散群"))(pluginkey.c_str(), 框架QQ, 群号);
-}
-逻辑型 API::上传群头像(长整数型 框架QQ, 长整数型 群号, 字节集 pic)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 字节集))取API函数地址("上传群头像"))(pluginkey.c_str(), 框架QQ, 群号, pic);
-}
-逻辑型 API::全员禁言(长整数型 框架QQ, 长整数型 群号, 逻辑型 是否开启)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 逻辑型))取API函数地址("全员禁言"))(pluginkey.c_str(), 框架QQ, 群号, 是否开启);
-}
-逻辑型 API::群权限_发起新的群聊(长整数型 框架QQ, 长整数型 群号, 逻辑型 是否允许)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 逻辑型))取API函数地址("群权限_发起新的群聊"))(pluginkey.c_str(), 框架QQ, 群号, 是否允许);
-}
-逻辑型 API::群权限_发起临时会话(长整数型 框架QQ, 长整数型 群号, 逻辑型 是否允许)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 逻辑型))取API函数地址("群权限_发起临时会话"))(pluginkey.c_str(), 框架QQ, 群号, 是否允许);
-}
-逻辑型 API::群权限_上传文件(长整数型 框架QQ, 长整数型 群号, 逻辑型 是否允许)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 逻辑型))取API函数地址("群权限_上传文件"))(pluginkey.c_str(), 框架QQ, 群号, 是否允许);
-}
-逻辑型 API::群权限_上传相册(长整数型 框架QQ, 长整数型 群号, 逻辑型 是否允许)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 逻辑型))取API函数地址("群权限_上传相册"))(pluginkey.c_str(), 框架QQ, 群号, 是否允许);
-}
-逻辑型 API::群权限_邀请好友加群(长整数型 框架QQ, 长整数型 群号, 逻辑型 是否允许)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 逻辑型))取API函数地址("群权限_邀请好友加群"))(pluginkey.c_str(), 框架QQ, 群号, 是否允许);
-}
-逻辑型 API::群权限_匿名聊天(长整数型 框架QQ, 长整数型 群号, 逻辑型 是否允许)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 逻辑型))取API函数地址("群权限_匿名聊天"))(pluginkey.c_str(), 框架QQ, 群号, 是否允许);
-}
-逻辑型 API::群权限_坦白说(长整数型 框架QQ, 长整数型 群号, 逻辑型 是否允许)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 逻辑型))取API函数地址("群权限_坦白说"))(pluginkey.c_str(), 框架QQ, 群号, 是否允许);
-}
-逻辑型 API::群权限_新成员查看历史消息(长整数型 框架QQ, 长整数型 群号, 逻辑型 是否允许)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 逻辑型))取API函数地址("群权限_新成员查看历史消息"))(pluginkey.c_str(), 框架QQ, 群号, 是否允许);
-}
-逻辑型 API::群权限_邀请方式设置(长整数型 框架QQ, 长整数型 群号, 审核方式 方式)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 审核方式))取API函数地址("群权限_邀请方式设置"))(pluginkey.c_str(), 框架QQ, 群号, 方式);
-}
-逻辑型 API::撤回消息_群聊(长整数型 框架QQ, 长整数型 群号, 长整数型 消息Random, 整数型 消息Req)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 长整数型, 整数型))取API函数地址("撤回消息_群聊"))(pluginkey.c_str(), 框架QQ, 群号, 消息Random, 消息Req);
-}
-逻辑型 API::撤回消息_私聊本身(长整数型 框架QQ, 长整数型 对方QQ, 长整数型 消息Random, 整数型 消息Req, 整数型 消息接收时间)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 长整数型, 整数型, 整数型))取API函数地址("撤回消息_私聊本身"))(pluginkey.c_str(), 框架QQ, 对方QQ, 消息Random, 消息Req, 消息接收时间);
-}
-逻辑型 API::设置位置共享(长整数型 框架QQ, 长整数型 群号, 双精度小数型 经度, 双精度小数型 纬度, 逻辑型 是否开启)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 双精度小数型, 双精度小数型, 逻辑型))取API函数地址("设置位置共享"))(pluginkey.c_str(), 框架QQ, 群号, 经度, 纬度, 是否开启);
-}
-逻辑型 API::上报当前位置(长整数型 框架QQ, 长整数型 群号, 双精度小数型 经度, 双精度小数型 纬度)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 长整数型, 双精度小数型, 双精度小数型))取API函数地址("上报当前位置"))(pluginkey.c_str(), 框架QQ, 群号, 经度, 纬度);
-}
-长整数型 API::是否被禁言(长整数型 框架QQ, 长整数型 群号)
-{
-	return ((长整数型(*)(文本型, 长整数型, 长整数型))取API函数地址("是否被禁言"))(pluginkey.c_str(), 框架QQ, 群号);
-}
-void API::处理群验证事件(长整数型 框架QQ, 长整数型 来源群号, 长整数型 触发QQ, 长整数型 消息Seq, 操作类型 操作类型_, 群事件 事件类型, 文本型 拒绝理由)
-{
-	return ((void(*)(文本型, 长整数型, 长整数型, 长整数型, 长整数型, 操作类型, 群事件, 文本型))取API函数地址("处理群验证事件"))(pluginkey.c_str(), 框架QQ, 来源群号, 触发QQ, 消息Seq, 操作类型_, 事件类型, 拒绝理由);
-}
-void API::处理好友验证事件(长整数型 框架QQ, 长整数型 触发QQ, 长整数型 消息Seq, 操作类型 操作类型_)
-{
-	return ((void(*)(文本型, 长整数型, 长整数型, 长整数型, 操作类型))取API函数地址("处理好友验证事件"))(pluginkey.c_str(), 框架QQ, 触发QQ, 消息Seq, 操作类型_);
-}
-void API::查看转发聊天记录内容(长整数型 框架QQ, 文本型 resId, 群消息数据** 消息内容)
-{
-	return ((void(*)(文本型, 长整数型, 文本型, 群消息数据**))取API函数地址("查看转发聊天记录内容"))(pluginkey.c_str(),框架QQ, resId, 消息内容);
-}
-文本型 API::上传群文件(长整数型 框架QQ, 长整数型 群号, 文本型 文件路径, 文本型 文件夹名)
-{
-	return ((文本型(*)(文本型,长整数型, 长整数型, 文本型, 文本型))取API函数地址("上传群文件"))(pluginkey.c_str(),框架QQ, 群号, 文件路径, 文件夹名);
-}
-文本型 API::创建群文件夹(长整数型 框架QQ, 长整数型 群号, 文本型 文件夹名)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型, 文本型))取API函数地址("创建群文件夹"))(pluginkey.c_str(), 框架QQ, 群号, 文件夹名);
-}
-文本型 API::重命名群文件夹(长整数型 框架QQ, 长整数型 群号, 文本型 旧文件夹名, 文本型 新文件夹名)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型, 文本型, 文本型))取API函数地址("重命名群文件夹"))(pluginkey.c_str(), 框架QQ, 群号, 旧文件夹名, 新文件夹名);
-}
-文本型 API::删除群文件夹(长整数型 框架QQ, 长整数型 群号, 文本型 文件夹名)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型, 文本型))取API函数地址("删除群文件夹"))(pluginkey.c_str(), 框架QQ, 群号, 文件夹名);
-}
-文本型 API::删除群文件(长整数型 框架QQ, 长整数型 群号, 文本型 文件fileid, 文本型 文件夹名)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型, 文本型, 文本型))取API函数地址("删除群文件"))(pluginkey.c_str(), 框架QQ, 群号, 文件fileid, 文件夹名);
-}
-文本型 API::保存文件到微云(长整数型 框架QQ, 长整数型 群号, 文本型 文件fileid)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型, 文本型))取API函数地址("保存文件到微云"))(pluginkey.c_str(), 框架QQ, 群号, 文件fileid);
-}
-文本型 API::移动群文件(长整数型 框架QQ, 长整数型 群号, 文本型 文件fileid, 文本型 当前文件夹名, 文本型 目标文件夹名)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型, 文本型, 文本型, 文本型))取API函数地址("移动群文件"))(pluginkey.c_str(), 框架QQ, 群号, 文件fileid, 当前文件夹名, 目标文件夹名);
-}
-文本型 API::取群文件列表(长整数型 框架QQ, 长整数型 群号, 文本型 文件夹名, 群文件信息** 数据)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型, 文本型, 群文件信息**))取API函数地址("取群文件列表"))(pluginkey.c_str(), 框架QQ, 群号, 文件夹名, 数据);
-}
-逻辑型 API::设置在线状态(长整数型 框架QQ, 在线状态 main, 在线状态V2 sun, 整数型 电量)
-{
-	return ((逻辑型(*)(文本型, 长整数型, 在线状态, 在线状态V2, 整数型))取API函数地址("设置在线状态"))(pluginkey.c_str(), 框架QQ, main, sun, 电量);
-}
-文本型 API::取插件数据目录()
-{
-	return ((文本型(*)(文本型))取API函数地址("取插件数据目录"))(pluginkey.c_str());
-}
-文本型 API::QQ点赞(长整数型 框架QQ, 长整数型 对方QQ)
-{
-	return ((文本型(*)(文本型, 长整数型, 长整数型))取API函数地址("QQ点赞"))(pluginkey.c_str(), 框架QQ, 对方QQ);
-}
-
-
-
-
-
-
-

@@ -1,13 +1,13 @@
 #include "../SDK/SDK.hpp"
 
-DLLOUT 文本型 apprun(文本型 _apidata, 文本型 _pluginkey);
+DLLOUT const char* apprun(const char* _apidata, const char* _pluginkey);
 
-整数型 _AppStart();
+int _AppStart();
 
-整数型 _AppEnd();
+int _AppEnd();
 
-整数型 _AppUnload();
+int _AppUnload();
 
-整数型 _ControlPanel();
+int _ControlPanel();
 
-整数型 _OnGroup(群消息数据* 数据指针);
+int _OnGroup(群消息数据* 数据指针);

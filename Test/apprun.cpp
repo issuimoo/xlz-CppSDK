@@ -1,6 +1,6 @@
 ﻿#include "apprun.hpp"
 
-文本型 apprun(文本型 _apidata, 文本型 _pluginkey)
+const char* apprun(const char* _apidata, const char* _pluginkey)
 {
 	return SDK.初始化(
 		_pluginkey,
@@ -9,48 +9,48 @@
 		"遂沫",
 		"1.0",
 		"",
-		(整数型)&_AppStart,
-		(整数型)&_AppEnd,
-		(整数型)&_AppUnload,
-		(整数型)&_ControlPanel,
+		(unsigned int)&_AppStart,
+		(unsigned int)&_AppEnd,
+		(unsigned int)&_AppUnload,
+		(unsigned int)&_ControlPanel,
 		0,
-		(整数型)&_OnGroup,
+		(unsigned int)&_OnGroup,
 		0,
-		0);
+		0).c_str();
 }
 
-整数型 _AppStart()
+int _AppStart()
 {
 	
 	return 启用响应::启用响应_完成;
 }
 
-整数型 _AppEnd()
+int _AppEnd()
 {
 	
 	return 启用响应::启用响应_完成;
 }
 
-整数型 _AppUnload()
+int _AppUnload()
 {
 
 	return 启用响应::启用响应_完成;
 }
 
-整数型 _ControlPanel()
+int _ControlPanel()
 {
-	
+	std::int64_t r2;
+	std::int32_t r;
+
+	SDK.发送好友消息(3498896843, 1992724048, "123", r2, r);
+
+	MessageBox(NULL, std::format("R1:{}\nR2:{}", r2, r).c_str(), "", NULL);
+
 	return 启用响应::启用响应_完成;
 }
 
-整数型 _OnGroup(群消息数据* 数据指针)
+int _OnGroup(群消息数据* 数据指针)
 {
-	if(!数据指针)
-		return 消息处理::消息处理_忽略;
-	群消息数据 数据 = *数据指针;
-	if (数据.发送人QQ != 数据.框架QQ)
-	{
-		SDK.发送群消息(数据.框架QQ, 数据.消息群号, std::format("发送人QQ:{}\n框架QQ:{}\n消息Req:{}\n消息接收时间:{}\n消息群号:{}\n来源群名称:{}\n发送人群名片:{}\n消息发送时间:{}\n消息Random:{}\n消息分片序列:{}\n消息分片数量:{}\n消息分片标识:{}\n消息类型:{}\n发送人群头衔:{}\n消息内容:{}\n回复对象消息内容:{}\n气泡Id:{}\n群聊等级:{}\n挂件Id:{}\n匿名昵称:{}\n框架QQ匿名Id:{}\n字体Id:{}", 数据.发送人QQ, 数据.框架QQ, 数据.消息Req, 数据.消息接收时间, 数据.消息群号, 数据.来源群名称, 数据.发送人群名片, 数据.消息发送时间, 数据.消息Random, 数据.消息分片序列, 数据.消息分片数量, 数据.消息分片标识, (int)数据.消息类型, 数据.发送人群头衔, 数据.消息内容, 数据.回复对象消息内容, 数据.气泡Id, 数据.群聊等级, 数据.挂件Id, 数据.匿名昵称, 数据.框架QQ匿名Id, 数据.字体Id).c_str());
-	}
+
 	return 消息处理::消息处理_忽略;
 }
