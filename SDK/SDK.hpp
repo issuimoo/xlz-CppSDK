@@ -169,6 +169,35 @@ public:
 	std::string 取好友文件下载地址(std::int64_t 框架QQ, std::string FileId, std::string FileName);
 	bool 删除群成员_批量(std::int64_t 框架QQ, std::int64_t 群号, std::vector<std::int64_t>& 群成员QQ, bool 拒绝加群申请);
 	std::string 取扩列资料(std::int64_t 框架QQ, std::int64_t 对方QQ);
+	std::string 取资料展示设置(std::int64_t 框架QQ, std::int64_t 对方QQ, 资料展示设置数据& 数据);
+	std::string 设置资料展示(std::int64_t 框架QQ, 资料展示设置数据 数据);
+	std::string 获取当前登录设备信息(std::int64_t 框架QQ, 登录设备信息& 信息);
+	bool 提取图片文字(std::int64_t 框架QQ, std::string 图片地址, std::string& 识别结果);
+	std::string 取插件文件名();
+	void TEA加密(std::int8_t*& 内容, std::int8_t* 秘钥);
+	void TEA解密(std::int8_t*& 内容, std::int8_t* 秘钥);
+	std::string 红包数据加密(std::string str, std::int32_t random);
+	std::string 红包数据解密(std::string str, std::int32_t random);
+	std::string 红包msgno计算(std::int64_t 目标QQ);
+	bool 取消精华(std::int64_t 框架QQ, std::int64_t 群号, std::int32_t 消息Req, std::int64_t 消息Random);
+	bool 群权限_设置加群方式(std::int64_t 框架QQ, std::int64_t 群号, std::int32_t 加群方式, std::string 问题, std::string 答案); //默认0, 0允许任何人 1需要发送验证消息 2需要回答问题并由管理员审核 3需要正确回答问题 4不允许任何人加群
+	bool 群权限_群幸运字符(std::int64_t 框架QQ, std::int64_t 群号, bool 是否开启);
+	bool 群权限_一起写(std::int64_t 框架QQ, std::int64_t 群号, bool 是否允许);
+	std::string 取QQ空间cookie(std::int64_t 框架QQ);
+	bool 框架是否为单Q();
+	bool 修改指定QQ缓存密码(std::int64_t 框架QQ, std::string 新密码);
+	void 处理群验证事件_风险号(std::int64_t 框架QQ, std::int64_t 来源群号, std::int64_t 触发QQ, std::int64_t 消息Seq, 操作类型 操作, 群事件 事件类型, std::string 拒绝理由);
+	std::int32_t 查询网址安全性(std::int64_t 框架QQ, std::string 网址);//403无权限,404框架QQ不存在,405框架QQ未登录,0正常访问,-1查询失败,1包含不安全内容,2非官方页面,3未知状态
+	std::string 消息合并转发至好友(std::int64_t 框架QQ, std::int64_t 对方QQ, std::vector<群消息数据> 聊天记录, std::int64_t& Random, std::int32_t& Req, std::string 消息记录来源);
+	std::string 消息合并转发至群(std::int64_t 框架QQ, std::int64_t 群号, std::vector<群消息数据> 聊天记录, bool 匿名发送, std::string 消息记录来源);
+	std::string 取卡片消息代码(std::string 卡片消息文本代码);
+	bool 禁言群匿名(std::int64_t 框架QQ, std::int64_t 群号, std::string 匿名昵称, std::int8_t* 匿名标识, std::int32_t 禁言时长);
+	std::int32_t 置文件下载(std::string 文件下载地址, std::string 文件保存路径, std::uintptr_t 下载回调函数/*无返回值 (文件总长度 长整数型,文件已下载长度 长整数型,文件名 文本型) 错误的回调函数将导致崩溃*/, std::string 文件名, std::int32_t 下载起点);
+	std::string 领取私聊普通红包(std::int64_t 框架QQ, std::int64_t 来源QQ, std::string 红包文本代码, std::int32_t 类型);//0好友红包,1群临时红包
+	std::string 领取群聊专属红包(std::int64_t 框架QQ, std::int64_t 来源群号, std::int64_t 来源QQ, std::string 红包文本代码);
+	bool 加载网页(std::string 网址);
+	void 压缩包_7za解压(std::string 压缩包路径, std::string 解压保存路径, std::string 解压密码, bool 跳过已存在的文件);
+	void 压缩包_7za压缩(std::string 保存路径, std::string 欲压缩的文件, std::string 压缩格式, std::int32_t 压缩等级, std::string 压缩密码);
 	const std::int8_t* silk解码(std::string 音频文件路径);
 	const std::int8_t* silk编码(std::string 音频文件路径);
 	const std::int8_t* amr编码(std::string 音频文件路径);
