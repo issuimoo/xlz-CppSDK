@@ -253,6 +253,32 @@ public:
 	std::string 查询代付状态(std::int64_t 框架QQ, std::string 代付订单号, std::string 代付数据);
 	std::string 拉起代付(std::int64_t 框架QQ, std::string 订单号, std::string 代付QQ列表);
 	bool 取好友能量值与QID(std::int64_t 框架QQ, std::int64_t 对方QQ, std::int32_t& 能量值, std::string& QID);
+	std::int32_t 创建小栗子文本代码解析类对象();
+	std::string 文字转语音(std::int64_t 框架QQ, std::string 文本内容, std::int8_t*& 语音结果);
+	std::string 翻译(std::int64_t 框架QQ, std::string 源语言语种, std::string 目标语言语种, std::string 原文, std::string& 翻译结果);
+	std::string 撤回消息_群聊s(std::int64_t 框架QQ, std::int64_t 群号, std::int64_t Random, std::int32_t Req);
+	std::string QQ列表_添加手表协议QQ(std::int64_t QQ, std::string 品牌, std::string 型号);
+	std::string QQ列表_二维码登录_拉取二维码(std::int64_t QQ, std::int8_t*& 二维码数据);
+	std::string QQ列表_二维码登录_查询二维码状态(std::int64_t QQ);
+	bool 拍一拍好友在线状态(std::int64_t 框架QQ, std::int64_t 对方QQ);
+	std::string 发送验证消息会话消息(std::int64_t 框架QQ, std::int64_t 对方QQ, std::string 消息内容, std::int64_t& 消息Random, std::int32_t& 消息Req);
+	std::string 回复验证消息会话消息(std::int64_t 框架QQ, std::int64_t 对方QQ, std::int8_t* 会话Token, std::string 消息内容, std::int64_t& 消息Random, std::int32_t& 消息Req);
+	std::string 取群文件内存利用状态(std::int64_t 框架QQ, std::int64_t 群号, std::int64_t& 已使用容量, std::int64_t& 总容量);
+	std::string 取群文件总数(std::int64_t 框架QQ, std::int64_t 群号, std::int64_t& 已上传文件数, std::int64_t& 文件数量上限);
+	std::string 上传涂鸦(std::int64_t 框架QQ, std::int32_t 模型Id, std::int8_t* 涂鸦数据);
+	bool 删除群成员_批量s(std::int64_t 框架QQ, std::int64_t 群号, std::vector<欲移除群成员列表> 群成员列表);
+	std::string 上传好友文件s(std::int64_t 框架QQ, std::int64_t 好友QQ, std::string 文件路径, std::uintptr_t 上传进度回调函数, std::int64_t& 消息Random, std::int32_t& 消息Req);//void func(int64 框架QQ,int64 好友QQ,eString 本地文件路径,int32 总长度,int32 已上传长度),错误的函数格式将导致崩溃
+	std::string 上传群文件s(std::int64_t 框架QQ, std::int64_t 群号, std::string 文件路径, std::string 文件夹名, std::uintptr_t 上传进度回调函数);//void func(int64 框架QQ,int64 群号,eString 本地文件路径,int32 总长度,int32 已上传长度),错误的函数格式将导致崩溃
+	std::int32_t 取群艾特全体剩余次数(std::int64_t 框架QQ, std::int64_t 群号);
+	std::int32_t 是否已开启QQ咨询(std::int64_t 框架QQ, std::int64_t 对方QQ);
+	std::string 创建群相册(std::int64_t 框架QQ, std::int64_t 群号, std::string 相册名, std::string 相册描述);
+	std::string 删除群相册(std::int64_t 框架QQ, std::int64_t 群号, std::string 相册Id);
+	nlohmann::json 取群相册列表(std::int64_t 框架QQ, std::int64_t 群号);
+	nlohmann::json 取群相册照片列表(std::int64_t 框架QQ, std::int64_t 群号, std::string 相册Id, std::int32_t 获取数量);
+	nlohmann::json 删除群相册照片(std::int64_t 框架QQ, std::int64_t 群号, std::string 相册Id, std::string 照片Id);
+	nlohmann::json 修改群相册信息(std::int64_t 框架QQ, std::int64_t 群号, std::string 相册Id, std::string 相册名, std::string 相册描述,bool 相册置顶);
+	std::int64_t 取群Id_从缓存(std::int64_t 群号);
+	std::string 上传频道图片(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 子频道Id, std::int8_t* pic, std::int32_t 宽度, std::int32_t 高度, bool 动图);
 
 	const std::int8_t* silk解码(std::string 音频文件路径);
 	const std::int8_t* silk编码(std::string 音频文件路径);
