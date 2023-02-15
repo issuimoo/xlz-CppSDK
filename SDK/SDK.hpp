@@ -279,6 +279,37 @@ public:
 	nlohmann::json 修改群相册信息(std::int64_t 框架QQ, std::int64_t 群号, std::string 相册Id, std::string 相册名, std::string 相册描述,bool 相册置顶);
 	std::int64_t 取群Id_从缓存(std::int64_t 群号);
 	std::string 上传频道图片(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 子频道Id, std::int8_t* pic, std::int32_t 宽度, std::int32_t 高度, bool 动图);
+	nlohmann::json 发送频道消息(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 子频道Id, std::string 消息内容);
+	nlohmann::json 发送频道私信消息(std::int64_t 框架QQ, std::int64_t 私信频道Id, std::int64_t 私信子频道Id, std::string 消息内容);
+	bool 取私信频道Id(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 目标频道用户Id, std::int64_t& 私信频道Id, std::int64_t& 私信子频道Id);
+	bool 频道消息粘贴表情(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 子频道Id, std::int32_t 消息req, std::string 表情Id, bool 是否为emoji, bool 取消粘贴);
+	std::string 撤回频道消息(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 子频道Id, std::int32_t 消息req);
+	bool 设置子频道精华消息(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 子频道Id, std::int32_t 消息req, bool 移除);
+	bool 禁言频道成员(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 频道用户Id, std::int32_t 禁言秒数);
+	bool 设置频道全员禁言(std::int64_t 框架QQ, std::int64_t 频道Id, std::int32_t 禁言秒数);
+	bool 移除频道成员(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 频道用户Id, bool 拉入黑名单);
+	bool 移除频道成员_批量(std::int64_t 框架QQ, std::int64_t 频道Id, std::vector<std::int64_t> 频道用户Id列表, bool 拉入黑名单);
+	bool 退出频道(std::int64_t 框架QQ, std::int64_t 频道Id);
+	bool 更改频道名称(std::int64_t 框架QQ, std::int64_t 频道Id, std::string 新名称, std::int64_t 字色);
+	bool 修改频道简介(std::int64_t 框架QQ, std::int64_t 频道Id, std::string 新简介);
+	bool 设置我的频道昵称(std::int64_t 框架QQ, std::int64_t 频道Id, std::string 频道昵称);
+	bool 置子频道观看权限(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 子频道Id, std::int32_t 类型/*1全部成员可看,2指定成员可看,默认1*/, std::int64_t 指定身份组Id, bool 是否取消身份组观看权限, std::int64_t 指定频道成员Id, bool 是否取消频道成员观看权限);
+	bool 置子频道发言权限(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 子频道Id, std::int32_t 类型/*1全部成员可看,2指定成员可发言,默认1*/, std::int64_t 指定身份组Id, bool 是否取消身份组发言权限, std::int64_t 指定频道成员Id, bool 是否取消频道成员发言权限);
+	bool 子频道消息提醒设置(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 子频道Id, bool 对成员打开消息提醒);
+	bool 子频道慢速模式设置(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 子频道Id, std::int32_t 模式);//默认关闭,0关闭,1每分钟一条,2每分钟两条,3每分钟5条,4每分钟十条,5每5分钟1条,6每10分钟1条,7每15分钟一条,8每30分钟一条,9每一小时一条,10每12小时一条,11每24小时1条
+	bool 修改子频道名称(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 子频道Id, std::string 新名称);
+	bool 删除子频道(std::int64_t 框架QQ, std::int64_t 频道Id, std::int64_t 子频道Id);
+	bool 修改我的频道用户信息_昵称(std::int64_t 框架QQ, std::string 新昵称);
+	bool 修改我的频道用户信息_性别(std::int64_t 框架QQ, std::int32_t 性别);//1男,2女,默认男
+	bool 修改我的频道用户信息_年龄(std::int64_t 框架QQ, std::int32_t 年龄);
+	bool 修改我的频道用户信息_所在地(std::int64_t 框架QQ, std::int32_t 国家代码, std::string 国家名称, std::int32_t 省份代码, std::string 省份名称, std::int32_t 市区代码, std::string 市区名称);
+	bool 设置是否允许别人私信我(std::int64_t 框架QQ, bool 不允许);
+	bool 设置频道加入验证方式(std::int64_t 框架QQ, std::int64_t 频道Id, std::int32_t 验证方式/*1允许任何人 2需要验证消息 3不允许任何人 4需要正确回答问题 5需要回答问题,默认1*/, std::string 问题, std::string 答案);
+	std::int32_t 搜索频道(std::int64_t 框架QQ, std::string 关键词, std::int32_t 第几页, std::vector<频道搜索结果>& 结果);
+	std::string 取频道封面(std::int64_t 频道Id);
+	std::string 取频道头像(std::int64_t 频道Id, bool 高清大图);
+	std::int32_t 获取频道成员列表(std::int64_t 框架QQ, std::int64_t 频道Id, std::vector<频道成员信息>& 结果, std::int32_t& 翻页数据, std::string& 翻页信息);
+	bool 取频道信息(std::int64_t 框架QQ, std::int64_t 频道Id, 频道信息& 结果);
 
 	const std::int8_t* silk解码(std::string 音频文件路径);
 	const std::int8_t* silk编码(std::string 音频文件路径);
