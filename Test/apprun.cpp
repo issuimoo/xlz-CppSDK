@@ -39,13 +39,20 @@ int _AppUnload()
 
 int _ControlPanel()
 {
-	std::int64_t r2;
-	std::int32_t r;
+	try
+	{
+		std::int64_t r1;
+		std::int32_t r2;
+		std::int8_t* pic = SDK.ReadDiskFile("A:\\Users\\A1992\\OneDrive\\图片\\99956974.jpg");
+		// 8std::string ret = SDK.上传好友图片(1992724048, 1992724048, false, pic);
+		//SDK.发送好友消息(1992724048, 1992724048, ret,r1,r2);
+		delete[] pic;
+	}
+	catch (...)
+	{
 
-	SDK.发送好友消息(3498896843, 1992724048, "123", r2, r);
-
-	MessageBox(NULL, std::format("R1:{}\nR2:{}", r2, r).c_str(), "", NULL);
-
+	}
+	
 	return 启用响应::启用响应_完成;
 }
 

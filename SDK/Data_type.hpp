@@ -664,14 +664,6 @@ enum 权限 : std::int32_t
 	权限_上传QQ封面
 };
 
-enum 性别 : std::int32_t
-{
-	
-	男,
-	女,
-	未知 = 255
-};
-
 enum 服务代号 : std::int32_t
 {
 	SVIP = 1,

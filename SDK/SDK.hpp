@@ -18,6 +18,7 @@ public:
 class API : public API_Text
 {
 public:
+	std::int8_t* ReadDiskFile(std::string File);
 	std::string 初始化(std::string _pluginkey, std::string _apidata, std::string 插件名称, std::string 插件作者, std::string 插件版本, std::string 插件说明,  std::int32_t 被启用处理函数,  std::int32_t 被禁用处理函数,  std::int32_t 将被卸载处理函数,  std::int32_t 插件菜单处理函数,  std::int32_t 私聊消息处理函数,  std::int32_t 群聊消息处理函数,  std::int32_t 频道推送统一处理函数,  std::int32_t 事件消息处理函数);
 	std::string 输出日志(std::string 日志,  std::int32_t 文字颜色 = 32768,  std::int32_t 背景颜色 = 16777215);
 	std::string 发送好友消息(std::int64_t 框架QQ, std::int64_t 好友QQ, std::string 发送内容, std::int64_t& Random, std::int32_t& Req);
@@ -30,8 +31,8 @@ public:
 	std::string 置特别关心好友(std::int64_t 框架QQ, std::int64_t 对方QQ, bool 是否关心);
 	std::string 发送好友json消息(std::int64_t 框架QQ, std::int64_t 对方QQ, std::string json代码, std::int64_t& Random, std::int32_t& Req);
 	std::string 发送群json消息(std::int64_t 框架QQ, std::int64_t 群号, std::string json代码, bool 匿名发送);
-	std::string 上传好友图片(std::int64_t 框架QQ, std::int64_t 好友QQ, bool 是否闪照, const std::int8_t* pic, std::int32_t 宽度 = 0, std::int32_t 高度 = 0, bool 动图 = false, std::string 预览文字 = "");
-	std::string 上传群图片(std::int64_t 框架QQ, std::int64_t 群号, bool 是否闪照, const std::int8_t* pic, std::int32_t 宽度 = 0, std::int32_t 高度 = 0, bool 动图 = false, std::string 预览文字 = "");
+	std::string 上传好友图片(std::int64_t 框架QQ, std::int64_t 好友QQ, bool 是否闪照, const std::int8_t* pic, std::int32_t 宽度 = 0, std::int32_t 高度 = 0, bool 动图 = false, std::string 预览文字 = "PIC");
+	std::string 上传群图片(std::int64_t 框架QQ, std::int64_t 群号, bool 是否闪照, const std::int8_t* pic, std::int32_t 宽度 = 0, std::int32_t 高度 = 0, bool 动图 = false, std::string 预览文字 = "PIC");
 	std::string 上传好友语音(std::int64_t 框架QQ, std::int64_t 好友QQ, std::int32_t 语音类型, std::string 语音文字, const std::int8_t* audio, std::int32_t 时长);
 	std::string 上传群语音(std::int64_t 框架QQ, std::int64_t 好友QQ, std::int32_t 语音类型, std::string 语音文字, const std::int8_t* audio, std::int32_t 时长);
 	std::string 上传头像(std::int64_t 框架QQ, const std::int8_t* pic);
@@ -248,7 +249,7 @@ public:
 	HWND 取框架主窗口句柄();
 	std::string 好友生僻字红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 对方QQ, std::string 生僻字, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码);
 	std::string 群聊生僻字红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 群号, std::string 生僻字, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码);
-	std::string 群聊生僻字红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 讨论组Id, std::string 生僻字, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码);
+	std::string 讨论组生僻字红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 讨论组Id, std::string 生僻字, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码);
 	std::string 支付代付请求(std::int64_t 框架QQ, std::string 代付订单号, std::int32_t 支付金额, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码);
 	std::string 查询代付状态(std::int64_t 框架QQ, std::string 代付订单号, std::string 代付数据);
 	std::string 拉起代付(std::int64_t 框架QQ, std::string 订单号, std::string 代付QQ列表);
