@@ -18,10 +18,20 @@ std::string API_Text::小黄豆表情(emoji 表情)
 {
 	return std::format("[bq{}]", (int)表情).c_str();
 }
-std::string API::初始化(std::string _pluginkey, std::string _apidata, std::string 插件名称, std::string 插件作者, std::string 插件版本, std::string 插件说明, std::int32_t 被启用处理函数, std::int32_t 被禁用处理函数, std::int32_t 将被卸载处理函数, std::int32_t 插件菜单处理函数, std::int32_t 私聊消息处理函数, std::int32_t 群聊消息处理函数, std::int32_t 频道推送统一处理函数, std::int32_t 事件消息处理函数)
+const char* API::初始化(const char* _pluginkey, const char* _apidata, std::string 插件名称, std::string 插件作者, std::string 插件版本, std::string 插件说明, std::int32_t 被启用处理函数, std::int32_t 被禁用处理函数, std::int32_t 将被卸载处理函数, std::int32_t 插件菜单处理函数, std::int32_t 私聊消息处理函数, std::int32_t 群聊消息处理函数, std::int32_t 频道推送统一处理函数, std::int32_t 事件消息处理函数)
 {
-	pluginkey = _pluginkey;
-	apidata = nlohmann::json::parse(Text::GBKTOUTF8(_apidata));
+	//解决字符串垃圾指针问题
+	std::size_t len = strlen(_pluginkey);
+	char* str_pluginkey = new char[len + 1];
+	memcpy(str_pluginkey, _pluginkey, len + 1);
+
+	len = strlen(_apidata);
+	char* str_apidata = new char[len + 1];
+	memcpy(str_apidata, _apidata, len + 1);
+
+	pluginkey = str_pluginkey;
+	apidata = nlohmann::json::parse(Text::GBKTOUTF8(str_apidata));
+
 	nlohmann::json json;
 	json["sdkv"] = SDK版本;
 	json["appname"] = Text::GBKTOUTF8(插件名称);
@@ -50,23 +60,7 @@ std::string API::初始化(std::string _pluginkey, std::string _apidata, std::st
 		if(权限列表[i] != "")
 			json["data"]["needapilist"][Text::GBKTOUTF8(权限列表[i])]["desc"] = Text::GBKTOUTF8("CSDK必须");
 	}
-	return Text::UTF8TOGBK(json.dump());
-}
-std::int32_t API::取API函数地址(std::string 函数名)
-{
-	std::string func = Text::GBKTOUTF8(函数名);
-	if (apidata.find(func) != apidata.end())
-		return apidata[func];
-	else
-		return 0;
-}
-std::string API::输出日志(std::string 日志, std::int32_t 文字颜色, std::int32_t 背景颜色)
-{
-	return ((const char* (WINAPI*)(const char*, const char*, std::int32_t, std::int32_t))取API函数地址("输出日志"))(pluginkey.c_str(), 日志.c_str(), 文字颜色, 背景颜色);
-}
-std::string API::发送好友消息(std::int64_t 框架QQ, std::int64_t 好友QQ, std::string 发送内容, std::int64_t& Random, std::int32_t& Req)
-{
-	return ((const char* (WINAPI*)(const char*, std::int64_t, std::int64_t, const char* , std::int64_t&, std::int32_t&))取API函数地址("发送好友消息"))(pluginkey.c_str(), 框架QQ, 好友QQ, 发送内容.c_str(), Random, Req);
+	return strdup(Text::UTF8TOGBK(json.dump()).c_str());
 }
 const std::int8_t* API::silk解码(std::string 音频文件路径)
 {
@@ -174,6 +168,22 @@ const std::int8_t* API::amr编码(std::string 音频文件路径)
 	输出日志("amr编码->编码完成");
 	return (std::int8_t*)buffer;
 }
+std::int32_t API::取API函数地址(std::string 函数名)
+{
+	std::string func = Text::GBKTOUTF8(函数名);
+	if (apidata.find(func) != apidata.end())
+		return apidata[func];
+	else
+		return 0;
+}
+std::string API::输出日志(std::string 日志, std::int32_t 文字颜色, std::int32_t 背景颜色)
+{
+	return ((const char* (WINAPI*)(const char*, const char*, std::int32_t, std::int32_t))取API函数地址("输出日志"))(pluginkey.c_str(), 日志.c_str(), 文字颜色, 背景颜色);
+}
+std::string API::发送好友消息(std::int64_t 框架QQ, std::int64_t 好友QQ, std::string 发送内容, std::int64_t& Random, std::int32_t& Req)
+{
+	return ((const char* (WINAPI*)(const char*, std::int64_t, std::int64_t, const char* , std::int64_t&, std::int32_t&))取API函数地址("发送好友消息"))(pluginkey.c_str(), 框架QQ, 好友QQ, 发送内容.c_str(), Random, Req);
+}
 std::string API::发送群消息(std::int64_t 框架QQ, std::int64_t 群号, std::string 发送内容, bool 匿名发送)
 {
 	return ((const char* (WINAPI*)(const char*, std::int64_t, std::int64_t, const char*, bool))取API函数地址("发送群消息"))(pluginkey.c_str(), 框架QQ, 群号, 发送内容.c_str(), 匿名发送);
@@ -214,5 +224,20 @@ std::string API::上传好友图片(std::int64_t 框架QQ, std::int64_t 好友QQ
 {
 	std::string ret = ((const char* (*)(const char*, std::int64_t, std::int64_t, bool, const std::int8_t*, std::int32_t))取API函数地址("上传好友图片"))(pluginkey.c_str(), 框架QQ, 好友QQ, 是否闪照, pic, _msize((void*)pic));
 	ret.pop_back();
-	return std::format("{},wide={},high={},cartoon={},str={}]",ret,宽度,高度,动图,预览文字);
+	ret = std::format("{},wide={},high={},cartoon={},str={}]", ret, 宽度, 高度, 动图, 预览文字);//FUCK Bug 浪费人生3小时
+	return ret;
+}
+std::string API::上传群图片(std::int64_t 框架QQ, std::int64_t 群号, bool 是否闪照, const std::int8_t* pic, std::int32_t 宽度 = 0, std::int32_t 高度 = 0, bool 动图 = false, std::string 预览文字 = "PIC")
+{
+	std::string ret = ((const char* (*)(const char*, std::int64_t, std::int64_t, bool, const std::int8_t*, std::int32_t))取API函数地址("上传群图片"))(pluginkey.c_str(), 框架QQ, 群号, 是否闪照, pic, _msize((void*)pic));
+	ret.pop_back();
+	ret = std::format("{},wide={},high={},cartoon={},str={}]", ret, 宽度, 高度, 动图, 预览文字);//FUCK Bug 浪费人生3小时
+	return ret;
+}
+std::string API::上传好友语音(std::int64_t 框架QQ, std::int64_t 好友QQ, std::int32_t 语音类型, std::string 语音文字, const std::int8_t* audio, std::int32_t 时长)
+{
+	std::string ret = ((const char* (*)(const char*, std::int64_t, std::int64_t, std::int32_t, const char*,const std::int8_t*))取API函数地址("上传好友语音"))(pluginkey.c_str(), 框架QQ, 好友QQ, 语音类型, 语音文字.c_str(), audio);
+	ret.pop_back();
+	ret = std::format("{},time={}]", ret, 时长);
+	return ret;
 }

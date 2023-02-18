@@ -16,7 +16,7 @@ const char* apprun(const char* _apidata, const char* _pluginkey)
 		0,
 		(unsigned int)&_OnGroup,
 		0,
-		0).c_str();
+		0);
 }
 
 int _AppStart()
@@ -44,11 +44,11 @@ int _ControlPanel()
 		std::int64_t r1;
 		std::int32_t r2;
 		std::int8_t* pic = SDK.ReadDiskFile("A:\\Users\\A1992\\OneDrive\\图片\\99956974.jpg");
-		// 8std::string ret = SDK.上传好友图片(1992724048, 1992724048, false, pic);
-		//SDK.发送好友消息(1992724048, 1992724048, ret,r1,r2);
+		std::string ret = SDK.上传好友图片(1992724048, 1992724048, false, pic);
+		SDK.发送好友消息(1992724048, 1992724048, ret,r1,r2);
 		delete[] pic;
 	}
-	catch (...)
+	catch (...) //事实证明并没有太大用处
 	{
 
 	}
