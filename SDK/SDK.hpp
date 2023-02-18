@@ -31,8 +31,8 @@ public:
 	std::string 置特别关心好友(std::int64_t 框架QQ, std::int64_t 对方QQ, bool 是否关心);
 	std::string 发送好友json消息(std::int64_t 框架QQ, std::int64_t 对方QQ, std::string json代码, std::int64_t& Random, std::int32_t& Req);
 	std::string 发送群json消息(std::int64_t 框架QQ, std::int64_t 群号, std::string json代码, bool 匿名发送);
-	std::string 上传好友图片(std::int64_t 框架QQ, std::int64_t 好友QQ, bool 是否闪照, const std::int8_t* pic, std::int32_t 宽度 = 0, std::int32_t 高度 = 0, bool 动图 = false, std::string 预览文字 = "PIC");
-	std::string 上传群图片(std::int64_t 框架QQ, std::int64_t 群号, bool 是否闪照, const std::int8_t* pic, std::int32_t 宽度 = 0, std::int32_t 高度 = 0, bool 动图 = false, std::string 预览文字 = "PIC");
+	std::string 上传好友图片(std::int64_t 框架QQ, std::int64_t 好友QQ, bool 是否闪照, const std::int8_t* pic, std::int32_t 宽度 = 0, std::int32_t 高度 = 0, bool 动图 = false, std::string 预览文字 = "[图片]");
+	std::string 上传群图片(std::int64_t 框架QQ, std::int64_t 群号, bool 是否闪照, const std::int8_t* pic, std::int32_t 宽度 = 0, std::int32_t 高度 = 0, bool 动图 = false, std::string 预览文字 = "[图片]");
 	std::string 上传好友语音(std::int64_t 框架QQ, std::int64_t 好友QQ, std::int32_t 语音类型, std::string 语音文字, const std::int8_t* audio, std::int32_t 时长);
 	std::string 上传群语音(std::int64_t 框架QQ, std::int64_t 好友QQ, std::int32_t 语音类型, std::string 语音文字, const std::int8_t* audio, std::int32_t 时长);
 	std::string 上传头像(std::int64_t 框架QQ, const std::int8_t* pic);
@@ -418,7 +418,7 @@ public:
 	const std::int8_t* silk编码(std::string 音频文件路径);
 	const std::int8_t* amr编码(std::string 音频文件路径);
 private:
-	std::string pluginkey;
+	const char* pluginkey;
 	nlohmann::json apidata;
 protected:
 	const char* SDK版本 = "CSDK 1.0";

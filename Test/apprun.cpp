@@ -41,12 +41,11 @@ int _ControlPanel()
 {
 	try
 	{
-		std::int64_t r1;
-		std::int32_t r2;
-		std::int8_t* pic = SDK.ReadDiskFile("A:\\Users\\A1992\\OneDrive\\图片\\99956974.jpg");
-		std::string ret = SDK.上传好友图片(1992724048, 1992724048, false, pic);
-		SDK.发送好友消息(1992724048, 1992724048, ret,r1,r2);
-		delete[] pic;
+		std::int64_t R1;
+		std::int32_t R2;
+		SDK.发送好友消息(1992724048, 1992724048, "123", R1, R2);
+		std::vector<好友信息> f;
+		SDK.取好友列表(1992724048, f);
 	}
 	catch (...) //事实证明并没有太大用处
 	{
