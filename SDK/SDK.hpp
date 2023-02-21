@@ -1,4 +1,4 @@
-#include <Windows.h>
+ï»¿#include <Windows.h>
 #include <direct.h>
 #include <fstream>
 #include <io.h>
@@ -12,415 +12,496 @@
 class API_Text
 {
 public:
-	std::string Ğ¡»Æ¶¹±íÇé(emoji ±íÇé);
+	std::string å°é»„è±†è¡¨æƒ…(emoji è¡¨æƒ…);
 };
 
 class API : public API_Text
 {
 public:
 	std::int8_t* ReadDiskFile(std::string File);
-	const char* ³õÊ¼»¯(const char* _pluginkey, const char* _apidata, std::string ²å¼şÃû³Æ, std::string ²å¼ş×÷Õß, std::string ²å¼ş°æ±¾, std::string ²å¼şËµÃ÷,  std::int32_t ±»ÆôÓÃ´¦Àíº¯Êı,  std::int32_t ±»½ûÓÃ´¦Àíº¯Êı,  std::int32_t ½«±»Ğ¶ÔØ´¦Àíº¯Êı,  std::int32_t ²å¼ş²Ëµ¥´¦Àíº¯Êı,  std::int32_t Ë½ÁÄÏûÏ¢´¦Àíº¯Êı,  std::int32_t ÈºÁÄÏûÏ¢´¦Àíº¯Êı,  std::int32_t ÆµµÀÍÆËÍÍ³Ò»´¦Àíº¯Êı,  std::int32_t ÊÂ¼şÏûÏ¢´¦Àíº¯Êı);
-	std::string Êä³öÈÕÖ¾(std::string ÈÕÖ¾,  std::int32_t ÎÄ×ÖÑÕÉ« = 32768,  std::int32_t ±³¾°ÑÕÉ« = 16777215);
-	std::string ·¢ËÍºÃÓÑÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ºÃÓÑQQ, std::string ·¢ËÍÄÚÈİ, std::int64_t& Random, std::int32_t& Req);
-	std::string ·¢ËÍÈºÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ,std::string ·¢ËÍÄÚÈİ,bool ÄäÃû·¢ËÍ);
-	std::string ·¢ËÍÈºÁÙÊ±ÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈºID, std::int64_t ¶Ô·½QQ, std::string ·¢ËÍÄÚÈİ, std::int64_t& Random, std::int32_t& Req);
-	std::string Ìí¼ÓºÃÓÑ(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, std::string ÎÊÌâ´ğ°¸, std::string ±¸×¢);
-	std::string Ìí¼ÓÈº(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ÑéÖ¤ÏûÏ¢);
-	std::string É¾³ıºÃÓÑ(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ);
-	std::string ÖÃÆÁ±ÎºÃÓÑ(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, bool ÊÇ·ñÆÁ±Î);
-	std::string ÖÃÌØ±ğ¹ØĞÄºÃÓÑ(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, bool ÊÇ·ñ¹ØĞÄ);
-	std::string ·¢ËÍºÃÓÑjsonÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, std::string json´úÂë, std::int64_t& Random, std::int32_t& Req);
-	std::string ·¢ËÍÈºjsonÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string json´úÂë, bool ÄäÃû·¢ËÍ);
-	std::string ÉÏ´«ºÃÓÑÍ¼Æ¬(std::int64_t ¿ò¼ÜQQ, std::int64_t ºÃÓÑQQ, bool ÊÇ·ñÉÁÕÕ, const std::int8_t* pic, std::int32_t ¿í¶È = 0, std::int32_t ¸ß¶È = 0, bool ¶¯Í¼ = false, std::string Ô¤ÀÀÎÄ×Ö = "[Í¼Æ¬]");
-	std::string ÉÏ´«ÈºÍ¼Æ¬(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÊÇ·ñÉÁÕÕ, const std::int8_t* pic, std::int32_t ¿í¶È = 0, std::int32_t ¸ß¶È = 0, bool ¶¯Í¼ = false, std::string Ô¤ÀÀÎÄ×Ö = "[Í¼Æ¬]");
-	std::string ÉÏ´«ºÃÓÑÓïÒô(std::int64_t ¿ò¼ÜQQ, std::int64_t ºÃÓÑQQ, std::int32_t ÓïÒôÀàĞÍ, std::string ÓïÒôÎÄ×Ö, const std::int8_t* audio, std::int32_t Ê±³¤);
-	std::string ÉÏ´«ÈºÓïÒô(std::int64_t ¿ò¼ÜQQ, std::int64_t ºÃÓÑQQ, std::int32_t ÓïÒôÀàĞÍ, std::string ÓïÒôÎÄ×Ö, const std::int8_t* audio, std::int32_t Ê±³¤);
-	std::string ÉÏ´«Í·Ïñ(std::int64_t ¿ò¼ÜQQ, const std::int8_t* pic);
-	std::string ÉèÖÃÈºÃûÆ¬(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t Èº³ÉÔ±QQ, std::string ĞÂÃûÆ¬);
-	std::string È¡êÇ³Æ_´Ó»º´æ(std::string ¶Ô·½QQ);
-	std::string Ç¿ÖÆÈ¡êÇ³Æ(std::int64_t ¿ò¼ÜQQ, std::string ¶Ô·½QQ);
-	std::string È¡ÈºÃû³Æ_´Ó»º´æ(std::string ÈººÅ);
-	std::string »ñÈ¡skey(std::int64_t ¿ò¼ÜQQ);
-	std::string »ñÈ¡pskey(std::int64_t ¿ò¼ÜQQ, std::string Óò);
-	std::string »ñÈ¡clientkey(std::int64_t ¿ò¼ÜQQ);
-	nlohmann::json È¡¿ò¼ÜQQ();
-	std::int32_t È¡ºÃÓÑÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::vector<ºÃÓÑĞÅÏ¢>& Êı¾İ);
-	std::int32_t È¡ÈºÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::vector<ÈºĞÅÏ¢>& Êı¾İ);
-	std::int32_t È¡Èº³ÉÔ±ÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::vector<Èº³ÉÔ±ĞÅÏ¢>& Êı¾İ);
-	bool ÉèÖÃ¹ÜÀíÔ±(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t Èº³ÉÔ±QQ, bool È¡Ïû¹ÜÀí);
-	std::string È¡¹ÜÀí²ãÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	std::string È¡ÈºÃûÆ¬(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t Èº³ÉÔ±QQ);
-	std::string È¡¸öĞÔÇ©Ãû(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ);
-	bool ĞŞ¸ÄêÇ³Æ(std::int64_t ¿ò¼ÜQQ, std::string êÇ³Æ);
-	bool ĞŞ¸Ä¸öĞÔÇ©Ãû(std::int64_t ¿ò¼ÜQQ, std::string Ç©Ãû, std::string Ç©ÃûµØµã);
-	bool É¾³ıÈº³ÉÔ±(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t Èº³ÉÔ±QQ, bool ¾Ü¾ø¼ÓÈºÉêÇë);
-	bool ½ûÑÔÈº³ÉÔ±(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t Èº³ÉÔ±QQ, std::int32_t ½ûÑÔÊ±³¤);
-	bool ÍËÈº(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	bool ½âÉ¢Èº(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	bool ÉÏ´«ÈºÍ·Ïñ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, const std::int8_t* pic);
-	bool È«Ô±½ûÑÔ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÊÇ·ñ¿ªÆô);
-	bool ÈºÈ¨ÏŞ_·¢ÆğĞÂµÄÈºÁÄ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÊÇ·ñÔÊĞí);
-	bool ÈºÈ¨ÏŞ_·¢ÆğÁÙÊ±»á»°(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÊÇ·ñÔÊĞí);
-	bool ÈºÈ¨ÏŞ_ÉÏ´«ÎÄ¼ş(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÊÇ·ñÔÊĞí);
-	bool ÈºÈ¨ÏŞ_ÉÏ´«Ïà²á(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÊÇ·ñÔÊĞí);
-	bool ÈºÈ¨ÏŞ_ÑûÇëºÃÓÑ¼ÓÈº(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÊÇ·ñÔÊĞí);
-	bool ÈºÈ¨ÏŞ_ÄäÃûÁÄÌì(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÊÇ·ñÔÊĞí);
-	bool ÈºÈ¨ÏŞ_Ì¹°×Ëµ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÊÇ·ñÔÊĞí);
-	bool ÈºÈ¨ÏŞ_ĞÂ³ÉÔ±²é¿´ÀúÊ·ÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÊÇ·ñÔÊĞí);
-	bool ÈºÈ¨ÏŞ_ÑûÇë·½Ê½ÉèÖÃ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, ÉóºË·½Ê½ ·½Ê½);
-	bool ³·»ØÏûÏ¢_ÈºÁÄ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t Random, std::int32_t Req);
-	bool ³·»ØÏûÏ¢_Ë½ÁÄ±¾Éí(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, std::int64_t Random, std::int32_t Req, std::int32_t ÏûÏ¢½ÓÊÕÊ±¼ä);
-	bool ÉèÖÃÎ»ÖÃ¹²Ïí(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, double ¾­¶È, double Î³¶È, bool ÊÇ·ñ¿ªÆô);
-	bool ÉÏ±¨µ±Ç°Î»ÖÃ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, double ¾­¶È, double Î³¶È);
-	std::int64_t ÊÇ·ñ±»½ûÑÔ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	void ´¦ÀíÈºÑéÖ¤ÊÂ¼ş(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´ÈººÅ, std::int64_t ´¥·¢QQ, std::int64_t ÏûÏ¢Seq, ²Ù×÷ÀàĞÍ ²Ù×÷, ÈºÊÂ¼ş ÊÂ¼şÀàĞÍ, std::string ¾Ü¾øÀíÓÉ);
-	void ´¦ÀíÈºÑéÖ¤ÊÂ¼ş(std::int64_t ¿ò¼ÜQQ, std::int64_t ´¥·¢QQ, std::int64_t ÏûÏ¢Seq, ²Ù×÷ÀàĞÍ ²Ù×÷);
-	void ²é¿´×ª·¢ÁÄÌì¼ÇÂ¼ÄÚÈİ(std::int64_t ¿ò¼ÜQQ, std::string resId, ÈºÏûÏ¢Êı¾İ ÏûÏ¢ÄÚÈİ);
-	std::string ÉÏ´«ÈºÎÄ¼ş(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ÎÄ¼şÂ·¾¶, std::string ÎÄ¼ş¼ĞÃû);
-	std::string ´´½¨ÈºÎÄ¼ş¼Ğ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ÎÄ¼ş¼ĞÃû);
-	std::string ÖØÃüÃûÈºÎÄ¼ş¼Ğ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ¾ÉÎÄ¼ş¼ĞÃû, std::string ĞÂÎÄ¼ş¼ĞÃû);
-	std::string É¾³ıÈºÎÄ¼ş¼Ğ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ÎÄ¼ş¼ĞÃû);
-	std::string É¾³ıÈºÎÄ¼ş(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ÎÄ¼şfileid, std::string ÎÄ¼ş¼ĞÃû);
-	std::string ±£´æÎÄ¼şµ½Î¢ÔÆ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ÎÄ¼şfileid);
-	std::string ÒÆ¶¯ÈºÎÄ¼ş(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ÎÄ¼şfileid, std::string µ±Ç°ÎÄ¼ş¼ĞÃû, std::string Ä¿±êÎÄ¼ş¼ĞÃû);
-	std::string È¡ÈºÎÄ¼şÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ÎÄ¼ş¼ĞÃû, std::vector<ÈºÎÄ¼şĞÅÏ¢>& Êı¾İ);
-	bool ÉèÖÃÔÚÏß×´Ì¬(std::int64_t ¿ò¼ÜQQ, ÔÚÏß×´Ì¬ main, ÔÚÏß×´Ì¬V2 sun, std::int32_t µçÁ¿);
-	std::string È¡²å¼şÊı¾İÄ¿Â¼();
-	std::string QQµãÔŞ(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ);
-	std::string È¡Í¼Æ¬ÏÂÔØµØÖ·(std::string Í¼Æ¬´úÂë, std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	bool ²éÑ¯ºÃÓÑĞÅÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, ºÃÓÑĞÅÏ¢& Êı¾İ);
-	bool ²éÑ¯ÈºĞÅÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, Èº¿¨Æ¬ĞÅÏ¢& Êı¾İ);
-	void ¿ò¼ÜÖØÆô();
-	bool ÈºÎÄ¼ş×ª·¢ÖÁÈº(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´ÈººÅ, std::int64_t Ä¿±êÈººÅ, std::string fileId);
-	bool ÈºÎÄ¼ş×ª·¢ÖÁºÃÓÑ(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´ÈººÅ, std::int64_t Ä¿±êQQ, std::string fileId, std::string filename, std::int64_t filesize, std::int32_t& Req, std::int64_t& Random, std::int32_t& time);
-	bool ºÃÓÑÎÄ¼ş×ª·¢ÖÁºÃÓÑ(std::int64_t ¿ò¼ÜQQ, std::int64_t Ä¿±êQQ, std::string fileId, std::string filename, std::int64_t filesize, std::int32_t& Req, std::int64_t& Random, std::int32_t& time);
-	bool ÖÃÈºÏûÏ¢½ÓÊÕ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, ½ÓÊÕÀàĞÍ ÉèÖÃÀàĞÍ);
-	std::string È¡ºÃÓÑÔÚÏß×´Ì¬(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ);
-	std::string È¡QQÇ®°ü¸öÈËĞÅÏ¢(std::int64_t ¿ò¼ÜQQ, QQÇ®°üĞÅÏ¢& Êı¾İ);
-	std::string »ñÈ¡¶©µ¥ÏêÇé(std::int64_t ¿ò¼ÜQQ, std::string ¶©µ¥ºÅ, ¶©µ¥ÏêÇé& Êı¾İ);
-	std::string Ìá½»Ö§¸¶ÑéÖ¤Âë(std::int64_t ¿ò¼ÜQQ, ÑéÖ¤ÂëĞÅÏ¢& ĞÅÏ¢, std::string ÑéÖ¤Âë, std::string Ö§¸¶ÃÜÂë);
-	bool ·ÖÏíÒôÀÖ(std::int64_t ¿ò¼ÜQQ, std::int64_t ·ÖÏí¶ÔÏó, std::string ¸èÇúÃû, std::string ¸èÊÖÃû, std::string Ìø×ªµØÖ·, std::string ·âÃæµØÖ·, std::string ÎÄ¼şµØÖ·, ÒôÀÖÓ¦ÓÃÀàĞÍ Ó¦ÓÃÀàĞÍ, ÒôÀÖ·ÖÏíÀàĞÍ ·ÖÏíÀàĞÍ);
-	bool ¸ü¸ÄÈºÁÄÏûÏ¢ÄÚÈİ(std::int32_t Êı¾İÖ¸Õë, std::string ĞÂÏûÏ¢ÄÚÈİ);
-	bool ¸ü¸ÄË½ÁÄÏûÏ¢ÄÚÈİ(std::int32_t Êı¾İÖ¸Õë, std::string ĞÂÏûÏ¢ÄÚÈİ);
-	std::string ÈºÁÄ¿ÚÁîºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÈººÅ, std::string ¿ÚÁî, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÈºÁÄÆ´ÊÖÆøºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÈººÅ, std::string ×£¸£Óï, std::int32_t ºì°üÆ¤·ôId, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÈºÁÄÆÕÍ¨ºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÈººÅ, std::string ×£¸£Óï, std::int32_t ºì°üÆ¤·ôId, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÈºÁÄ»­Í¼ºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÈººÅ, std::string ÌâÄ¿Ãû, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÈºÁÄÓïÒôºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÈººÅ, std::string ÓïÒô¿ÚÁî, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÈºÁÄ½ÓÁúºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÈººÅ, std::string ½ÓÁúÄÚÈİ, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÈºÁÄ×¨Êôºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÈººÅ, std::string ÁìÈ¡ÈË, std::string ×£¸£Óï, bool ÊÇ·ñ¾ù·Ö, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ºÃÓÑ¿ÚÁîºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ¶Ô·½QQ, std::string ¿ÚÁî, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ºÃÓÑÆÕÍ¨ºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ¶Ô·½QQ, std::string ×£¸£Óï, std::int32_t ºì°üÆ¤·ôId, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ºÃÓÑ»­Í¼ºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ¶Ô·½QQ, std::string ÌâÄ¿Ãû, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ºÃÓÑÓïÒôºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ¶Ô·½QQ, std::string ÓïÒô¿ÚÁî, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ºÃÓÑ½ÓÁúºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ¶Ô·½QQ, std::string ½ÓÁúÄÚÈİ, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	bool ÉèÖÃ×¨ÊôÍ·ÏÎ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t ¶Ô·½QQ, std::string Í·ÏÎ);
-	bool ÏÂÏßÖ¸¶¨QQ(std::int64_t ¿ò¼ÜQQ);
-	bool µÇÂ¼Ö¸¶¨QQ(std::int64_t ¿ò¼ÜQQ);
-	std::int32_t È¡ÈºÎ´Áìºì°ü(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::vector<ÈºÎ´Áìºì°üÊı¾İ>& Êı¾İ);
-	bool ·¢ËÍÊäÈë×´Ì¬(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, ÊäÈë×´Ì¬ ×´Ì¬);
-	bool ĞŞ¸Ä×ÊÁÏ(std::int64_t ¿ò¼ÜQQ, std::string êÇ³Æ, ĞÔ±ğÀàĞÍ ĞÔ±ğ, std::string ÉúÈÕ, Ö°ÒµÀàĞÍ Ö°Òµ, std::string ¹«Ë¾Ãû, std::string ËùÔÚµØ, std::string ¼ÒÏç, std::string ÓÊÏä, std::string ¸öÈËËµÃ÷);
-	std::string È¡ÈºÎÄ¼şÏÂÔØµØÖ·(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´ÈººÅ, std::string ÎÄ¼şid, std::string ÎÄ¼şÃû);
-	void ´òºÃÓÑµç»°(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ);
-	bool Í·ÏñË«»÷_ºÃÓÑ(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ);
-	bool Í·ÏñË«»÷_Èº(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, std::int64_t ÈººÅ);
-	std::string È¡Èº³ÉÔ±¼òÂÔĞÅÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, Èº³ÉÔ±×´¿ö¼òÂÔĞÅÏ¢& Êı¾İ);
-	bool ÈºÁÄÖÃ¶¥(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÖÃ¶¥);
-	bool Ë½ÁÄÖÃ¶¥(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, bool ÖÃ¶¥);
-	std::string È¡¼ÓÈºÁ´½Ó(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	bool ÉèÎª¾«»ª(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int32_t ÏûÏ¢Req, std::int64_t ÏûÏ¢Random);
-	bool ÈºÈ¨ÏŞ_ÉèÖÃÈºêÇ³Æ¹æÔò(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ÃûÆ¬¹æÔò);
-	bool ÈºÈ¨ÏŞ_ÉèÖÃÈº·¢ÑÔÆµÂÊ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int32_t ÃûÆ¬¹æÔò);
-	bool ÈºÈ¨ÏŞ_ÉèÖÃÈº²éÕÒ·½Ê½(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, ²éÕÒÀàĞÍ ²éÕÒ·½Ê½);
-	bool ÑûÇëºÃÓÑ¼ÓÈº(std::int64_t ¿ò¼ÜQQ, std::int64_t Ä¿±êÈººÅ, std::int64_t ¶Ô·½QQ, std::int64_t À´Ô´ÈººÅ);
-	bool ÖÃÈºÄÚÏûÏ¢Í¨Öª(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t ¶Ô·½QQ, std::int32_t Í¨ÖªÀàĞÍ);
-	bool ĞŞ¸ÄÈºÃû³Æ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string Ãû³Æ);
-	void ÖØÔØ×ÔÉí(std::string ĞÂÎÄ¼şÂ·¾¶);
-	void ÏÂÏßÆäËûÉè±¸(std::int64_t ¿ò¼ÜQQ, bool ÒÆ¶¯Éè±¸, std::int32_t appid);
-	bool µÇÂ¼ÍøÒ³È¡ck(std::int64_t ¿ò¼ÜQQ, std::string »Øµ÷Ìø×ªµØÖ·, std::string appid, std::string daid, std::string cookie);
-	std::string ·¢ËÍÈº¹«¸æ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ±êÌâ, std::string ÄÚÈİ, std::int8_t* Í¼Æ¬, std::string ÊÓÆµ, bool µ¯´°Õ¹Ê¾, bool ĞèÒªÈ·ÈÏ, bool ÖÃ¶¥, bool ·¢ËÍ¸øĞÂ³ÉÔ±, bool Òıµ¼ĞŞ¸ÄÈºêÇ³Æ);
-	std::string È¡¿ò¼Ü°æ±¾();
-	std::string È¡Èº³ÉÔ±ĞÅÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t ¶Ô·½QQ, Èº³ÉÔ±ĞÅÏ¢V2& Êı¾İ);
-	std::string È¡Ç®°ücookie(std::int64_t ¿ò¼ÜQQ);
-	std::string È¡ÈºÍøÒ³cookie(std::int64_t ¿ò¼ÜQQ);
-	std::string ×ªÕË(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ªÕË½ğ¶î, std::int64_t ¶Ô·½QQ, std::string ×ªÕËÁôÑÔ, ×ªÕËÀàĞÍ ÀàĞÍ, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string È¡ÊÕ¿îÁ´½Ó(std::int64_t ¿ò¼ÜQQ, std::int32_t ÊÕ¿î½ğ¶î, std::string ËµÃ÷ÎÄ±¾);
-	std::string È¡ÈºĞ¡ÊÓÆµÏÂÔØµØÖ·(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´ÈººÅ, std::int64_t À´Ô´QQ, std::string param, std::string hash1, std::string ÎÄ¼şÃû);
-	std::string È¡Ë½ÁÄĞ¡ÊÓÆµÏÂÔØµØÖ·(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´QQ, std::string param, std::string hash1, std::string ÎÄ¼şÃû);
-	std::string ÉÏ´«Ğ¡ÊÓÆµ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ±¾µØĞ¡ÊÓÆµÂ·¾¶, std::int8_t* Ğ¡ÊÓÆµ·âÃæÍ¼, std::int32_t ¿í¶È, std::int32_t ¸ß¶È, std::int32_t Ê±³¤);
-	std::string ·¢ËÍºÃÓÑxmlÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ºÃÓÑQQ, std::string xml´úÂë, std::int64_t& Random, std::int32_t& Req);
-	std::string ·¢ËÍÈºxmlÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string xml´úÂë, bool ÄäÃû·¢ËÍ);
-	nlohmann::json È¡Èº³ÉÔ±¸Å¿ö(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	nlohmann::json Ìí¼ÓºÃÓÑ_È¡ÑéÖ¤ÀàĞÍ(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ);
-	nlohmann::json ÈºÁÄ´ò¿¨(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	bool ÈºÁÄÇ©µ½(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ¸½¼Ó²ÎÊı);
-	bool ÖÃÈºÁÄ±¸×¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ±¸×¢);
-	std::string ºì°ü×ª·¢(std::int64_t ¿ò¼ÜQQ, std::string ºì°üID, std::int64_t Ä¿±ê¶ÔÏó, std::int32_t Type);//1ÎªºÃÓÑ,2ÎªÈº,3ÎªÌÖÂÛ×é
-	bool ·¢ËÍÊı¾İ°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t °üÌåĞòºÅ, std::int32_t ×î´óµÈ´ıÊ±³¤, std::int8_t* Êı¾İ);
-	std::int32_t ÇëÇóssoseq(std::int64_t ¿ò¼ÜQQ);
-	std::string È¡sessionkey(std::int64_t ¿ò¼ÜQQ);
-	std::string »ñÈ¡bkn_gtk(std::int64_t ¿ò¼ÜQQ, std::string ×Ô¶¨Òåbkn_gtk);
-	bool ÖÃºÃÓÑÑéÖ¤·½Ê½(std::int64_t ¿ò¼ÜQQ, std::int32_t ÑéÖ¤·½Ê½, std::string Q_and_A);//1£º½ûÖ¹ÈÎºÎÈËÌí¼Ó 2£ºÔÊĞíÈÎºÎÈËÌí¼Ó 3£ºĞèÒªÑéÖ¤ĞÅÏ¢ 4£ºĞèÒªÕıÈ·»Ø´ğÎÊÌâ 5£ºĞèÒª»Ø´ğÎÊÌâ²¢ÓÉÎÒÈ·ÈÏ
-	std::string ÉÏ´«ÕÕÆ¬Ç½Í¼Æ¬(std::int64_t ¿ò¼ÜQQ, std::int8_t* pic);
-	std::string ¸¶¿î(std::int64_t ¿ò¼ÜQQ, std::string QrcodeUrl, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, std::string Ö§¸¶ÃÜÂë, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ĞŞ¸ÄÖ§¸¶ÃÜÂë(std::int64_t ¿ò¼ÜQQ, std::string Ô­ÃÜÂë, std::string ĞÂÃÜÂë);
-	std::string ÕËºÅËÑË÷(std::int64_t ¿ò¼ÜQQ, std::string ¹Ø¼ü´Ê);
-	nlohmann::json Ìí¼ÓÈº_È¡ÑéÖ¤ÀàĞÍ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	nlohmann::json »ñÈ¡ºì°üÁìÈ¡ÏêÇé(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´ÈººÅ, std::string ºì°üÎÄ±¾´úÂë, std::string ºì°üÀàĞÍ);
-	std::string È¡ºÃÓÑÎÄ¼şÏÂÔØµØÖ·(std::int64_t ¿ò¼ÜQQ, std::string FileId, std::string FileName);
-	bool É¾³ıÈº³ÉÔ±_ÅúÁ¿(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::vector<std::int64_t>& Èº³ÉÔ±QQ, bool ¾Ü¾ø¼ÓÈºÉêÇë);
-	std::string È¡À©ÁĞ×ÊÁÏ(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ);
-	std::string È¡×ÊÁÏÕ¹Ê¾ÉèÖÃ(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, ×ÊÁÏÕ¹Ê¾ÉèÖÃÊı¾İ& Êı¾İ);
-	std::string ÉèÖÃ×ÊÁÏÕ¹Ê¾(std::int64_t ¿ò¼ÜQQ, ×ÊÁÏÕ¹Ê¾ÉèÖÃÊı¾İ Êı¾İ);
-	std::string »ñÈ¡µ±Ç°µÇÂ¼Éè±¸ĞÅÏ¢(std::int64_t ¿ò¼ÜQQ, µÇÂ¼Éè±¸ĞÅÏ¢& ĞÅÏ¢);
-	bool ÌáÈ¡Í¼Æ¬ÎÄ×Ö(std::int64_t ¿ò¼ÜQQ, std::string Í¼Æ¬µØÖ·, std::string& Ê¶±ğ½á¹û);
-	std::string È¡²å¼şÎÄ¼şÃû();
-	void TEA¼ÓÃÜ(std::int8_t*& ÄÚÈİ, std::int8_t* ÃØÔ¿);
-	void TEA½âÃÜ(std::int8_t*& ÄÚÈİ, std::int8_t* ÃØÔ¿);
-	std::string ºì°üÊı¾İ¼ÓÃÜ(std::string str, std::int32_t random);
-	std::string ºì°üÊı¾İ½âÃÜ(std::string str, std::int32_t random);
-	std::string ºì°ümsgno¼ÆËã(std::int64_t Ä¿±êQQ);
-	bool È¡Ïû¾«»ª(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int32_t ÏûÏ¢Req, std::int64_t ÏûÏ¢Random);
-	bool ÈºÈ¨ÏŞ_ÉèÖÃ¼ÓÈº·½Ê½(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int32_t ¼ÓÈº·½Ê½, std::string ÎÊÌâ, std::string ´ğ°¸); //Ä¬ÈÏ0, 0ÔÊĞíÈÎºÎÈË 1ĞèÒª·¢ËÍÑéÖ¤ÏûÏ¢ 2ĞèÒª»Ø´ğÎÊÌâ²¢ÓÉ¹ÜÀíÔ±ÉóºË 3ĞèÒªÕıÈ·»Ø´ğÎÊÌâ 4²»ÔÊĞíÈÎºÎÈË¼ÓÈº
-	bool ÈºÈ¨ÏŞ_ÈºĞÒÔË×Ö·û(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÊÇ·ñ¿ªÆô);
-	bool ÈºÈ¨ÏŞ_Ò»ÆğĞ´(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, bool ÊÇ·ñÔÊĞí);
-	std::string È¡QQ¿Õ¼äcookie(std::int64_t ¿ò¼ÜQQ);
-	bool ¿ò¼ÜÊÇ·ñÎªµ¥Q();
-	bool ĞŞ¸ÄÖ¸¶¨QQ»º´æÃÜÂë(std::int64_t ¿ò¼ÜQQ, std::string ĞÂÃÜÂë);
-	void ´¦ÀíÈºÑéÖ¤ÊÂ¼ş_·çÏÕºÅ(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´ÈººÅ, std::int64_t ´¥·¢QQ, std::int64_t ÏûÏ¢Seq, ²Ù×÷ÀàĞÍ ²Ù×÷, ÈºÊÂ¼ş ÊÂ¼şÀàĞÍ, std::string ¾Ü¾øÀíÓÉ);
-	std::int32_t ²éÑ¯ÍøÖ·°²È«ĞÔ(std::int64_t ¿ò¼ÜQQ, std::string ÍøÖ·);//403ÎŞÈ¨ÏŞ,404¿ò¼ÜQQ²»´æÔÚ,405¿ò¼ÜQQÎ´µÇÂ¼,0Õı³£·ÃÎÊ,-1²éÑ¯Ê§°Ü,1°üº¬²»°²È«ÄÚÈİ,2·Ç¹Ù·½Ò³Ãæ,3Î´Öª×´Ì¬
-	std::string ÏûÏ¢ºÏ²¢×ª·¢ÖÁºÃÓÑ(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, std::vector<ÈºÏûÏ¢Êı¾İ> ÁÄÌì¼ÇÂ¼, std::int64_t& Random, std::int32_t& Req, std::string ÏûÏ¢¼ÇÂ¼À´Ô´);
-	std::string ÏûÏ¢ºÏ²¢×ª·¢ÖÁÈº(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::vector<ÈºÏûÏ¢Êı¾İ> ÁÄÌì¼ÇÂ¼, bool ÄäÃû·¢ËÍ, std::string ÏûÏ¢¼ÇÂ¼À´Ô´);
-	std::string È¡¿¨Æ¬ÏûÏ¢´úÂë(std::string ¿¨Æ¬ÏûÏ¢ÎÄ±¾´úÂë);
-	bool ½ûÑÔÈºÄäÃû(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ÄäÃûêÇ³Æ, std::int8_t* ÄäÃû±êÊ¶, std::int32_t ½ûÑÔÊ±³¤);
-	std::int32_t ÖÃÎÄ¼şÏÂÔØ(std::string ÎÄ¼şÏÂÔØµØÖ·, std::string ÎÄ¼ş±£´æÂ·¾¶, std::uintptr_t ÏÂÔØ»Øµ÷º¯Êı/*ÎŞ·µ»ØÖµ (ÎÄ¼ş×Ü³¤¶È ³¤ÕûÊıĞÍ,ÎÄ¼şÒÑÏÂÔØ³¤¶È ³¤ÕûÊıĞÍ,ÎÄ¼şÃû ÎÄ±¾ĞÍ) ´íÎóµÄ»Øµ÷º¯Êı½«µ¼ÖÂ±ÀÀ£*/, std::string ÎÄ¼şÃû, std::int32_t ÏÂÔØÆğµã);
-	std::string ÁìÈ¡Ë½ÁÄÆÕÍ¨ºì°ü(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´QQ, std::string ºì°üÎÄ±¾´úÂë, std::int32_t ÀàĞÍ);//0ºÃÓÑºì°ü,1ÈºÁÙÊ±ºì°ü
-	std::string ÁìÈ¡ÈºÁÄ×¨Êôºì°ü(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´ÈººÅ, std::int64_t À´Ô´QQ, std::string ºì°üÎÄ±¾´úÂë);
-	bool ¼ÓÔØÍøÒ³(std::string ÍøÖ·);
-	void Ñ¹Ëõ°ü_7za½âÑ¹(std::string Ñ¹Ëõ°üÂ·¾¶, std::string ½âÑ¹±£´æÂ·¾¶, std::string ½âÑ¹ÃÜÂë, bool Ìø¹ıÒÑ´æÔÚµÄÎÄ¼ş);
-	void Ñ¹Ëõ°ü_7zaÑ¹Ëõ(std::string ±£´æÂ·¾¶, std::string ÓûÑ¹ËõµÄÎÄ¼ş, std::string Ñ¹Ëõ¸ñÊ½, std::int32_t Ñ¹ËõµÈ¼¶, std::string Ñ¹ËõÃÜÂë);
-	std::string ·¢ËÍÌÖÂÛ×éÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÌÖÂÛ×éId, std::string ÏûÏ¢ÄÚÈİ);
-	std::string ·¢ËÍÌÖÂÛ×éjsonÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÌÖÂÛ×éId, nlohmann::json Json´úÂë);
-	std::string ·¢ËÍÌÖÂÛ×éxmlÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÌÖÂÛ×éId, std::string Xml´úÂë);
-	std::string ·¢ËÍÌÖÂÛ×éÁÙÊ±ÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÌÖÂÛ×éId, std::int64_t ¶Ô·½QQ, std::string ÏûÏ¢ÄÚÈİ, std::int64_t& Random, std::int32_t& Req);
-	bool ³·»ØÏûÏ¢_ÌÖÂÛ×é(std::int64_t ¿ò¼ÜQQ, std::int64_t ÌÖÂÛ×éId, std::int64_t Random, std::int32_t Req);
-	std::string »Ø¸´QQ×ÉÑ¯»á»°(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, std::int8_t* »á»°Token, std::string ÏûÏ¢ÄÚÈİ, std::int64_t& Random, std::int32_t& Req);
-	std::string ·¢ËÍ¶©ÔÄºÅË½ÁÄÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶©ÔÄºÅId, std::string ÏûÏ¢ÄÚÈİ, std::int64_t& Random, std::int32_t& Req);
-	std::string È¡ÌÖÂÛ×éÃû³Æ_´Ó»º´æ(std::string ÌÖÂÛ×éId);
-	bool ĞŞ¸ÄÌÖÂÛ×éÃû³Æ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÌÖÂÛ×éId, std::string ĞÂÃû³Æ);
-	std::int32_t È¡ÌÖÂÛ×é³ÉÔ±ÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÌÖÂÛ×éId, std::vector<ÌÖÂÛ×é³ÉÔ±ĞÅÏ¢>& Êı¾İ);
-	std::int64_t Ç¿ÖÆÈ¡×ÔÉíÄäÃûId(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	std::int32_t È¡¶©ÔÄºÅÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::vector<¶©ÔÄºÅĞÅÏ¢>& Êı¾İ);
-	std::int32_t È¡ÌÖÂÛ×éÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::vector<ÌÖÂÛ×éĞÅÏ¢>& Êı¾İ);
-	bool ÑûÇëºÃÓÑ¼ÓÈº_ÅúÁ¿(std::int64_t ¿ò¼ÜQQ, std::int64_t Ä¿±êÈººÅ, std::vector<std::int64_t> ÑûÇëQQ, std::int64_t À´Ô´ÈººÅ);
-	bool ÑûÇëºÃÓÑ¼ÓÈëÌÖÂÛ×é_ÅúÁ¿(std::int64_t ¿ò¼ÜQQ, std::int64_t Ä¿±êÌÖÂÛ×éId, std::vector<std::int64_t> ÑûÇëQQ, std::int64_t À´Ô´ÈººÅ);
-	std::string È¡¿ò¼Üµ½ÆÚÊ±¼ä();
-	std::string ÌÖÂÛ×é¿ÚÁîºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÌÖÂÛ×éId, std::string ¿ÚÁî, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÌÖÂÛ×éÆ´ÊÖÆøºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÌÖÂÛ×éId, std::string ×£¸£Óï, std::int32_t ºì°üÆ¤·ôId, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÌÖÂÛ×éÆÕÍ¨ºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÌÖÂÛ×éId, std::string ×£¸£Óï, std::int32_t ºì°üÆ¤·ôId, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÌÖÂÛ×é»­Í¼ºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÌÖÂÛ×éId, std::string ÌâÄ¿Ãû, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÌÖÂÛ×éÓïÒôºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÌÖÂÛ×éId, std::string ÓïÒô¿ÚÁî, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÌÖÂÛ×é½ÓÁúºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÌÖÂÛ×éId, std::string ½ÓÁúÄÚÈİ, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÌÖÂÛ×é×¨Êôºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÌÖÂÛ×éId, std::string ÁìÈ¡ÈË, std::string ×£¸£Óï, bool ÊÇ·ñ¾ù·Ö, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÁìÈ¡ÌÖÂÛ×é×¨Êôºì°ü(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´ÌÖÂÛ×éId, std::int64_t À´Ô´QQ, std::string ºì°üÎÄ±¾´úÂë);
-	std::int32_t È¡ÌÖÂÛ×éÎ´Áìºì°ü(std::int64_t ¿ò¼ÜQQ, std::int64_t ÌÖÂÛ×éId, std::vector<ÈºÎ´Áìºì°üÊı¾İ>& È¡ÌÖÂÛ×éÎ´Áìºì°ü);
-	std::string È¡ÌÖÂÛ×éÎÄ¼şÏÂÔØµØÖ·(std::int64_t ¿ò¼ÜQQ, std::int64_t ÌÖÂÛ×éId, std::string ÎÄ¼şid, std::string ÎÄ¼şÃû);
-	std::string ·¢ËÍQQ×ÉÑ¯»á»°(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, std::string ÏûÏ¢ÄÚÈİ, std::int64_t& Random, std::int32_t& Req);
-	std::string ´´½¨ÈºÁÄ(std::int64_t ¿ò¼ÜQQ, std::vector<std::int64_t> ÑûÇëQQ, std::int64_t À´Ô´ÈººÅ, std::int64_t& ĞÂÈºÈººÅ);
-	std::int32_t È¡ÈºÓ¦ÓÃÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::vector<ÈºÓ¦ÓÃĞÅÏ¢>& Êı¾İ);
-	bool ÍË³öÌÖÂÛ×é(std::int64_t ¿ò¼ÜQQ, std::int64_t ÌÖÂÛ×éId);
-	bool ÈºÑéÖ¤ÏûÏ¢½ÓÊÕÉèÖÃ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t ¶Ô·½QQ, bool ½ÓÊÕÑéÖ¤ÏûÏ¢);
-	bool ×ªÈÃÈº(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t ¶Ô·½QQ);
-	bool ĞŞ¸ÄºÃÓÑ±¸×¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, std::string ±¸×¢);
-	bool É¾³ıÌÖÂÛ×é³ÉÔ±(std::int64_t ¿ò¼ÜQQ, std::int64_t ÌÖÂÛ×éId, std::int64_t ¶Ô·½QQ);
-	bool ÌÖÂÛ×éÎÄ¼ş×ª·¢ÖÁÈº(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´ÌÖÂÛ×éId, std::int64_t Ä¿±êÈººÅ, std::string fileId, std::string filename, std::int64_t filesize);
-	bool ÌÖÂÛ×éÎÄ¼ş×ª·¢ÖÁÈº(std::int64_t ¿ò¼ÜQQ, std::int64_t À´Ô´ÌÖÂÛ×éId, std::int64_t Ä¿±êQQ, std::string fileId, std::string filename, std::int64_t filesize, std::int32_t& Req, std::int64_t& Random, std::int32_t& time);
-	std::string È¡QQÍ·Ïñ(std::int64_t ¶Ô·½QQ, bool ¸ßÇåÔ­Í¼);
-	std::string È¡ÈºÍ·Ïñ(std::int64_t Ä¿±êÈººÅ);
-	std::string È¡´ó±íÇéÍ¼Æ¬ÏÂÔØµØÖ·(std::string ´ó±íÇéÎÄ±¾´úÂë, std::int32_t ³¤, std::int32_t ¿í);
-	std::string À­ÆğÈºÊÕ¿î(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::vector<´ı¸¶¿îÕßĞÅÏ¢> ´ı¸¶¿î³ÉÔ±, std::string ÊÕ¿îÁôÑÔ, std::string& ÊÕ¿î¶©µ¥ºÅ);
-	std::string ½áÊøÈºÊÕ¿î(std::int64_t ¿ò¼ÜQQ, std::string ÊÕ¿î¶©µ¥ºÅ);
-	std::string ²éÑ¯ÈºÊÕ¿î×´Ì¬(std::int64_t ¿ò¼ÜQQ, std::string ÊÕ¿î¶©µ¥ºÅ, std::vector<ÈºÊÕ¿îĞÅÏ¢>& ÊÕ¿îÊı¾İ);
-	std::string Ö§¸¶ÈºÊÕ¿î(std::int64_t ¿ò¼ÜQQ, std::int64_t ÊÕ¿î·¢ÆğÈË, std::string ÊÕ¿î¶©µ¥ºÅ, std::int32_t Ö§¸¶½ğ¶î, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÏûÏ¢ºÏ²¢×ª·¢ÖÁÌÖÂÛ×é(std::int64_t ¿ò¼ÜQQ, std::int64_t ÌÖÂÛ×éId, std::vector<ÈºÏûÏ¢Êı¾İ> ÁÄÌì¼ÇÂ¼, std::string ÏûÏ¢¼ÇÂ¼À´Ô´);
-	std::string ÈºÊÕ¿î_´ßµ¥(std::int64_t ¿ò¼ÜQQ, std::string ÊÕ¿î¶©µ¥ºÅ);
-	bool È¡ºÃÓÑDiyÃûÆ¬Êı¾İ(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, std::string& DiyÃûÆ¬Êı¾İ);
-	std::string ÉèÖÃDiyÃûÆ¬(std::int64_t ¿ò¼ÜQQ, std::string DiyÃûÆ¬Êı¾İ);
-	HWND È¡¿ò¼ÜÖ÷´°¿Ú¾ä±ú();
-	std::string ºÃÓÑÉúÆ§×Öºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ¶Ô·½QQ, std::string ÉúÆ§×Ö, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÈºÁÄÉúÆ§×Öºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÈººÅ, std::string ÉúÆ§×Ö, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ÌÖÂÛ×éÉúÆ§×Öºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÌÖÂÛ×éId, std::string ÉúÆ§×Ö, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string Ö§¸¶´ú¸¶ÇëÇó(std::int64_t ¿ò¼ÜQQ, std::string ´ú¸¶¶©µ¥ºÅ, std::int32_t Ö§¸¶½ğ¶î, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	std::string ²éÑ¯´ú¸¶×´Ì¬(std::int64_t ¿ò¼ÜQQ, std::string ´ú¸¶¶©µ¥ºÅ, std::string ´ú¸¶Êı¾İ);
-	std::string À­Æğ´ú¸¶(std::int64_t ¿ò¼ÜQQ, std::string ¶©µ¥ºÅ, std::string ´ú¸¶QQÁĞ±í);
-	bool È¡ºÃÓÑÄÜÁ¿ÖµÓëQID(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, std::int32_t& ÄÜÁ¿Öµ, std::string& QID);
-	std::int32_t ´´½¨Ğ¡Àõ×ÓÎÄ±¾´úÂë½âÎöÀà¶ÔÏó();
-	std::string ÎÄ×Ö×ªÓïÒô(std::int64_t ¿ò¼ÜQQ, std::string ÎÄ±¾ÄÚÈİ, std::int8_t*& ÓïÒô½á¹û);
-	std::string ·­Òë(std::int64_t ¿ò¼ÜQQ, std::string Ô´ÓïÑÔÓïÖÖ, std::string Ä¿±êÓïÑÔÓïÖÖ, std::string Ô­ÎÄ, std::string& ·­Òë½á¹û);
-	std::string ³·»ØÏûÏ¢_ÈºÁÄs(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t Random, std::int32_t Req);
-	std::string QQÁĞ±í_Ìí¼ÓÊÖ±íĞ­ÒéQQ(std::int64_t QQ, std::string Æ·ÅÆ, std::string ĞÍºÅ);
-	std::string QQÁĞ±í_¶şÎ¬ÂëµÇÂ¼_À­È¡¶şÎ¬Âë(std::int64_t QQ, std::int8_t*& ¶şÎ¬ÂëÊı¾İ);
-	std::string QQÁĞ±í_¶şÎ¬ÂëµÇÂ¼_²éÑ¯¶şÎ¬Âë×´Ì¬(std::int64_t QQ);
-	bool ÅÄÒ»ÅÄºÃÓÑÔÚÏß×´Ì¬(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ);
-	std::string ·¢ËÍÑéÖ¤ÏûÏ¢»á»°ÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, std::string ÏûÏ¢ÄÚÈİ, std::int64_t& ÏûÏ¢Random, std::int32_t& ÏûÏ¢Req);
-	std::string »Ø¸´ÑéÖ¤ÏûÏ¢»á»°ÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ, std::int8_t* »á»°Token, std::string ÏûÏ¢ÄÚÈİ, std::int64_t& ÏûÏ¢Random, std::int32_t& ÏûÏ¢Req);
-	std::string È¡ÈºÎÄ¼şÄÚ´æÀûÓÃ×´Ì¬(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t& ÒÑÊ¹ÓÃÈİÁ¿, std::int64_t& ×ÜÈİÁ¿);
-	std::string È¡ÈºÎÄ¼ş×ÜÊı(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::int64_t& ÒÑÉÏ´«ÎÄ¼şÊı, std::int64_t& ÎÄ¼şÊıÁ¿ÉÏÏŞ);
-	std::string ÉÏ´«Í¿Ñ»(std::int64_t ¿ò¼ÜQQ, std::int32_t Ä£ĞÍId, std::int8_t* Í¿Ñ»Êı¾İ);
-	bool É¾³ıÈº³ÉÔ±_ÅúÁ¿s(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::vector<ÓûÒÆ³ıÈº³ÉÔ±ÁĞ±í> Èº³ÉÔ±ÁĞ±í);
-	std::string ÉÏ´«ºÃÓÑÎÄ¼şs(std::int64_t ¿ò¼ÜQQ, std::int64_t ºÃÓÑQQ, std::string ÎÄ¼şÂ·¾¶, std::uintptr_t ÉÏ´«½ø¶È»Øµ÷º¯Êı, std::int64_t& ÏûÏ¢Random, std::int32_t& ÏûÏ¢Req);//void func(int64 ¿ò¼ÜQQ,int64 ºÃÓÑQQ,eString ±¾µØÎÄ¼şÂ·¾¶,int32 ×Ü³¤¶È,int32 ÒÑÉÏ´«³¤¶È),´íÎóµÄº¯Êı¸ñÊ½½«µ¼ÖÂ±ÀÀ£
-	std::string ÉÏ´«ÈºÎÄ¼şs(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string ÎÄ¼şÂ·¾¶, std::string ÎÄ¼ş¼ĞÃû, std::uintptr_t ÉÏ´«½ø¶È»Øµ÷º¯Êı);//void func(int64 ¿ò¼ÜQQ,int64 ÈººÅ,eString ±¾µØÎÄ¼şÂ·¾¶,int32 ×Ü³¤¶È,int32 ÒÑÉÏ´«³¤¶È),´íÎóµÄº¯Êı¸ñÊ½½«µ¼ÖÂ±ÀÀ£
-	std::int32_t È¡Èº°¬ÌØÈ«ÌåÊ£Óà´ÎÊı(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	std::int32_t ÊÇ·ñÒÑ¿ªÆôQQ×ÉÑ¯(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ);
-	std::string ´´½¨ÈºÏà²á(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string Ïà²áÃû, std::string Ïà²áÃèÊö);
-	std::string É¾³ıÈºÏà²á(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string Ïà²áId);
-	nlohmann::json È¡ÈºÏà²áÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	nlohmann::json È¡ÈºÏà²áÕÕÆ¬ÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string Ïà²áId, std::int32_t »ñÈ¡ÊıÁ¿);
-	nlohmann::json É¾³ıÈºÏà²áÕÕÆ¬(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string Ïà²áId, std::string ÕÕÆ¬Id);
-	nlohmann::json ĞŞ¸ÄÈºÏà²áĞÅÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ, std::string Ïà²áId, std::string Ïà²áÃû, std::string Ïà²áÃèÊö,bool Ïà²áÖÃ¶¥);
-	std::int64_t È¡ÈºId_´Ó»º´æ(std::int64_t ÈººÅ);
-	std::string ÉÏ´«ÆµµÀÍ¼Æ¬(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::int8_t* pic, std::int32_t ¿í¶È, std::int32_t ¸ß¶È, bool ¶¯Í¼);
-	nlohmann::json ·¢ËÍÆµµÀÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::string ÏûÏ¢ÄÚÈİ);
-	nlohmann::json ·¢ËÍÆµµÀË½ĞÅÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t Ë½ĞÅÆµµÀId, std::int64_t Ë½ĞÅ×ÓÆµµÀId, std::string ÏûÏ¢ÄÚÈİ);
-	bool È¡Ë½ĞÅÆµµÀId(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t Ä¿±êÆµµÀÓÃ»§Id, std::int64_t& Ë½ĞÅÆµµÀId, std::int64_t& Ë½ĞÅ×ÓÆµµÀId);
-	bool ÆµµÀÏûÏ¢Õ³Ìù±íÇé(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::int32_t ÏûÏ¢req, std::string ±íÇéId, bool ÊÇ·ñÎªemoji, bool È¡ÏûÕ³Ìù);
-	std::string ³·»ØÆµµÀÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::int32_t ÏûÏ¢req);
-	bool ÉèÖÃ×ÓÆµµÀ¾«»ªÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::int32_t ÏûÏ¢req, bool ÒÆ³ı);
-	bool ½ûÑÔÆµµÀ³ÉÔ±(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ÆµµÀÓÃ»§Id, std::int32_t ½ûÑÔÃëÊı);
-	bool ÉèÖÃÆµµÀÈ«Ô±½ûÑÔ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int32_t ½ûÑÔÃëÊı);
-	bool ÒÆ³ıÆµµÀ³ÉÔ±(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ÆµµÀÓÃ»§Id, bool À­ÈëºÚÃûµ¥);
-	bool ÒÆ³ıÆµµÀ³ÉÔ±_ÅúÁ¿(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::vector<std::int64_t> ÆµµÀÓÃ»§IdÁĞ±í, bool À­ÈëºÚÃûµ¥);
-	bool ÍË³öÆµµÀ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId);
-	bool ¸ü¸ÄÆµµÀÃû³Æ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::string ĞÂÃû³Æ, std::int64_t ×ÖÉ«);
-	bool ĞŞ¸ÄÆµµÀ¼ò½é(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::string ĞÂ¼ò½é);
-	bool ÉèÖÃÎÒµÄÆµµÀêÇ³Æ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::string ÆµµÀêÇ³Æ);
-	bool ÖÃ×ÓÆµµÀ¹Û¿´È¨ÏŞ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::int32_t ÀàĞÍ/*1È«²¿³ÉÔ±¿É¿´,2Ö¸¶¨³ÉÔ±¿É¿´,Ä¬ÈÏ1*/, std::int64_t Ö¸¶¨Éí·İ×éId, bool ÊÇ·ñÈ¡ÏûÉí·İ×é¹Û¿´È¨ÏŞ, std::int64_t Ö¸¶¨ÆµµÀ³ÉÔ±Id, bool ÊÇ·ñÈ¡ÏûÆµµÀ³ÉÔ±¹Û¿´È¨ÏŞ);
-	bool ÖÃ×ÓÆµµÀ·¢ÑÔÈ¨ÏŞ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::int32_t ÀàĞÍ/*1È«²¿³ÉÔ±¿É¿´,2Ö¸¶¨³ÉÔ±¿É·¢ÑÔ,Ä¬ÈÏ1*/, std::int64_t Ö¸¶¨Éí·İ×éId, bool ÊÇ·ñÈ¡ÏûÉí·İ×é·¢ÑÔÈ¨ÏŞ, std::int64_t Ö¸¶¨ÆµµÀ³ÉÔ±Id, bool ÊÇ·ñÈ¡ÏûÆµµÀ³ÉÔ±·¢ÑÔÈ¨ÏŞ);
-	bool ×ÓÆµµÀÏûÏ¢ÌáĞÑÉèÖÃ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, bool ¶Ô³ÉÔ±´ò¿ªÏûÏ¢ÌáĞÑ);
-	bool ×ÓÆµµÀÂıËÙÄ£Ê½ÉèÖÃ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::int32_t Ä£Ê½);//Ä¬ÈÏ¹Ø±Õ,0¹Ø±Õ,1Ã¿·ÖÖÓÒ»Ìõ,2Ã¿·ÖÖÓÁ½Ìõ,3Ã¿·ÖÖÓ5Ìõ,4Ã¿·ÖÖÓÊ®Ìõ,5Ã¿5·ÖÖÓ1Ìõ,6Ã¿10·ÖÖÓ1Ìõ,7Ã¿15·ÖÖÓÒ»Ìõ,8Ã¿30·ÖÖÓÒ»Ìõ,9Ã¿Ò»Ğ¡Ê±Ò»Ìõ,10Ã¿12Ğ¡Ê±Ò»Ìõ,11Ã¿24Ğ¡Ê±1Ìõ
-	bool ĞŞ¸Ä×ÓÆµµÀÃû³Æ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::string ĞÂÃû³Æ);
-	bool É¾³ı×ÓÆµµÀ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId);
-	bool ĞŞ¸ÄÎÒµÄÆµµÀÓÃ»§ĞÅÏ¢_êÇ³Æ(std::int64_t ¿ò¼ÜQQ, std::string ĞÂêÇ³Æ);
-	bool ĞŞ¸ÄÎÒµÄÆµµÀÓÃ»§ĞÅÏ¢_ĞÔ±ğ(std::int64_t ¿ò¼ÜQQ, std::int32_t ĞÔ±ğ);//1ÄĞ,2Å®,Ä¬ÈÏÄĞ
-	bool ĞŞ¸ÄÎÒµÄÆµµÀÓÃ»§ĞÅÏ¢_ÄêÁä(std::int64_t ¿ò¼ÜQQ, std::int32_t ÄêÁä);
-	bool ĞŞ¸ÄÎÒµÄÆµµÀÓÃ»§ĞÅÏ¢_ËùÔÚµØ(std::int64_t ¿ò¼ÜQQ, std::int32_t ¹ú¼Ò´úÂë, std::string ¹ú¼ÒÃû³Æ, std::int32_t Ê¡·İ´úÂë, std::string Ê¡·İÃû³Æ, std::int32_t ÊĞÇø´úÂë, std::string ÊĞÇøÃû³Æ);
-	bool ÉèÖÃÊÇ·ñÔÊĞí±ğÈËË½ĞÅÎÒ(std::int64_t ¿ò¼ÜQQ, bool ²»ÔÊĞí);
-	bool ÉèÖÃÆµµÀ¼ÓÈëÑéÖ¤·½Ê½(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int32_t ÑéÖ¤·½Ê½/*1ÔÊĞíÈÎºÎÈË 2ĞèÒªÑéÖ¤ÏûÏ¢ 3²»ÔÊĞíÈÎºÎÈË 4ĞèÒªÕıÈ·»Ø´ğÎÊÌâ 5ĞèÒª»Ø´ğÎÊÌâ,Ä¬ÈÏ1*/, std::string ÎÊÌâ, std::string ´ğ°¸);
-	std::int32_t ËÑË÷ÆµµÀ(std::int64_t ¿ò¼ÜQQ, std::string ¹Ø¼ü´Ê, std::int32_t µÚ¼¸Ò³, std::vector<ÆµµÀËÑË÷½á¹û>& ½á¹û);
-	std::string È¡ÆµµÀ·âÃæ(std::int64_t ÆµµÀId);
-	std::string È¡ÆµµÀÍ·Ïñ(std::int64_t ÆµµÀId, bool ¸ßÇå´óÍ¼);
-	std::int32_t »ñÈ¡ÆµµÀ³ÉÔ±ÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::vector<ÆµµÀ³ÉÔ±ĞÅÏ¢>& ½á¹û, std::int32_t& ·­Ò³Êı¾İ, std::string& ·­Ò³ĞÅÏ¢);
-	bool È¡ÆµµÀĞÅÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, ÆµµÀĞÅÏ¢& ½á¹û);
-	bool È¡ÆµµÀ¼ÓÈëÑéÖ¤·½Ê½(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int32_t& ÑéÖ¤·½Ê½/*²Î¿¼´«»Ø,1ÔÊĞíÈÎºÎÈË 2ĞèÒªÑéÖ¤ÏûÏ¢ 3²»ÔÊĞíÈÎºÎÈË 4ĞèÒªÕıÈ·»Ø´ğÎÊÌâ 5ĞèÒª»Ø´ğÎÊÌâ*/, std::string& ÎÊÌâ);
-	std::string ÉêÇë¼ÓÈëÆµµÀ(std::int64_t ¿ò¼ÜQQ, std::int32_t ÑéÖ¤·½Ê½, std::int64_t ÆµµÀId, std::string ÆµµÀToken, std::string ´ğ°¸);//errcode=22010ÊÇÉêÇë³É¹¦
-	std::string È¡ÆµµÀÎÄ¼şÏÂÔØµØÖ·(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::string fileid, std::string filename);
-	nlohmann::json ÆµµÀÆ´ÊÖÆøºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::string ×£¸£Óï, std::int32_t ºì°üÆ¤·ôId, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	nlohmann::json ÆµµÀÆÕÍ¨ºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::string ×£¸£Óï, std::int32_t ºì°üÆ¤·ôId, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	nlohmann::json ÌÖÂÛ×é×¨Êôºì°ü(std::int64_t ¿ò¼ÜQQ, std::int32_t ×ÜÊıÁ¿, std::int32_t ×Ü½ğ¶î, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::int64_t ÁìÈ¡ÈËÆµµÀÓÃ»§Id, std::string ×£¸£Óï, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ, ÑéÖ¤ÂëĞÅÏ¢& ÑéÖ¤Âë);
-	nlohmann::json ÁìÈ¡ÆµµÀ×¨Êôºì°ü(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::int64_t ·¢ËÍÈËÆµµÀÓÃ»§Id, std::string ºì°üÎÄ±¾´úÂë);
-	std::int32_t È¡ÆµµÀ³ÉÔ±Éí·İ×é(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ÆµµÀÓÃ»§Id, std::vector<ÆµµÀÓÃ»§Éí·İ×éĞÅÏ¢>& ½á¹û);
-	bool ÉèÖÃÆµµÀ³ÉÔ±Éí·İ×é(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ÆµµÀÓÃ»§Id, std::vector<std::int64_t> Éí·İ×éIdÁĞ±í, bool ÊÇ·ñÈ¡ÏûÉí·İ×é);
-	bool ĞŞ¸ÄÉí·İ×éĞÅÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t Éí·İ×éId, std::string Éí·İ×éÃû, std::int64_t Éí·İ×éÍâÏÔÑÕÉ«´úÂë, bool ÊÇ·ñÔÚ³ÉÔ±ÁĞ±íÖĞµ¥¶ÀÕ¹Ê¾);
-	bool É¾³ıÉí·İ×é(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t Éí·İ×éId);
-	std::int64_t ĞÂÔöÉí·İ×é(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::string Éí·İ×éÃû, std::int64_t Éí·İ×éÍâÏÔÑÕÉ«´úÂë, bool ÊÇ·ñÔÚ³ÉÔ±ÁĞ±íÖĞµ¥¶ÀÕ¹Ê¾);
-	std::int32_t È¡ÆµµÀÉí·İ×éÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::vector<ÆµµÀÉí·İ×éĞÅÏ¢>& ½á¹û);
-	std::int32_t È¡×ÓÆµµÀÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::vector<×ÓÆµµÀĞÅÏ¢>& ½á¹û);
-	std::int32_t È¡ÆµµÀÓÃ»§¸öĞÔµµ°¸(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀÓÃ»§Id, std::vector<ÆµµÀÓÃ»§¸öĞÔµµ°¸ĞÅÏ¢>& ½á¹û);
-	bool È¡ÆµµÀÓÃ»§×ÊÁÏ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀÓÃ»§Id, ÆµµÀÓÃ»§ĞÅÏ¢& ½á¹û);
-	bool Ë¢ĞÂÆµµÀÁĞ±í»º´æ(std::int64_t ¿ò¼ÜQQ);
-	nlohmann::json  È¡ÆµµÀÁĞ±í_´Ó»º´æ(std::int64_t ¿ò¼ÜQQ);
-	std::string È¡ÆµµÀÓÃ»§êÇ³Æ_´Ó»º´æ(std::int64_t ÆµµÀÓÃ»§Id);
-	std::string È¡ÆµµÀÃû³Æ_´Ó»º´æ(std::int64_t ÆµµÀId);
-	std::string È¡×ÓÆµµÀÃû³Æ_´Ó»º´æ(std::int64_t ÆµµÀId,std::int64_t ×ÓÆµµÀId);
-	std::string È¡ÆµµÀêÇ³Æ_´Ó»º´æ(std::int64_t ÆµµÀId,std::int64_t ÆµµÀÓÃ»§Id);
-	std::int32_t È¡×ÓÆµµÀ·Ö×éÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ×ÓÆµµÀId, std::vector<×ÓÆµµÀ·Ö×éĞÅÏ¢>& ½á¹û);
-	nlohmann::json È¡Ë½ĞÅÆµµÀÁĞ±í_´Ó»º´æ(std::int64_t ¿ò¼ÜQQ);
-	std::string ÉÏ´«ÆµµÀÎÄ¼ş(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::string ÎÄ¼şÂ·¾¶, std::int32_t ÉÏ´«½ø¶È»Øµ÷º¯Êı/*void func(int64 ¿ò¼ÜQQ,int64 ÆµµÀId,int64 ×ÓÆµµÀId,eString ±¾µØÎÄ¼şÂ·¾¶,int32 ×Ü³¤¶È,int32 ÒÑÉÏ´«³¤¶È),´íÎóµÄº¯Êı¸ñÊ½½«µ¼ÖÂ±ÀÀ£*/, std::int32_t Í¼Æ¬¿í¶È, std::int32_t Í¼Æ¬¸ß¶È);
-	bool ¸ü¸ÄÆµµÀÏûÏ¢ÄÚÈİ(std::int32_t Êı¾İÖ¸Õë, std::string ĞÂÏûÏ¢ÄÚÈİ);
-	std::string Emoji×ªÆµµÀEmojiId(std::string Emoji´úÂë);
-	std::string ÆµµÀEmojiId×ªEmoji(std::string ÆµµÀEmojiId);
-	std::string Emoji×ªQQ¿Õ¼äEmId(std::string Emoji´úÂë);
-	std::string QQ¿Õ¼äEmId×ªEmoji(std::string QQ¿Õ¼äEmId);
-	std::string Ğ¡»Æ¶¹Id×ªQQ¿Õ¼äEmId(std::string Ğ¡»Æ¶¹Id);
-	std::string QQ¿Õ¼äEmId×ªĞ¡»Æ¶¹Id(std::string QQ¿Õ¼äEmId);
-	std::int32_t È¡ÌØ¶¨Éí·İ×é³ÉÔ±ÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t Éí·İ×éId/*1ÆÕÍ¨ÈË,2ÆµµÀ¹ÜÀíÔ±,4´´½¨Õß,5×ÓÆµµÀ¹ÜÀíÔ±,ÆäËûÉí·İ×éIdÍ¨¹ıAPI¡¾È¡ÆµµÀÉí·İ×éÁĞ±í¡¿È¡*/, std::vector<ÌØ¶¨Éí·İ×é³ÉÔ±ĞÅÏ¢>& ½á¹û, std::int32_t ¿ªÊ¼Î»ÖÃ);
-	nlohmann::json È¡×ÓÆµµÀ·Ö×é½á¹¹(std::int64_t ¿ò¼ÜQQ,std::int64_t ÆµµÀId);
-	nlohmann::json ÉèÖÃ×ÓÆµµÀ·Ö×é½á¹¹(std::int64_t ¿ò¼ÜQQ,std::int64_t ÆµµÀId,std::string ×ÓÆµµÀ·Ö×é½á¹¹);
-	bool É¾³ı×ÓÆµµÀ_ÅúÁ¿(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::vector<std::int64_t> ×ÓÆµµÀIdÁĞ±í);
-	bool ´´½¨×ÓÆµµÀ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::string Ô­Ê¼×ÓÆµµÀ·Ö×é½á¹¹, std::string ×ÓÆµµÀÃû³Æ, std::int32_t ÏûÏ¢ÌáĞÑÉèÖÃ/*1¶Ô³ÉÔ±´ò¿ªÏûÏ¢ÌáĞÑ 2²»¶Ô³ÉÔ±´ò¿ªÏûÏ¢ÌáĞÑ,Ä¬ÈÏ2*/, std::int32_t ×ÓÆµµÀÀàĞÍ/*1ÌÖÂÛÆµµÀ 2ÓïÒôÆµµÀ 5Ö±²¥ÆµµÀ 6Ó¦ÓÃÆµµÀ 7»°ÌâÆµµÀ,Ä¬ÈÏ1*/, std::int32_t ×ÓÆµµÀ×ÓÀàĞÍ /*0ÏĞÁÄ,1¹«¸æ,2¹¥ÂÔ,Ä¬ÈÏ0,µ±×ÓÆµµÀÀàĞÍ²»Îª1Ê±,ºãÎª0*/, std::int32_t Ó¦ÓÃId /*µ±×ÓÆµµÀÀàĞÍÎª6Ê±ÉèÖÃ,1000050ÈÕ³ÌÌáĞÑ 1000010ÌÚÑ¶Í¶Æ± 1000000ÍõÕß¿ªºÚ´óÌü 1000001»¥¶¯Ğ¡ÓÎÏ· 1000070CoDM¿ªºÚ´óÌü 1000051·É³µ¿ªºÚ´óÌü 1010000ºÍÆ½¾«Ó¢¿ªºÚ´óÌü*/, std::int32_t ¿ÉÊÓÀàĞÍ/*1È«²¿³ÉÔ±¿É¿´,2Ö¸¶¨³ÉÔ±¿É¿´,Ä¬ÈÏ1*/, std::vector<std::int64_t> Ö¸¶¨³ÉÔ±ÆµµÀÓÃ»§IdÁĞ±í, std::vector<std::int64_t> Ö¸¶¨Éí·İ×éId, std::int32_t ËùÊô·Ö×éindex, std::int32_t ·Ö×éÄÚÎ»ÖÃ);
-	std::string ¹¹Ôì¿¨Æ¬ÏûÏ¢ÎÄ±¾´úÂë(std::string ¿¨Æ¬´úÂë, std::int32_t ÀàĞÍ/*0xml,1json,Ä¬ÈÏxml*/, bool Ç¿ÖÆ·¢ËÍ);
-	bool ·ÖÏíÒôÀÖ_ÆµµÀ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::string ¸èÇúÃû, std::string ¸èÊÖÃû, std::string Ìø×ªµØÖ·, std::string ·âÃæµØÖ·, std::string ÎÄ¼şµØÖ·, std::int32_t Ó¦ÓÃÀàĞÍ);
-	bool ĞŞ¸ÄÆµµÀÅÅĞò(std::int64_t ¿ò¼ÜQQ, std::vector<std::int64_t> ÆµµÀIdÁĞ±í);
-	bool ´¦ÀíÆµµÀ¼ÓÈëÉêÇë(std::int64_t ¿ò¼ÜQQ, std::string ÆµµÀÓÃ»§±êÊ¶, std::int32_t ²Ù×÷/*0¾Ü¾ø 1Í¬Òâ*/);
-	nlohmann::json ²éÑ¯ÈºÉèÖÃ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÈººÅ);
-	std::int32_t È¡×ÓÆµµÀ¹ÜÀíÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::vector<ÌØ¶¨Éí·İ×é³ÉÔ±ĞÅÏ¢>& ½á¹û);
-	bool ÉèÖÃ×ÓÆµµÀ¹ÜÀí(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::vector<std::int64_t> ÆµµÀÓÃ»§IdÁĞ±í, bool ÊÇ·ñÈ¡Ïû×ÓÆµµÀ¹ÜÀí);
-	bool ÉèÖÃÖ¸¶¨Éí·İ×é×ÓÆµµÀ¹Û¿´È¨ÏŞ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t Éí·İ×éId, std::vector<std::int64_t> ÓûÉèÖÃµÄ×ÓÆµµÀIdÁĞ±í, bool ÊÇ·ñÈ¡Ïû¹Û¿´È¨ÏŞ);
-	bool ÉèÖÃÖ¸¶¨Éí·İ×é×ÓÆµµÀ·¢ÑÔÈ¨ÏŞ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t Éí·İ×éId, std::vector<std::int64_t> ÓûÉèÖÃµÄ×ÓÆµµÀIdÁĞ±í, bool ÊÇ·ñÈ¡Ïû·¢ÑÔÈ¨ÏŞ);
-	bool ÉèÖÃÖ±²¥×ÓÆµµÀÖ÷²¥(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t Ö±²¥×ÓÆµµÀId, std::vector<std::int64_t> ÓûÉèÖÃµÄÆµµÀÓÃ»§IdÁĞ±í, bool ÊÇ·ñÈ¡ÏûÖ÷²¥Éí·İ);
-	std::string »ñÈ¡ÆµµÀ·ÖÏíÁ´½Ó(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId);
-	std::string »ñÈ¡×ÓÆµµÀ·ÖÏíÁ´½Ó(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId,std::int64_t ×ÓÆµµÀId);
-	bool ×ÓÆµµÀÏûÏ¢Í¨ÖªÉèÖÃ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, bool ¿ªÆôÏûÏ¢Í¨Öª);
-	std::string »ñÈ¡ºì°üÁìÈ¡ÏêÇés(std::int64_t ¿ò¼ÜQQ, std::int64_t ºì°üÀ´Ô´, std::int64_t ×ÓÆµµÀId, std::string ºì°üÎÄ±¾´úÂë, std::int32_t ºì°üÀàĞÍ/*1:ºÃÓÑ,2:ÈºÁÄ,3:ÌÖÂÛ×é,4:ÈºÁÙÊ±,5:×ÓÆµµÀ*/, std::int32_t ÆğÊ¼Î»ÖÃ);
-	std::int32_t È¡»°Ìâ×ÓÆµµÀÌû×ÓÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t »°Ìâ×ÓÆµµÀId, std::vector<»°ÌâÌû×ÓĞÅÏ¢>& ½á¹û, std::string& ·­Ò³ĞÅÏ¢);
-	std::int32_t »ñÈ¡ÈÕ³ÌÁĞ±í(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ÈÕ³Ì×ÓÆµµÀId, std::int64_t Ê±¼ä´Á, std::vector<ÈÕ³ÌĞÅÏ¢>& ½á¹û);
-	std::string »ñÈ¡ÈÕ³ÌÁ´½Ó(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ÈÕ³Ì×ÓÆµµÀId, std::int64_t ÈÕ³ÌId);
-	bool È¡ÈÕ³ÌĞÅÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ÈÕ³Ì×ÓÆµµÀId, std::int64_t ÈÕ³ÌId, ÈÕ³ÌĞÅÏ¢& ĞÅÏ¢);
-	bool ´´½¨ÈÕ³Ì(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ÈÕ³Ì×ÓÆµµÀId, std::string ÈÕ³ÌÃû, std::string ÈÕ³ÌÃèÊö, std::int64_t ¿ªÊ¼Ê±¼ä´Á, std::int64_t ½áÊøÊ±¼ä´Á, std::int32_t ÌáĞÑ, std::int64_t ¿ªÊ¼Ê±Ìø×ªµÄ×ÓÆµµÀId, ÈÕ³ÌĞÅÏ¢& ĞÅÏ¢);
-	std::string È¡QQÍ·ÏñKÖµ(std::int64_t ¿ò¼ÜQQ, std::int64_t ¶Ô·½QQ);
-	bool É¾³ıÈÕ³Ì(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ÈÕ³Ì×ÓÆµµÀId, ÈÕ³ÌĞÅÏ¢& ĞÅÏ¢);
-	bool ·¢ËÍÍ¨ĞĞÖ¤µ½Èº(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ÈººÅ, std::int32_t Í¨ĞĞÖ¤ÊıÁ¿);
-	bool ·¢ËÍÍ¨ĞĞÖ¤µ½ºÃÓÑ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ¶Ô·½QQ);
-	bool ÆÁ±ÎÆµµÀÓÃ»§Ë½ĞÅ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀÓÃ»§Id, bool ½â³ıÆÁ±Î);
-	bool ÆµµÀÓÃ»§Ë½ĞÅÃâ´òÈÅ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀÓÃ»§Id, bool ¹Ø±ÕÃâ´òÈÅ);
-	std::string QQÁĞ±í_Ìí¼ÓQQ(std::int64_t QQ, std::string ÃÜÂë, std::string ÊÖ»úÆ·ÅÆ, std::string ÊÖ»úĞÍºÅ, std::int32_t Ğ­Òé/*0 °²×¿QQ,1 ÆóµãQQ,2 QQaPad,3 ÆóÒµQQ,4 ÊÖ»úTim,5 ÊÖ±íQQ,6 QQiPad,7 Æ»¹ûQQ 8 MacQQ,ÆÕÍ¨QQÎŞ·¨µÇÂ¼ÆóÒµ/Æóµã*/, std::string guid);
-	std::string QQÁĞ±í_É¾³ıQQ(std::int64_t QQ, bool ³¹µ×É¾³ı);
-	bool µÇÂ¼Ö¸¶¨QQ_¶ş´ÎµÇÂ¼(std::int64_t ¿ò¼ÜQQ);
-	bool ÊÇ·ñÒÑÉèÖÃQQÃÜÂë(std::int64_t ¿ò¼ÜQQ);
-	nlohmann::json È¡¿ò¼Ü²å¼şÁĞ±í();
-	std::string È¡ÔÚÏßÒÆ¶¯Éè±¸ÁĞ±í(std::int64_t ¿ò¼ÜQQ);
-	bool ÉèÖÃÆµµÀÈ«¾Ö¹«¸æ_Ö¸¶¨ÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::int32_t ÏûÏ¢req);
-	std::string È¡ÆµµÀºÅ(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId);
-	bool ÉèÖÃÎ»ÖÃ¹²Ïís(std::int64_t ¿ò¼ÜQQ, std::int64_t Ä¿±ê, double ¾­¶È, double Î³¶È, bool ÊÇ·ñ¿ªÆô, std::int32_t ÀàĞÍ/*0Èº,1ºÃÓÑ,Ä¬ÈÏÈº*/);
-	bool ÉÏ±¨µ±Ç°Î»ÖÃs(std::int64_t ¿ò¼ÜQQ, std::int64_t Ä¿±ê, double ¾­¶È, double Î³¶È, double Ö¸ÕëÆ«½Ç);
-	bool ÒÆ¶¯ºÃÓÑ·Ö×é(std::int64_t ¿ò¼ÜQQ, std::int64_t ºÃÓÑQQ, std::int32_t ·Ö×éId);
-	bool ĞŞ¸ÄºÃÓÑ·Ö×éÃû(std::int64_t ¿ò¼ÜQQ, std::int64_t ·Ö×éId, std::string ·Ö×éÃû/*Ö§³Öemoji*/);
-	bool É¾³ıºÃÓÑ·Ö×é(std::int64_t ¿ò¼ÜQQ, std::int64_t ·Ö×éId);
-	nlohmann::json È¡ºÃÓÑ·Ö×éÁĞ±í(std::int64_t ¿ò¼ÜQQ);
-	std::int32_t ĞÂÔöºÃÓÑ·Ö×é(std::int64_t ¿ò¼ÜQQ, std::string ·Ö×éÃû/*Ö§³Öemoji*/);
-	nlohmann::json È¡ÆµµÀºì°üpre_grap_token(std::int64_t ¿ò¼ÜQQ, std::int64_t ÆµµÀId, std::int64_t ×ÓÆµµÀId, std::string ºì°ülistid, std::string ºì°üauthkey, std::string ºì°üchannel, std::int64_t ºì°ü·¢ËÍÈËÆµµÀÓÃ»§Id);
-	nlohmann::json ÓïÒôºì°üÆ¥Åä(std::int64_t ¿ò¼ÜQQ, std::int64_t ºì°ü½ÓÊÕ¶ÔÏó, std::string ºì°ü±êÌâ, std::string Æ¥ÅäÓïÒôhash, std::string ºì°ülistid, std::string ºì°üauthkey, std::int64_t ºì°ü·¢ËÍÕßQQ, std::string ºì°üÀ´Ô´ÀàĞÍ/*0:ÈºÁÄºì°ü,1:ºÃÓÑºì°ü,Ä¬ÈÏ0*/);
-	std::string ÉÏ´«ÈºÁÄÓïÒôºì°üÆ¥ÅäÓïÒô(std::int64_t ¿ò¼ÜQQ, std::int64_t ºì°üÀ´Ô´ÈººÅ, std::int8_t* audio);
-	std::string È¡ºÏ²¢×ª·¢ÏûÏ¢ÄÚÈİ(std::int64_t ¿ò¼ÜQQ, std::string resId);
-	std::string ÉÏ´«ºÏ²¢×ª·¢ÏûÏ¢(std::int64_t ¿ò¼ÜQQ, std::string ÏûÏ¢À´Ô´/*"xxxµÄÁÄÌì¼ÇÂ¼",¿ÉÌîÈç:ÈºÁÄ¡¢AºÍB*/, std::string ÏûÏ¢·âÃæ/*¶¨Òå·âÃæÏûÏ¢ÄÚÈİ,¶àÌõÏûÏ¢ÓÃ·ûºÅ"<[#]>"·Ö¸ô,Èç A: °ÍÀ­°ÍÀ­<[#]>B: °ÍÀ­°ÍÀ­<[#]>C: °ÍÀ­°ÍÀ­*/, std::string ºÏ²¢×ª·¢ÏûÏ¢ÄÚÈİ/*json¸ñÊ½,Êı¾İ½á¹¹¿É²ÎÕÕAPI¡¾È¡ºÏ²¢×ª·¢ÏûÏ¢ÄÚÈİ¡¿µÄ·µ»Ø½á¹û,"MultiMsg"ÊÇ×îÍâ²ãµÄÏûÏ¢,Ç¶Ì×Ê¹ÓÃfilename×÷ÎªË÷Òı*/);
-	std::string ÓïÒô×ªÎÄ×Ö(std::int64_t ¿ò¼ÜQQ, std::string ÓïÒôhash, std::string ÓïÒôtoken);
-	bool ·¢ËÍ¹¦ÄÜ°ü(std::int64_t ¿ò¼ÜQQ, std::string ¹¦ÄÜcmd, std::int32_t ×î´óµÈ´ıÊ±³¤, std::int8_t*& Êı¾İ);
-	std::string ¶şÎ¬ÂëÉ¨Ò»É¨ÊÚÈ¨µÇÂ¼ÆäËûÓ¦ÓÃ(std::int64_t ¿ò¼ÜQQ, std::string kÖµ);
-	nlohmann::json È¡ÀúÊ·µÇÂ¼Éè±¸guidÁĞ±í(std::int64_t ¿ò¼ÜQQ);
-	std::string ¶şÎ¬ÂëÉ¨Ò»É¨ÊÚÈ¨ÆäËûÉè±¸×ÊÁÏ¸¨ÖúÑéÖ¤µÇÂ¼(std::int64_t ¿ò¼ÜQQ, std::string str_url);
-	bool ¹Ø±ÕÉè±¸Ëø(std::int64_t ¿ò¼ÜQQ);
-	bool »Ö¸´Éè±¸Ëø(std::int64_t ¿ò¼ÜQQ);
-	std::string Óà¶îÌáÏÖ(std::int64_t ¿ò¼ÜQQ, std::int32_t ÌáÏÖ½ğ¶î, std::string Ö§¸¶ÃÜÂë, std::int32_t ÒøĞĞ¿¨ĞòÁĞ);
-	std::string È¡h5Ç®°ücookie(std::int64_t ¿ò¼ÜQQ);
-	std::string È¡QQ»áÔ±ÖĞĞÄcookie(std::int64_t ¿ò¼ÜQQ);
-	bool ËµËµµãÔŞ(std::int64_t ¿ò¼ÜQQ, std::int64_t ËµËµ·¢²¼ÕßQQ, std::string ËµËµfeedskey, bool È¡ÏûµãÔŞ);
-	bool ËµËµÆÀÂÛ(std::int64_t ¿ò¼ÜQQ, std::int64_t ËµËµ·¢²¼ÕßQQ, std::string ËµËµfeedskey, std::string ÆÀÂÛÄÚÈİ);
-	std::string È¡×îĞÂ¶¯Ì¬ÁĞ±í(std::int64_t ¿ò¼ÜQQ);
-	std::string ËÑË÷±íÇé°ü(std::int64_t ¿ò¼ÜQQ, std::string ¹Ø¼ü´Ê);
-	std::string ·¢²¼ËµËµ(std::int64_t ¿ò¼ÜQQ, std::string ÄÚÈİ);
-	std::string ¾­Î³¶È¶¨Î»²éÑ¯ÏêÏ¸µØÖ·(std::int64_t ¿ò¼ÜQQ, double ¾­¶È, double Î³¶È);
-	std::string È¡²å¼ş×ÔÉí°æ±¾ºÅ();
-	std::string ÉÏ´«ÈºÁÙÊ±ÎÄ¼şs(std::int64_t ¿ò¼ÜQQ, std::int64_t ºÃÓÑQQ, std::int64_t ¶Ô·½QQ, std::int64_t ÈººÅ, std::string ÎÄ¼şÂ·¾¶, std::uintptr_t ÉÏ´«½ø¶È»Øµ÷º¯Êı/*void func(int64 ¿ò¼ÜQQ,int64 ºÃÓÑQQ,eString ±¾µØÎÄ¼şÂ·¾¶,int32 ×Ü³¤¶È,int32 ÒÑÉÏ´«³¤¶È),´íÎóµÄº¯Êı¸ñÊ½½«µ¼ÖÂ±ÀÀ£*/, std::int64_t& Random, std::int32_t& Req);
-	bool É¾³ıËµËµ(std::int64_t ¿ò¼ÜQQ, std::string ËµËµfeedskey);
-	std::string ÉÏ´«QQ·âÃæ(std::int64_t ¿ò¼ÜQQ, std::int8_t* Í¼Æ¬);
-	std::string arkÏûÏ¢Ç©Ãû(std::int64_t ¿ò¼ÜQQ, nlohmann::json json);
-	const std::int8_t* silk½âÂë(std::string ÒôÆµÎÄ¼şÂ·¾¶);
-	const std::int8_t* silk±àÂë(std::string ÒôÆµÎÄ¼şÂ·¾¶);
-	const std::int8_t* amr±àÂë(std::string ÒôÆµÎÄ¼şÂ·¾¶);
+	const char* åˆå§‹åŒ–(const char* _pluginkey, const char* _apidata, std::string æ’ä»¶åç§°, std::string æ’ä»¶ä½œè€…, std::string æ’ä»¶ç‰ˆæœ¬, std::string æ’ä»¶è¯´æ˜,  std::int32_t è¢«å¯ç”¨å¤„ç†å‡½æ•°,  std::int32_t è¢«ç¦ç”¨å¤„ç†å‡½æ•°,  std::int32_t å°†è¢«å¸è½½å¤„ç†å‡½æ•°,  std::int32_t æ’ä»¶èœå•å¤„ç†å‡½æ•°,  std::int32_t ç§èŠæ¶ˆæ¯å¤„ç†å‡½æ•°,  std::int32_t ç¾¤èŠæ¶ˆæ¯å¤„ç†å‡½æ•°,  std::int32_t é¢‘é“æ¨é€ç»Ÿä¸€å¤„ç†å‡½æ•°,  std::int32_t äº‹ä»¶æ¶ˆæ¯å¤„ç†å‡½æ•°);
+	std::string è¾“å‡ºæ—¥å¿—(std::string æ—¥å¿—,  std::int32_t æ–‡å­—é¢œè‰² = 32768,  std::int32_t èƒŒæ™¯é¢œè‰² = 16777215);
+	std::string å‘é€å¥½å‹æ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t å¥½å‹QQ, std::string å‘é€å†…å®¹, std::int64_t& Random, std::int32_t& Req);
+	std::string å‘é€ç¾¤æ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·,std::string å‘é€å†…å®¹,bool åŒ¿åå‘é€);
+	std::string å‘é€ç¾¤ä¸´æ—¶æ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤ID, std::int64_t å¯¹æ–¹QQ, std::string å‘é€å†…å®¹, std::int64_t& Random, std::int32_t& Req);
+	std::string æ·»åŠ å¥½å‹(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, std::string é—®é¢˜ç­”æ¡ˆ, std::string å¤‡æ³¨);
+	std::string æ·»åŠ ç¾¤(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string éªŒè¯æ¶ˆæ¯);
+	std::string åˆ é™¤å¥½å‹(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ);
+	std::string ç½®å±è”½å¥½å‹(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, bool æ˜¯å¦å±è”½);
+	std::string ç½®ç‰¹åˆ«å…³å¿ƒå¥½å‹(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, bool æ˜¯å¦å…³å¿ƒ);
+	std::string å‘é€å¥½å‹jsonæ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, std::string jsonä»£ç , std::int64_t& Random, std::int32_t& Req);
+	std::string å‘é€ç¾¤jsonæ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string jsonä»£ç , bool åŒ¿åå‘é€);
+	std::string ä¸Šä¼ å¥½å‹å›¾ç‰‡(std::int64_t æ¡†æ¶QQ, std::int64_t å¥½å‹QQ, bool æ˜¯å¦é—ªç…§, const std::int8_t* pic, std::int32_t å®½åº¦ = 0, std::int32_t é«˜åº¦ = 0, bool åŠ¨å›¾ = false, std::string é¢„è§ˆæ–‡å­— = "[å›¾ç‰‡]");
+	std::string ä¸Šä¼ ç¾¤å›¾ç‰‡(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool æ˜¯å¦é—ªç…§, const std::int8_t* pic, std::int32_t å®½åº¦ = 0, std::int32_t é«˜åº¦ = 0, bool åŠ¨å›¾ = false, std::string é¢„è§ˆæ–‡å­— = "[å›¾ç‰‡]");
+	std::string ä¸Šä¼ å¥½å‹è¯­éŸ³(std::int64_t æ¡†æ¶QQ, std::int64_t å¥½å‹QQ, std::int32_t è¯­éŸ³ç±»å‹, std::string è¯­éŸ³æ–‡å­—, const std::int8_t* audio, std::int32_t æ—¶é•¿);
+	std::string ä¸Šä¼ ç¾¤è¯­éŸ³(std::int64_t æ¡†æ¶QQ, std::int64_t å¥½å‹QQ, std::int32_t è¯­éŸ³ç±»å‹, std::string è¯­éŸ³æ–‡å­—, const std::int8_t* audio, std::int32_t æ—¶é•¿);
+	std::string ä¸Šä¼ å¤´åƒ(std::int64_t æ¡†æ¶QQ, const std::int8_t* pic);
+	std::string è®¾ç½®ç¾¤åç‰‡(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t ç¾¤æˆå‘˜QQ, std::string æ–°åç‰‡);
+	std::string å–æ˜µç§°_ä»ç¼“å­˜(std::string å¯¹æ–¹QQ);
+	std::string å¼ºåˆ¶å–æ˜µç§°(std::int64_t æ¡†æ¶QQ, std::string å¯¹æ–¹QQ);
+	std::string å–ç¾¤åç§°_ä»ç¼“å­˜(std::string ç¾¤å·);
+	std::string è·å–skey(std::int64_t æ¡†æ¶QQ);
+	std::string è·å–pskey(std::int64_t æ¡†æ¶QQ, std::string åŸŸ);
+	std::string è·å–clientkey(std::int64_t æ¡†æ¶QQ);
+	nlohmann::json å–æ¡†æ¶QQ();
+	std::int32_t å–å¥½å‹åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::vector<å¥½å‹ä¿¡æ¯>& æ•°æ®);
+	std::int32_t å–ç¾¤åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::vector<ç¾¤ä¿¡æ¯>& æ•°æ®);
+	std::int32_t å–ç¾¤æˆå‘˜åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::vector<ç¾¤æˆå‘˜ä¿¡æ¯>& æ•°æ®);
+	bool è®¾ç½®ç®¡ç†å‘˜(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t ç¾¤æˆå‘˜QQ, bool å–æ¶ˆç®¡ç†);
+	std::string å–ç®¡ç†å±‚åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	std::string å–ç¾¤åç‰‡(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t ç¾¤æˆå‘˜QQ);
+	std::string å–ä¸ªæ€§ç­¾å(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ);
+	bool ä¿®æ”¹æ˜µç§°(std::int64_t æ¡†æ¶QQ, std::string æ˜µç§°);
+	bool ä¿®æ”¹ä¸ªæ€§ç­¾å(std::int64_t æ¡†æ¶QQ, std::string ç­¾å, std::string ç­¾ååœ°ç‚¹);
+	bool åˆ é™¤ç¾¤æˆå‘˜(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t ç¾¤æˆå‘˜QQ, bool æ‹’ç»åŠ ç¾¤ç”³è¯·);
+	bool ç¦è¨€ç¾¤æˆå‘˜(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t ç¾¤æˆå‘˜QQ, std::int32_t ç¦è¨€æ—¶é•¿);
+	bool é€€ç¾¤(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	bool è§£æ•£ç¾¤(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	bool ä¸Šä¼ ç¾¤å¤´åƒ(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, const std::int8_t* pic);
+	bool å…¨å‘˜ç¦è¨€(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool æ˜¯å¦å¼€å¯);
+	bool ç¾¤æƒé™_å‘èµ·æ–°çš„ç¾¤èŠ(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool æ˜¯å¦å…è®¸);
+	bool ç¾¤æƒé™_å‘èµ·ä¸´æ—¶ä¼šè¯(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool æ˜¯å¦å…è®¸);
+	bool ç¾¤æƒé™_ä¸Šä¼ æ–‡ä»¶(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool æ˜¯å¦å…è®¸);
+	bool ç¾¤æƒé™_ä¸Šä¼ ç›¸å†Œ(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool æ˜¯å¦å…è®¸);
+	bool ç¾¤æƒé™_é‚€è¯·å¥½å‹åŠ ç¾¤(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool æ˜¯å¦å…è®¸);
+	bool ç¾¤æƒé™_åŒ¿åèŠå¤©(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool æ˜¯å¦å…è®¸);
+	bool ç¾¤æƒé™_å¦ç™½è¯´(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool æ˜¯å¦å…è®¸);
+	bool ç¾¤æƒé™_æ–°æˆå‘˜æŸ¥çœ‹å†å²æ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool æ˜¯å¦å…è®¸);
+	bool ç¾¤æƒé™_é‚€è¯·æ–¹å¼è®¾ç½®(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, å®¡æ ¸æ–¹å¼ æ–¹å¼);
+	bool æ’¤å›æ¶ˆæ¯_ç¾¤èŠ(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t Random, std::int32_t Req);
+	bool æ’¤å›æ¶ˆæ¯_ç§èŠæœ¬èº«(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, std::int64_t Random, std::int32_t Req, std::int32_t æ¶ˆæ¯æ¥æ”¶æ—¶é—´);
+	bool è®¾ç½®ä½ç½®å…±äº«(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, double ç»åº¦, double çº¬åº¦, bool æ˜¯å¦å¼€å¯);
+	bool ä¸ŠæŠ¥å½“å‰ä½ç½®(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, double ç»åº¦, double çº¬åº¦);
+	std::int64_t æ˜¯å¦è¢«ç¦è¨€(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	void å¤„ç†ç¾¤éªŒè¯äº‹ä»¶(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºç¾¤å·, std::int64_t è§¦å‘QQ, std::int64_t æ¶ˆæ¯Seq, æ“ä½œç±»å‹ æ“ä½œ, ç¾¤äº‹ä»¶ äº‹ä»¶ç±»å‹, std::string æ‹’ç»ç†ç”±);
+	void å¤„ç†ç¾¤éªŒè¯äº‹ä»¶(std::int64_t æ¡†æ¶QQ, std::int64_t è§¦å‘QQ, std::int64_t æ¶ˆæ¯Seq, æ“ä½œç±»å‹ æ“ä½œ);
+	void æŸ¥çœ‹è½¬å‘èŠå¤©è®°å½•å†…å®¹(std::int64_t æ¡†æ¶QQ, std::string resId, ç¾¤æ¶ˆæ¯æ•°æ® æ¶ˆæ¯å†…å®¹);
+	std::string ä¸Šä¼ ç¾¤æ–‡ä»¶(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string æ–‡ä»¶è·¯å¾„, std::string æ–‡ä»¶å¤¹å);
+	std::string åˆ›å»ºç¾¤æ–‡ä»¶å¤¹(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string æ–‡ä»¶å¤¹å);
+	std::string é‡å‘½åç¾¤æ–‡ä»¶å¤¹(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string æ—§æ–‡ä»¶å¤¹å, std::string æ–°æ–‡ä»¶å¤¹å);
+	std::string åˆ é™¤ç¾¤æ–‡ä»¶å¤¹(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string æ–‡ä»¶å¤¹å);
+	std::string åˆ é™¤ç¾¤æ–‡ä»¶(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string æ–‡ä»¶fileid, std::string æ–‡ä»¶å¤¹å);
+	std::string ä¿å­˜æ–‡ä»¶åˆ°å¾®äº‘(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string æ–‡ä»¶fileid);
+	std::string ç§»åŠ¨ç¾¤æ–‡ä»¶(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string æ–‡ä»¶fileid, std::string å½“å‰æ–‡ä»¶å¤¹å, std::string ç›®æ ‡æ–‡ä»¶å¤¹å);
+	std::string å–ç¾¤æ–‡ä»¶åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string æ–‡ä»¶å¤¹å, std::vector<ç¾¤æ–‡ä»¶ä¿¡æ¯>& æ•°æ®);
+	bool è®¾ç½®åœ¨çº¿çŠ¶æ€(std::int64_t æ¡†æ¶QQ, åœ¨çº¿çŠ¶æ€ main, åœ¨çº¿çŠ¶æ€V2 sun, std::int32_t ç”µé‡);
+	std::string å–æ’ä»¶æ•°æ®ç›®å½•();
+	std::string QQç‚¹èµ(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ);
+	std::string å–å›¾ç‰‡ä¸‹è½½åœ°å€(std::string å›¾ç‰‡ä»£ç , std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	bool æŸ¥è¯¢å¥½å‹ä¿¡æ¯(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, å¥½å‹ä¿¡æ¯& æ•°æ®);
+	bool æŸ¥è¯¢ç¾¤ä¿¡æ¯(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, ç¾¤å¡ç‰‡ä¿¡æ¯& æ•°æ®);
+	void æ¡†æ¶é‡å¯();
+	bool ç¾¤æ–‡ä»¶è½¬å‘è‡³ç¾¤(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºç¾¤å·, std::int64_t ç›®æ ‡ç¾¤å·, std::string fileId);
+	bool ç¾¤æ–‡ä»¶è½¬å‘è‡³å¥½å‹(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºç¾¤å·, std::int64_t ç›®æ ‡QQ, std::string fileId, std::string filename, std::int64_t filesize, std::int32_t& Req, std::int64_t& Random, std::int32_t& time);
+	bool å¥½å‹æ–‡ä»¶è½¬å‘è‡³å¥½å‹(std::int64_t æ¡†æ¶QQ, std::int64_t ç›®æ ‡QQ, std::string fileId, std::string filename, std::int64_t filesize, std::int32_t& Req, std::int64_t& Random, std::int32_t& time);
+	bool ç½®ç¾¤æ¶ˆæ¯æ¥æ”¶(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, æ¥æ”¶ç±»å‹ è®¾ç½®ç±»å‹);
+	std::string å–å¥½å‹åœ¨çº¿çŠ¶æ€(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ);
+	std::string å–QQé’±åŒ…ä¸ªäººä¿¡æ¯(std::int64_t æ¡†æ¶QQ, QQé’±åŒ…ä¿¡æ¯& æ•°æ®);
+	std::string è·å–è®¢å•è¯¦æƒ…(std::int64_t æ¡†æ¶QQ, std::string è®¢å•å·, è®¢å•è¯¦æƒ…& æ•°æ®);
+	std::string æäº¤æ”¯ä»˜éªŒè¯ç (std::int64_t æ¡†æ¶QQ, éªŒè¯ç ä¿¡æ¯& ä¿¡æ¯, std::string éªŒè¯ç , std::string æ”¯ä»˜å¯†ç );
+	bool åˆ†äº«éŸ³ä¹(std::int64_t æ¡†æ¶QQ, std::int64_t åˆ†äº«å¯¹è±¡, std::string æ­Œæ›²å, std::string æ­Œæ‰‹å, std::string è·³è½¬åœ°å€, std::string å°é¢åœ°å€, std::string æ–‡ä»¶åœ°å€, éŸ³ä¹åº”ç”¨ç±»å‹ åº”ç”¨ç±»å‹, éŸ³ä¹åˆ†äº«ç±»å‹ åˆ†äº«ç±»å‹);
+	bool æ›´æ”¹ç¾¤èŠæ¶ˆæ¯å†…å®¹(std::int32_t æ•°æ®æŒ‡é’ˆ, std::string æ–°æ¶ˆæ¯å†…å®¹);
+	bool æ›´æ”¹ç§èŠæ¶ˆæ¯å†…å®¹(std::int32_t æ•°æ®æŒ‡é’ˆ, std::string æ–°æ¶ˆæ¯å†…å®¹);
+	std::string ç¾¤èŠå£ä»¤çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t ç¾¤å·, std::string å£ä»¤, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string ç¾¤èŠæ‹¼æ‰‹æ°”çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t ç¾¤å·, std::string ç¥ç¦è¯­, std::int32_t çº¢åŒ…çš®è‚¤Id, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string ç¾¤èŠæ™®é€šçº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t ç¾¤å·, std::string ç¥ç¦è¯­, std::int32_t çº¢åŒ…çš®è‚¤Id, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string ç¾¤èŠç”»å›¾çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t ç¾¤å·, std::string é¢˜ç›®å, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string ç¾¤èŠè¯­éŸ³çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t ç¾¤å·, std::string è¯­éŸ³å£ä»¤, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string ç¾¤èŠæ¥é¾™çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t ç¾¤å·, std::string æ¥é¾™å†…å®¹, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string ç¾¤èŠä¸“å±çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t ç¾¤å·, std::string é¢†å–äºº, std::string ç¥ç¦è¯­, bool æ˜¯å¦å‡åˆ†, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string å¥½å‹å£ä»¤çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t å¯¹æ–¹QQ, std::string å£ä»¤, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string å¥½å‹æ™®é€šçº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t å¯¹æ–¹QQ, std::string ç¥ç¦è¯­, std::int32_t çº¢åŒ…çš®è‚¤Id, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string å¥½å‹ç”»å›¾çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t å¯¹æ–¹QQ, std::string é¢˜ç›®å, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string å¥½å‹è¯­éŸ³çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t å¯¹æ–¹QQ, std::string è¯­éŸ³å£ä»¤, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string å¥½å‹æ¥é¾™çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t å¯¹æ–¹QQ, std::string æ¥é¾™å†…å®¹, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	bool è®¾ç½®ä¸“å±å¤´è¡”(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t å¯¹æ–¹QQ, std::string å¤´è¡”);
+	bool ä¸‹çº¿æŒ‡å®šQQ(std::int64_t æ¡†æ¶QQ);
+	bool ç™»å½•æŒ‡å®šQQ(std::int64_t æ¡†æ¶QQ);
+	std::int32_t å–ç¾¤æœªé¢†çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::vector<ç¾¤æœªé¢†çº¢åŒ…æ•°æ®>& æ•°æ®);
+	bool å‘é€è¾“å…¥çŠ¶æ€(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, è¾“å…¥çŠ¶æ€ çŠ¶æ€);
+	bool ä¿®æ”¹èµ„æ–™(std::int64_t æ¡†æ¶QQ, std::string æ˜µç§°, æ€§åˆ«ç±»å‹ æ€§åˆ«, std::string ç”Ÿæ—¥, èŒä¸šç±»å‹ èŒä¸š, std::string å…¬å¸å, std::string æ‰€åœ¨åœ°, std::string å®¶ä¹¡, std::string é‚®ç®±, std::string ä¸ªäººè¯´æ˜);
+	std::string å–ç¾¤æ–‡ä»¶ä¸‹è½½åœ°å€(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºç¾¤å·, std::string æ–‡ä»¶id, std::string æ–‡ä»¶å);
+	void æ‰“å¥½å‹ç”µè¯(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ);
+	bool å¤´åƒåŒå‡»_å¥½å‹(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ);
+	bool å¤´åƒåŒå‡»_ç¾¤(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, std::int64_t ç¾¤å·);
+	std::string å–ç¾¤æˆå‘˜ç®€ç•¥ä¿¡æ¯(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, ç¾¤æˆå‘˜çŠ¶å†µç®€ç•¥ä¿¡æ¯& æ•°æ®);
+	bool ç¾¤èŠç½®é¡¶(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool ç½®é¡¶);
+	bool ç§èŠç½®é¡¶(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, bool ç½®é¡¶);
+	std::string å–åŠ ç¾¤é“¾æ¥(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	bool è®¾ä¸ºç²¾å(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int32_t æ¶ˆæ¯Req, std::int64_t æ¶ˆæ¯Random);
+	bool ç¾¤æƒé™_è®¾ç½®ç¾¤æ˜µç§°è§„åˆ™(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string åç‰‡è§„åˆ™);
+	bool ç¾¤æƒé™_è®¾ç½®ç¾¤å‘è¨€é¢‘ç‡(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int32_t åç‰‡è§„åˆ™);
+	bool ç¾¤æƒé™_è®¾ç½®ç¾¤æŸ¥æ‰¾æ–¹å¼(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, æŸ¥æ‰¾ç±»å‹ æŸ¥æ‰¾æ–¹å¼);
+	bool é‚€è¯·å¥½å‹åŠ ç¾¤(std::int64_t æ¡†æ¶QQ, std::int64_t ç›®æ ‡ç¾¤å·, std::int64_t å¯¹æ–¹QQ, std::int64_t æ¥æºç¾¤å·);
+	bool ç½®ç¾¤å†…æ¶ˆæ¯é€šçŸ¥(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t å¯¹æ–¹QQ, std::int32_t é€šçŸ¥ç±»å‹);
+	bool ä¿®æ”¹ç¾¤åç§°(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string åç§°);
+	void é‡è½½è‡ªèº«(std::string æ–°æ–‡ä»¶è·¯å¾„);
+	void ä¸‹çº¿å…¶ä»–è®¾å¤‡(std::int64_t æ¡†æ¶QQ, bool ç§»åŠ¨è®¾å¤‡, std::int32_t appid);
+	bool ç™»å½•ç½‘é¡µå–ck(std::int64_t æ¡†æ¶QQ, std::string å›è°ƒè·³è½¬åœ°å€, std::string appid, std::string daid, std::string cookie);
+	std::string å‘é€ç¾¤å…¬å‘Š(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string æ ‡é¢˜, std::string å†…å®¹, std::int8_t* å›¾ç‰‡, std::string è§†é¢‘, bool å¼¹çª—å±•ç¤º, bool éœ€è¦ç¡®è®¤, bool ç½®é¡¶, bool å‘é€ç»™æ–°æˆå‘˜, bool å¼•å¯¼ä¿®æ”¹ç¾¤æ˜µç§°);
+	std::string å–æ¡†æ¶ç‰ˆæœ¬();
+	std::string å–ç¾¤æˆå‘˜ä¿¡æ¯(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t å¯¹æ–¹QQ, ç¾¤æˆå‘˜ä¿¡æ¯V2& æ•°æ®);
+	std::string å–é’±åŒ…cookie(std::int64_t æ¡†æ¶QQ);
+	std::string å–ç¾¤ç½‘é¡µcookie(std::int64_t æ¡†æ¶QQ);
+	std::string è½¬è´¦(std::int64_t æ¡†æ¶QQ, std::int32_t è½¬è´¦é‡‘é¢, std::int64_t å¯¹æ–¹QQ, std::string è½¬è´¦ç•™è¨€, è½¬è´¦ç±»å‹ ç±»å‹, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string å–æ”¶æ¬¾é“¾æ¥(std::int64_t æ¡†æ¶QQ, std::int32_t æ”¶æ¬¾é‡‘é¢, std::string è¯´æ˜æ–‡æœ¬);
+	std::string å–ç¾¤å°è§†é¢‘ä¸‹è½½åœ°å€(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºç¾¤å·, std::int64_t æ¥æºQQ, std::string param, std::string hash1, std::string æ–‡ä»¶å);
+	std::string å–ç§èŠå°è§†é¢‘ä¸‹è½½åœ°å€(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºQQ, std::string param, std::string hash1, std::string æ–‡ä»¶å);
+	std::string ä¸Šä¼ å°è§†é¢‘(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string æœ¬åœ°å°è§†é¢‘è·¯å¾„, std::int8_t* å°è§†é¢‘å°é¢å›¾, std::int32_t å®½åº¦, std::int32_t é«˜åº¦, std::int32_t æ—¶é•¿);
+	std::string å‘é€å¥½å‹xmlæ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t å¥½å‹QQ, std::string xmlä»£ç , std::int64_t& Random, std::int32_t& Req);
+	std::string å‘é€ç¾¤xmlæ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string xmlä»£ç , bool åŒ¿åå‘é€);
+	nlohmann::json å–ç¾¤æˆå‘˜æ¦‚å†µ(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	nlohmann::json æ·»åŠ å¥½å‹_å–éªŒè¯ç±»å‹(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ);
+	nlohmann::json ç¾¤èŠæ‰“å¡(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	bool ç¾¤èŠç­¾åˆ°(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string é™„åŠ å‚æ•°);
+	bool ç½®ç¾¤èŠå¤‡æ³¨(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string å¤‡æ³¨);
+	std::string çº¢åŒ…è½¬å‘(std::int64_t æ¡†æ¶QQ, std::string çº¢åŒ…ID, std::int64_t ç›®æ ‡å¯¹è±¡, std::int32_t Type);//1ä¸ºå¥½å‹,2ä¸ºç¾¤,3ä¸ºè®¨è®ºç»„
+	bool å‘é€æ•°æ®åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t åŒ…ä½“åºå·, std::int32_t æœ€å¤§ç­‰å¾…æ—¶é•¿, std::int8_t* æ•°æ®);
+	std::int32_t è¯·æ±‚ssoseq(std::int64_t æ¡†æ¶QQ);
+	std::string å–sessionkey(std::int64_t æ¡†æ¶QQ);
+	std::string è·å–bkn_gtk(std::int64_t æ¡†æ¶QQ, std::string è‡ªå®šä¹‰bkn_gtk);
+	bool ç½®å¥½å‹éªŒè¯æ–¹å¼(std::int64_t æ¡†æ¶QQ, std::int32_t éªŒè¯æ–¹å¼, std::string Q_and_A);//1ï¼šç¦æ­¢ä»»ä½•äººæ·»åŠ  2ï¼šå…è®¸ä»»ä½•äººæ·»åŠ  3ï¼šéœ€è¦éªŒè¯ä¿¡æ¯ 4ï¼šéœ€è¦æ­£ç¡®å›ç­”é—®é¢˜ 5ï¼šéœ€è¦å›ç­”é—®é¢˜å¹¶ç”±æˆ‘ç¡®è®¤
+	std::string ä¸Šä¼ ç…§ç‰‡å¢™å›¾ç‰‡(std::int64_t æ¡†æ¶QQ, std::int8_t* pic);
+	std::string ä»˜æ¬¾(std::int64_t æ¡†æ¶QQ, std::string QrcodeUrl, std::int32_t é“¶è¡Œå¡åºåˆ—, std::string æ”¯ä»˜å¯†ç , éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string ä¿®æ”¹æ”¯ä»˜å¯†ç (std::int64_t æ¡†æ¶QQ, std::string åŸå¯†ç , std::string æ–°å¯†ç );
+	std::string è´¦å·æœç´¢(std::int64_t æ¡†æ¶QQ, std::string å…³é”®è¯);
+	nlohmann::json æ·»åŠ ç¾¤_å–éªŒè¯ç±»å‹(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	nlohmann::json è·å–çº¢åŒ…é¢†å–è¯¦æƒ…(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºç¾¤å·, std::string çº¢åŒ…æ–‡æœ¬ä»£ç , std::string çº¢åŒ…ç±»å‹);
+	std::string å–å¥½å‹æ–‡ä»¶ä¸‹è½½åœ°å€(std::int64_t æ¡†æ¶QQ, std::string FileId, std::string FileName);
+	bool åˆ é™¤ç¾¤æˆå‘˜_æ‰¹é‡(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::vector<std::int64_t>& ç¾¤æˆå‘˜QQ, bool æ‹’ç»åŠ ç¾¤ç”³è¯·);
+	std::string å–æ‰©åˆ—èµ„æ–™(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ);
+	std::string å–èµ„æ–™å±•ç¤ºè®¾ç½®(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, èµ„æ–™å±•ç¤ºè®¾ç½®æ•°æ®& æ•°æ®);
+	std::string è®¾ç½®èµ„æ–™å±•ç¤º(std::int64_t æ¡†æ¶QQ, èµ„æ–™å±•ç¤ºè®¾ç½®æ•°æ® æ•°æ®);
+	std::string è·å–å½“å‰ç™»å½•è®¾å¤‡ä¿¡æ¯(std::int64_t æ¡†æ¶QQ, ç™»å½•è®¾å¤‡ä¿¡æ¯& ä¿¡æ¯);
+	bool æå–å›¾ç‰‡æ–‡å­—(std::int64_t æ¡†æ¶QQ, std::string å›¾ç‰‡åœ°å€, std::string& è¯†åˆ«ç»“æœ);
+	std::string å–æ’ä»¶æ–‡ä»¶å();
+	void TEAåŠ å¯†(std::int8_t*& å†…å®¹, std::int8_t* ç§˜é’¥);
+	void TEAè§£å¯†(std::int8_t*& å†…å®¹, std::int8_t* ç§˜é’¥);
+	std::string çº¢åŒ…æ•°æ®åŠ å¯†(std::string str, std::int32_t random);
+	std::string çº¢åŒ…æ•°æ®è§£å¯†(std::string str, std::int32_t random);
+	std::string çº¢åŒ…msgnoè®¡ç®—(std::int64_t ç›®æ ‡QQ);
+	bool å–æ¶ˆç²¾å(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int32_t æ¶ˆæ¯Req, std::int64_t æ¶ˆæ¯Random);
+	bool ç¾¤æƒé™_è®¾ç½®åŠ ç¾¤æ–¹å¼(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int32_t åŠ ç¾¤æ–¹å¼, std::string é—®é¢˜, std::string ç­”æ¡ˆ); //é»˜è®¤0, 0å…è®¸ä»»ä½•äºº 1éœ€è¦å‘é€éªŒè¯æ¶ˆæ¯ 2éœ€è¦å›ç­”é—®é¢˜å¹¶ç”±ç®¡ç†å‘˜å®¡æ ¸ 3éœ€è¦æ­£ç¡®å›ç­”é—®é¢˜ 4ä¸å…è®¸ä»»ä½•äººåŠ ç¾¤
+	bool ç¾¤æƒé™_ç¾¤å¹¸è¿å­—ç¬¦(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool æ˜¯å¦å¼€å¯);
+	bool ç¾¤æƒé™_ä¸€èµ·å†™(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, bool æ˜¯å¦å…è®¸);
+	std::string å–QQç©ºé—´cookie(std::int64_t æ¡†æ¶QQ);
+	bool æ¡†æ¶æ˜¯å¦ä¸ºå•Q();
+	bool ä¿®æ”¹æŒ‡å®šQQç¼“å­˜å¯†ç (std::int64_t æ¡†æ¶QQ, std::string æ–°å¯†ç );
+	void å¤„ç†ç¾¤éªŒè¯äº‹ä»¶_é£é™©å·(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºç¾¤å·, std::int64_t è§¦å‘QQ, std::int64_t æ¶ˆæ¯Seq, æ“ä½œç±»å‹ æ“ä½œ, ç¾¤äº‹ä»¶ äº‹ä»¶ç±»å‹, std::string æ‹’ç»ç†ç”±);
+	std::int32_t æŸ¥è¯¢ç½‘å€å®‰å…¨æ€§(std::int64_t æ¡†æ¶QQ, std::string ç½‘å€);//403æ— æƒé™,404æ¡†æ¶QQä¸å­˜åœ¨,405æ¡†æ¶QQæœªç™»å½•,0æ­£å¸¸è®¿é—®,-1æŸ¥è¯¢å¤±è´¥,1åŒ…å«ä¸å®‰å…¨å†…å®¹,2éå®˜æ–¹é¡µé¢,3æœªçŸ¥çŠ¶æ€
+	std::string æ¶ˆæ¯åˆå¹¶è½¬å‘è‡³å¥½å‹(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, std::vector<ç¾¤æ¶ˆæ¯æ•°æ®> èŠå¤©è®°å½•, std::int64_t& Random, std::int32_t& Req, std::string æ¶ˆæ¯è®°å½•æ¥æº);
+	std::string æ¶ˆæ¯åˆå¹¶è½¬å‘è‡³ç¾¤(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::vector<ç¾¤æ¶ˆæ¯æ•°æ®> èŠå¤©è®°å½•, bool åŒ¿åå‘é€, std::string æ¶ˆæ¯è®°å½•æ¥æº);
+	std::string å–å¡ç‰‡æ¶ˆæ¯ä»£ç (std::string å¡ç‰‡æ¶ˆæ¯æ–‡æœ¬ä»£ç );
+	bool ç¦è¨€ç¾¤åŒ¿å(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string åŒ¿åæ˜µç§°, std::int8_t* åŒ¿åæ ‡è¯†, std::int32_t ç¦è¨€æ—¶é•¿);
+	std::int32_t ç½®æ–‡ä»¶ä¸‹è½½(std::string æ–‡ä»¶ä¸‹è½½åœ°å€, std::string æ–‡ä»¶ä¿å­˜è·¯å¾„, std::uintptr_t ä¸‹è½½å›è°ƒå‡½æ•°/*æ— è¿”å›å€¼ (æ–‡ä»¶æ€»é•¿åº¦ é•¿æ•´æ•°å‹,æ–‡ä»¶å·²ä¸‹è½½é•¿åº¦ é•¿æ•´æ•°å‹,æ–‡ä»¶å æ–‡æœ¬å‹) é”™è¯¯çš„å›è°ƒå‡½æ•°å°†å¯¼è‡´å´©æºƒ*/, std::string æ–‡ä»¶å, std::int32_t ä¸‹è½½èµ·ç‚¹);
+	std::string é¢†å–ç§èŠæ™®é€šçº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºQQ, std::string çº¢åŒ…æ–‡æœ¬ä»£ç , std::int32_t ç±»å‹);//0å¥½å‹çº¢åŒ…,1ç¾¤ä¸´æ—¶çº¢åŒ…
+	std::string é¢†å–ç¾¤èŠä¸“å±çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºç¾¤å·, std::int64_t æ¥æºQQ, std::string çº¢åŒ…æ–‡æœ¬ä»£ç );
+	bool åŠ è½½ç½‘é¡µ(std::string ç½‘å€);
+	void å‹ç¼©åŒ…_7zaè§£å‹(std::string å‹ç¼©åŒ…è·¯å¾„, std::string è§£å‹ä¿å­˜è·¯å¾„, std::string è§£å‹å¯†ç , bool è·³è¿‡å·²å­˜åœ¨çš„æ–‡ä»¶);
+	void å‹ç¼©åŒ…_7zaå‹ç¼©(std::string ä¿å­˜è·¯å¾„, std::string æ¬²å‹ç¼©çš„æ–‡ä»¶, std::string å‹ç¼©æ ¼å¼, std::int32_t å‹ç¼©ç­‰çº§, std::string å‹ç¼©å¯†ç );
+	std::string å‘é€è®¨è®ºç»„æ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t è®¨è®ºç»„Id, std::string æ¶ˆæ¯å†…å®¹);
+	std::string å‘é€è®¨è®ºç»„jsonæ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t è®¨è®ºç»„Id, nlohmann::json Jsonä»£ç );
+	std::string å‘é€è®¨è®ºç»„xmlæ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t è®¨è®ºç»„Id, std::string Xmlä»£ç );
+	std::string å‘é€è®¨è®ºç»„ä¸´æ—¶æ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t è®¨è®ºç»„Id, std::int64_t å¯¹æ–¹QQ, std::string æ¶ˆæ¯å†…å®¹, std::int64_t& Random, std::int32_t& Req);
+	bool æ’¤å›æ¶ˆæ¯_è®¨è®ºç»„(std::int64_t æ¡†æ¶QQ, std::int64_t è®¨è®ºç»„Id, std::int64_t Random, std::int32_t Req);
+	std::string å›å¤QQå’¨è¯¢ä¼šè¯(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, std::int8_t* ä¼šè¯Token, std::string æ¶ˆæ¯å†…å®¹, std::int64_t& Random, std::int32_t& Req);
+	std::string å‘é€è®¢é˜…å·ç§èŠæ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t è®¢é˜…å·Id, std::string æ¶ˆæ¯å†…å®¹, std::int64_t& Random, std::int32_t& Req);
+	std::string å–è®¨è®ºç»„åç§°_ä»ç¼“å­˜(std::string è®¨è®ºç»„Id);
+	bool ä¿®æ”¹è®¨è®ºç»„åç§°(std::int64_t æ¡†æ¶QQ, std::int64_t è®¨è®ºç»„Id, std::string æ–°åç§°);
+	std::int32_t å–è®¨è®ºç»„æˆå‘˜åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t è®¨è®ºç»„Id, std::vector<è®¨è®ºç»„æˆå‘˜ä¿¡æ¯>& æ•°æ®);
+	std::int64_t å¼ºåˆ¶å–è‡ªèº«åŒ¿åId(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	std::int32_t å–è®¢é˜…å·åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::vector<è®¢é˜…å·ä¿¡æ¯>& æ•°æ®);
+	std::int32_t å–è®¨è®ºç»„åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::vector<è®¨è®ºç»„ä¿¡æ¯>& æ•°æ®);
+	bool é‚€è¯·å¥½å‹åŠ ç¾¤_æ‰¹é‡(std::int64_t æ¡†æ¶QQ, std::int64_t ç›®æ ‡ç¾¤å·, std::vector<std::int64_t> é‚€è¯·QQ, std::int64_t æ¥æºç¾¤å·);
+	bool é‚€è¯·å¥½å‹åŠ å…¥è®¨è®ºç»„_æ‰¹é‡(std::int64_t æ¡†æ¶QQ, std::int64_t ç›®æ ‡è®¨è®ºç»„Id, std::vector<std::int64_t> é‚€è¯·QQ, std::int64_t æ¥æºç¾¤å·);
+	std::string å–æ¡†æ¶åˆ°æœŸæ—¶é—´();
+	std::string è®¨è®ºç»„å£ä»¤çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t è®¨è®ºç»„Id, std::string å£ä»¤, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string è®¨è®ºç»„æ‹¼æ‰‹æ°”çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t è®¨è®ºç»„Id, std::string ç¥ç¦è¯­, std::int32_t çº¢åŒ…çš®è‚¤Id, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string è®¨è®ºç»„æ™®é€šçº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t è®¨è®ºç»„Id, std::string ç¥ç¦è¯­, std::int32_t çº¢åŒ…çš®è‚¤Id, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string è®¨è®ºç»„ç”»å›¾çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t è®¨è®ºç»„Id, std::string é¢˜ç›®å, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string è®¨è®ºç»„è¯­éŸ³çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t è®¨è®ºç»„Id, std::string è¯­éŸ³å£ä»¤, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string è®¨è®ºç»„æ¥é¾™çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t è®¨è®ºç»„Id, std::string æ¥é¾™å†…å®¹, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string è®¨è®ºç»„ä¸“å±çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t è®¨è®ºç»„Id, std::string é¢†å–äºº, std::string ç¥ç¦è¯­, bool æ˜¯å¦å‡åˆ†, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string é¢†å–è®¨è®ºç»„ä¸“å±çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºè®¨è®ºç»„Id, std::int64_t æ¥æºQQ, std::string çº¢åŒ…æ–‡æœ¬ä»£ç );
+	std::int32_t å–è®¨è®ºç»„æœªé¢†çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int64_t è®¨è®ºç»„Id, std::vector<ç¾¤æœªé¢†çº¢åŒ…æ•°æ®>& å–è®¨è®ºç»„æœªé¢†çº¢åŒ…);
+	std::string å–è®¨è®ºç»„æ–‡ä»¶ä¸‹è½½åœ°å€(std::int64_t æ¡†æ¶QQ, std::int64_t è®¨è®ºç»„Id, std::string æ–‡ä»¶id, std::string æ–‡ä»¶å);
+	std::string å‘é€QQå’¨è¯¢ä¼šè¯(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, std::string æ¶ˆæ¯å†…å®¹, std::int64_t& Random, std::int32_t& Req);
+	std::string åˆ›å»ºç¾¤èŠ(std::int64_t æ¡†æ¶QQ, std::vector<std::int64_t> é‚€è¯·QQ, std::int64_t æ¥æºç¾¤å·, std::int64_t& æ–°ç¾¤ç¾¤å·);
+	std::int32_t å–ç¾¤åº”ç”¨åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::vector<ç¾¤åº”ç”¨ä¿¡æ¯>& æ•°æ®);
+	bool é€€å‡ºè®¨è®ºç»„(std::int64_t æ¡†æ¶QQ, std::int64_t è®¨è®ºç»„Id);
+	bool ç¾¤éªŒè¯æ¶ˆæ¯æ¥æ”¶è®¾ç½®(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t å¯¹æ–¹QQ, bool æ¥æ”¶éªŒè¯æ¶ˆæ¯);
+	bool è½¬è®©ç¾¤(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t å¯¹æ–¹QQ);
+	bool ä¿®æ”¹å¥½å‹å¤‡æ³¨(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, std::string å¤‡æ³¨);
+	bool åˆ é™¤è®¨è®ºç»„æˆå‘˜(std::int64_t æ¡†æ¶QQ, std::int64_t è®¨è®ºç»„Id, std::int64_t å¯¹æ–¹QQ);
+	bool è®¨è®ºç»„æ–‡ä»¶è½¬å‘è‡³ç¾¤(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºè®¨è®ºç»„Id, std::int64_t ç›®æ ‡ç¾¤å·, std::string fileId, std::string filename, std::int64_t filesize);
+	bool è®¨è®ºç»„æ–‡ä»¶è½¬å‘è‡³ç¾¤(std::int64_t æ¡†æ¶QQ, std::int64_t æ¥æºè®¨è®ºç»„Id, std::int64_t ç›®æ ‡QQ, std::string fileId, std::string filename, std::int64_t filesize, std::int32_t& Req, std::int64_t& Random, std::int32_t& time);
+	std::string å–QQå¤´åƒ(std::int64_t å¯¹æ–¹QQ, bool é«˜æ¸…åŸå›¾);
+	std::string å–ç¾¤å¤´åƒ(std::int64_t ç›®æ ‡ç¾¤å·);
+	std::string å–å¤§è¡¨æƒ…å›¾ç‰‡ä¸‹è½½åœ°å€(std::string å¤§è¡¨æƒ…æ–‡æœ¬ä»£ç , std::int32_t é•¿, std::int32_t å®½);
+	std::string æ‹‰èµ·ç¾¤æ”¶æ¬¾(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::vector<å¾…ä»˜æ¬¾è€…ä¿¡æ¯> å¾…ä»˜æ¬¾æˆå‘˜, std::string æ”¶æ¬¾ç•™è¨€, std::string& æ”¶æ¬¾è®¢å•å·);
+	std::string ç»“æŸç¾¤æ”¶æ¬¾(std::int64_t æ¡†æ¶QQ, std::string æ”¶æ¬¾è®¢å•å·);
+	std::string æŸ¥è¯¢ç¾¤æ”¶æ¬¾çŠ¶æ€(std::int64_t æ¡†æ¶QQ, std::string æ”¶æ¬¾è®¢å•å·, std::vector<ç¾¤æ”¶æ¬¾ä¿¡æ¯>& æ”¶æ¬¾æ•°æ®);
+	std::string æ”¯ä»˜ç¾¤æ”¶æ¬¾(std::int64_t æ¡†æ¶QQ, std::int64_t æ”¶æ¬¾å‘èµ·äºº, std::string æ”¶æ¬¾è®¢å•å·, std::int32_t æ”¯ä»˜é‡‘é¢, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string æ¶ˆæ¯åˆå¹¶è½¬å‘è‡³è®¨è®ºç»„(std::int64_t æ¡†æ¶QQ, std::int64_t è®¨è®ºç»„Id, std::vector<ç¾¤æ¶ˆæ¯æ•°æ®> èŠå¤©è®°å½•, std::string æ¶ˆæ¯è®°å½•æ¥æº);
+	std::string ç¾¤æ”¶æ¬¾_å‚¬å•(std::int64_t æ¡†æ¶QQ, std::string æ”¶æ¬¾è®¢å•å·);
+	bool å–å¥½å‹Diyåç‰‡æ•°æ®(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, std::string& Diyåç‰‡æ•°æ®);
+	std::string è®¾ç½®Diyåç‰‡(std::int64_t æ¡†æ¶QQ, std::string Diyåç‰‡æ•°æ®);
+	HWND å–æ¡†æ¶ä¸»çª—å£å¥æŸ„();
+	std::string å¥½å‹ç”Ÿåƒ»å­—çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t å¯¹æ–¹QQ, std::string ç”Ÿåƒ»å­—, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string ç¾¤èŠç”Ÿåƒ»å­—çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t ç¾¤å·, std::string ç”Ÿåƒ»å­—, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string è®¨è®ºç»„ç”Ÿåƒ»å­—çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t è®¨è®ºç»„Id, std::string ç”Ÿåƒ»å­—, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string æ”¯ä»˜ä»£ä»˜è¯·æ±‚(std::int64_t æ¡†æ¶QQ, std::string ä»£ä»˜è®¢å•å·, std::int32_t æ”¯ä»˜é‡‘é¢, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	std::string æŸ¥è¯¢ä»£ä»˜çŠ¶æ€(std::int64_t æ¡†æ¶QQ, std::string ä»£ä»˜è®¢å•å·, std::string ä»£ä»˜æ•°æ®);
+	std::string æ‹‰èµ·ä»£ä»˜(std::int64_t æ¡†æ¶QQ, std::string è®¢å•å·, std::string ä»£ä»˜QQåˆ—è¡¨);
+	bool å–å¥½å‹èƒ½é‡å€¼ä¸QID(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, std::int32_t& èƒ½é‡å€¼, std::string& QID);
+	std::int32_t åˆ›å»ºå°æ —å­æ–‡æœ¬ä»£ç è§£æç±»å¯¹è±¡();
+	std::string æ–‡å­—è½¬è¯­éŸ³(std::int64_t æ¡†æ¶QQ, std::string æ–‡æœ¬å†…å®¹, std::int8_t*& è¯­éŸ³ç»“æœ);
+	std::string ç¿»è¯‘(std::int64_t æ¡†æ¶QQ, std::string æºè¯­è¨€è¯­ç§, std::string ç›®æ ‡è¯­è¨€è¯­ç§, std::string åŸæ–‡, std::string& ç¿»è¯‘ç»“æœ);
+	std::string æ’¤å›æ¶ˆæ¯_ç¾¤èŠs(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t Random, std::int32_t Req);
+	std::string QQåˆ—è¡¨_æ·»åŠ æ‰‹è¡¨åè®®QQ(std::int64_t QQ, std::string å“ç‰Œ, std::string å‹å·);
+	std::string QQåˆ—è¡¨_äºŒç»´ç ç™»å½•_æ‹‰å–äºŒç»´ç (std::int64_t QQ, std::int8_t*& äºŒç»´ç æ•°æ®);
+	std::string QQåˆ—è¡¨_äºŒç»´ç ç™»å½•_æŸ¥è¯¢äºŒç»´ç çŠ¶æ€(std::int64_t QQ);
+	bool æ‹ä¸€æ‹å¥½å‹åœ¨çº¿çŠ¶æ€(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ);
+	std::string å‘é€éªŒè¯æ¶ˆæ¯ä¼šè¯æ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, std::string æ¶ˆæ¯å†…å®¹, std::int64_t& æ¶ˆæ¯Random, std::int32_t& æ¶ˆæ¯Req);
+	std::string å›å¤éªŒè¯æ¶ˆæ¯ä¼šè¯æ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ, std::int8_t* ä¼šè¯Token, std::string æ¶ˆæ¯å†…å®¹, std::int64_t& æ¶ˆæ¯Random, std::int32_t& æ¶ˆæ¯Req);
+	std::string å–ç¾¤æ–‡ä»¶å†…å­˜åˆ©ç”¨çŠ¶æ€(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t& å·²ä½¿ç”¨å®¹é‡, std::int64_t& æ€»å®¹é‡);
+	std::string å–ç¾¤æ–‡ä»¶æ€»æ•°(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::int64_t& å·²ä¸Šä¼ æ–‡ä»¶æ•°, std::int64_t& æ–‡ä»¶æ•°é‡ä¸Šé™);
+	std::string ä¸Šä¼ æ¶‚é¸¦(std::int64_t æ¡†æ¶QQ, std::int32_t æ¨¡å‹Id, std::int8_t* æ¶‚é¸¦æ•°æ®);
+	bool åˆ é™¤ç¾¤æˆå‘˜_æ‰¹é‡s(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::vector<æ¬²ç§»é™¤ç¾¤æˆå‘˜åˆ—è¡¨> ç¾¤æˆå‘˜åˆ—è¡¨);
+	std::string ä¸Šä¼ å¥½å‹æ–‡ä»¶s(std::int64_t æ¡†æ¶QQ, std::int64_t å¥½å‹QQ, std::string æ–‡ä»¶è·¯å¾„, std::uintptr_t ä¸Šä¼ è¿›åº¦å›è°ƒå‡½æ•°, std::int64_t& æ¶ˆæ¯Random, std::int32_t& æ¶ˆæ¯Req);//void func(int64 æ¡†æ¶QQ,int64 å¥½å‹QQ,eString æœ¬åœ°æ–‡ä»¶è·¯å¾„,int32 æ€»é•¿åº¦,int32 å·²ä¸Šä¼ é•¿åº¦),é”™è¯¯çš„å‡½æ•°æ ¼å¼å°†å¯¼è‡´å´©æºƒ
+	std::string ä¸Šä¼ ç¾¤æ–‡ä»¶s(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string æ–‡ä»¶è·¯å¾„, std::string æ–‡ä»¶å¤¹å, std::uintptr_t ä¸Šä¼ è¿›åº¦å›è°ƒå‡½æ•°);//void func(int64 æ¡†æ¶QQ,int64 ç¾¤å·,eString æœ¬åœ°æ–‡ä»¶è·¯å¾„,int32 æ€»é•¿åº¦,int32 å·²ä¸Šä¼ é•¿åº¦),é”™è¯¯çš„å‡½æ•°æ ¼å¼å°†å¯¼è‡´å´©æºƒ
+	std::int32_t å–ç¾¤è‰¾ç‰¹å…¨ä½“å‰©ä½™æ¬¡æ•°(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	std::int32_t æ˜¯å¦å·²å¼€å¯QQå’¨è¯¢(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ);
+	std::string åˆ›å»ºç¾¤ç›¸å†Œ(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string ç›¸å†Œå, std::string ç›¸å†Œæè¿°);
+	std::string åˆ é™¤ç¾¤ç›¸å†Œ(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string ç›¸å†ŒId);
+	nlohmann::json å–ç¾¤ç›¸å†Œåˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	nlohmann::json å–ç¾¤ç›¸å†Œç…§ç‰‡åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string ç›¸å†ŒId, std::int32_t è·å–æ•°é‡);
+	nlohmann::json åˆ é™¤ç¾¤ç›¸å†Œç…§ç‰‡(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string ç›¸å†ŒId, std::string ç…§ç‰‡Id);
+	nlohmann::json ä¿®æ”¹ç¾¤ç›¸å†Œä¿¡æ¯(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·, std::string ç›¸å†ŒId, std::string ç›¸å†Œå, std::string ç›¸å†Œæè¿°,bool ç›¸å†Œç½®é¡¶);
+	std::int64_t å–ç¾¤Id_ä»ç¼“å­˜(std::int64_t ç¾¤å·);
+	std::string ä¸Šä¼ é¢‘é“å›¾ç‰‡(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::int8_t* pic, std::int32_t å®½åº¦, std::int32_t é«˜åº¦, bool åŠ¨å›¾);
+	nlohmann::json å‘é€é¢‘é“æ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::string æ¶ˆæ¯å†…å®¹);
+	nlohmann::json å‘é€é¢‘é“ç§ä¿¡æ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t ç§ä¿¡é¢‘é“Id, std::int64_t ç§ä¿¡å­é¢‘é“Id, std::string æ¶ˆæ¯å†…å®¹);
+	bool å–ç§ä¿¡é¢‘é“Id(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t ç›®æ ‡é¢‘é“ç”¨æˆ·Id, std::int64_t& ç§ä¿¡é¢‘é“Id, std::int64_t& ç§ä¿¡å­é¢‘é“Id);
+	bool é¢‘é“æ¶ˆæ¯ç²˜è´´è¡¨æƒ…(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::int32_t æ¶ˆæ¯req, std::string è¡¨æƒ…Id, bool æ˜¯å¦ä¸ºemoji, bool å–æ¶ˆç²˜è´´);
+	std::string æ’¤å›é¢‘é“æ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::int32_t æ¶ˆæ¯req);
+	bool è®¾ç½®å­é¢‘é“ç²¾åæ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::int32_t æ¶ˆæ¯req, bool ç§»é™¤);
+	bool ç¦è¨€é¢‘é“æˆå‘˜(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t é¢‘é“ç”¨æˆ·Id, std::int32_t ç¦è¨€ç§’æ•°);
+	bool è®¾ç½®é¢‘é“å…¨å‘˜ç¦è¨€(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int32_t ç¦è¨€ç§’æ•°);
+	bool ç§»é™¤é¢‘é“æˆå‘˜(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t é¢‘é“ç”¨æˆ·Id, bool æ‹‰å…¥é»‘åå•);
+	bool ç§»é™¤é¢‘é“æˆå‘˜_æ‰¹é‡(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::vector<std::int64_t> é¢‘é“ç”¨æˆ·Idåˆ—è¡¨, bool æ‹‰å…¥é»‘åå•);
+	bool é€€å‡ºé¢‘é“(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id);
+	bool æ›´æ”¹é¢‘é“åç§°(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::string æ–°åç§°, std::int64_t å­—è‰²);
+	bool ä¿®æ”¹é¢‘é“ç®€ä»‹(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::string æ–°ç®€ä»‹);
+	bool è®¾ç½®æˆ‘çš„é¢‘é“æ˜µç§°(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::string é¢‘é“æ˜µç§°);
+	bool ç½®å­é¢‘é“è§‚çœ‹æƒé™(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::int32_t ç±»å‹/*1å…¨éƒ¨æˆå‘˜å¯çœ‹,2æŒ‡å®šæˆå‘˜å¯çœ‹,é»˜è®¤1*/, std::int64_t æŒ‡å®šèº«ä»½ç»„Id, bool æ˜¯å¦å–æ¶ˆèº«ä»½ç»„è§‚çœ‹æƒé™, std::int64_t æŒ‡å®šé¢‘é“æˆå‘˜Id, bool æ˜¯å¦å–æ¶ˆé¢‘é“æˆå‘˜è§‚çœ‹æƒé™);
+	bool ç½®å­é¢‘é“å‘è¨€æƒé™(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::int32_t ç±»å‹/*1å…¨éƒ¨æˆå‘˜å¯çœ‹,2æŒ‡å®šæˆå‘˜å¯å‘è¨€,é»˜è®¤1*/, std::int64_t æŒ‡å®šèº«ä»½ç»„Id, bool æ˜¯å¦å–æ¶ˆèº«ä»½ç»„å‘è¨€æƒé™, std::int64_t æŒ‡å®šé¢‘é“æˆå‘˜Id, bool æ˜¯å¦å–æ¶ˆé¢‘é“æˆå‘˜å‘è¨€æƒé™);
+	bool å­é¢‘é“æ¶ˆæ¯æé†’è®¾ç½®(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, bool å¯¹æˆå‘˜æ‰“å¼€æ¶ˆæ¯æé†’);
+	bool å­é¢‘é“æ…¢é€Ÿæ¨¡å¼è®¾ç½®(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::int32_t æ¨¡å¼);//é»˜è®¤å…³é—­,0å…³é—­,1æ¯åˆ†é’Ÿä¸€æ¡,2æ¯åˆ†é’Ÿä¸¤æ¡,3æ¯åˆ†é’Ÿ5æ¡,4æ¯åˆ†é’Ÿåæ¡,5æ¯5åˆ†é’Ÿ1æ¡,6æ¯10åˆ†é’Ÿ1æ¡,7æ¯15åˆ†é’Ÿä¸€æ¡,8æ¯30åˆ†é’Ÿä¸€æ¡,9æ¯ä¸€å°æ—¶ä¸€æ¡,10æ¯12å°æ—¶ä¸€æ¡,11æ¯24å°æ—¶1æ¡
+	bool ä¿®æ”¹å­é¢‘é“åç§°(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::string æ–°åç§°);
+	bool åˆ é™¤å­é¢‘é“(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id);
+	bool ä¿®æ”¹æˆ‘çš„é¢‘é“ç”¨æˆ·ä¿¡æ¯_æ˜µç§°(std::int64_t æ¡†æ¶QQ, std::string æ–°æ˜µç§°);
+	bool ä¿®æ”¹æˆ‘çš„é¢‘é“ç”¨æˆ·ä¿¡æ¯_æ€§åˆ«(std::int64_t æ¡†æ¶QQ, std::int32_t æ€§åˆ«);//1ç”·,2å¥³,é»˜è®¤ç”·
+	bool ä¿®æ”¹æˆ‘çš„é¢‘é“ç”¨æˆ·ä¿¡æ¯_å¹´é¾„(std::int64_t æ¡†æ¶QQ, std::int32_t å¹´é¾„);
+	bool ä¿®æ”¹æˆ‘çš„é¢‘é“ç”¨æˆ·ä¿¡æ¯_æ‰€åœ¨åœ°(std::int64_t æ¡†æ¶QQ, std::int32_t å›½å®¶ä»£ç , std::string å›½å®¶åç§°, std::int32_t çœä»½ä»£ç , std::string çœä»½åç§°, std::int32_t å¸‚åŒºä»£ç , std::string å¸‚åŒºåç§°);
+	bool è®¾ç½®æ˜¯å¦å…è®¸åˆ«äººç§ä¿¡æˆ‘(std::int64_t æ¡†æ¶QQ, bool ä¸å…è®¸);
+	bool è®¾ç½®é¢‘é“åŠ å…¥éªŒè¯æ–¹å¼(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int32_t éªŒè¯æ–¹å¼/*1å…è®¸ä»»ä½•äºº 2éœ€è¦éªŒè¯æ¶ˆæ¯ 3ä¸å…è®¸ä»»ä½•äºº 4éœ€è¦æ­£ç¡®å›ç­”é—®é¢˜ 5éœ€è¦å›ç­”é—®é¢˜,é»˜è®¤1*/, std::string é—®é¢˜, std::string ç­”æ¡ˆ);
+	std::int32_t æœç´¢é¢‘é“(std::int64_t æ¡†æ¶QQ, std::string å…³é”®è¯, std::int32_t ç¬¬å‡ é¡µ, std::vector<é¢‘é“æœç´¢ç»“æœ>& ç»“æœ);
+	std::string å–é¢‘é“å°é¢(std::int64_t é¢‘é“Id);
+	std::string å–é¢‘é“å¤´åƒ(std::int64_t é¢‘é“Id, bool é«˜æ¸…å¤§å›¾);
+	std::int32_t è·å–é¢‘é“æˆå‘˜åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::vector<é¢‘é“æˆå‘˜ä¿¡æ¯>& ç»“æœ, std::int32_t& ç¿»é¡µæ•°æ®, std::string& ç¿»é¡µä¿¡æ¯);
+	bool å–é¢‘é“ä¿¡æ¯(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, é¢‘é“ä¿¡æ¯& ç»“æœ);
+	bool å–é¢‘é“åŠ å…¥éªŒè¯æ–¹å¼(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int32_t& éªŒè¯æ–¹å¼/*å‚è€ƒä¼ å›,1å…è®¸ä»»ä½•äºº 2éœ€è¦éªŒè¯æ¶ˆæ¯ 3ä¸å…è®¸ä»»ä½•äºº 4éœ€è¦æ­£ç¡®å›ç­”é—®é¢˜ 5éœ€è¦å›ç­”é—®é¢˜*/, std::string& é—®é¢˜);
+	std::string ç”³è¯·åŠ å…¥é¢‘é“(std::int64_t æ¡†æ¶QQ, std::int32_t éªŒè¯æ–¹å¼, std::int64_t é¢‘é“Id, std::string é¢‘é“Token, std::string ç­”æ¡ˆ);//errcode=22010æ˜¯ç”³è¯·æˆåŠŸ
+	std::string å–é¢‘é“æ–‡ä»¶ä¸‹è½½åœ°å€(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::string fileid, std::string filename);
+	nlohmann::json é¢‘é“æ‹¼æ‰‹æ°”çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::string ç¥ç¦è¯­, std::int32_t çº¢åŒ…çš®è‚¤Id, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	nlohmann::json é¢‘é“æ™®é€šçº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::string ç¥ç¦è¯­, std::int32_t çº¢åŒ…çš®è‚¤Id, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	nlohmann::json è®¨è®ºç»„ä¸“å±çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int32_t æ€»æ•°é‡, std::int32_t æ€»é‡‘é¢, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::int64_t é¢†å–äººé¢‘é“ç”¨æˆ·Id, std::string ç¥ç¦è¯­, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—, éªŒè¯ç ä¿¡æ¯& éªŒè¯ç );
+	nlohmann::json é¢†å–é¢‘é“ä¸“å±çº¢åŒ…(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::int64_t å‘é€äººé¢‘é“ç”¨æˆ·Id, std::string çº¢åŒ…æ–‡æœ¬ä»£ç );
+	std::int32_t å–é¢‘é“æˆå‘˜èº«ä»½ç»„(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t é¢‘é“ç”¨æˆ·Id, std::vector<é¢‘é“ç”¨æˆ·èº«ä»½ç»„ä¿¡æ¯>& ç»“æœ);
+	bool è®¾ç½®é¢‘é“æˆå‘˜èº«ä»½ç»„(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t é¢‘é“ç”¨æˆ·Id, std::vector<std::int64_t> èº«ä»½ç»„Idåˆ—è¡¨, bool æ˜¯å¦å–æ¶ˆèº«ä»½ç»„);
+	bool ä¿®æ”¹èº«ä»½ç»„ä¿¡æ¯(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t èº«ä»½ç»„Id, std::string èº«ä»½ç»„å, std::int64_t èº«ä»½ç»„å¤–æ˜¾é¢œè‰²ä»£ç , bool æ˜¯å¦åœ¨æˆå‘˜åˆ—è¡¨ä¸­å•ç‹¬å±•ç¤º);
+	bool åˆ é™¤èº«ä»½ç»„(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t èº«ä»½ç»„Id);
+	std::int64_t æ–°å¢èº«ä»½ç»„(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::string èº«ä»½ç»„å, std::int64_t èº«ä»½ç»„å¤–æ˜¾é¢œè‰²ä»£ç , bool æ˜¯å¦åœ¨æˆå‘˜åˆ—è¡¨ä¸­å•ç‹¬å±•ç¤º);
+	std::int32_t å–é¢‘é“èº«ä»½ç»„åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::vector<é¢‘é“èº«ä»½ç»„ä¿¡æ¯>& ç»“æœ);
+	std::int32_t å–å­é¢‘é“åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::vector<å­é¢‘é“ä¿¡æ¯>& ç»“æœ);
+	std::int32_t å–é¢‘é“ç”¨æˆ·ä¸ªæ€§æ¡£æ¡ˆ(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“ç”¨æˆ·Id, std::vector<é¢‘é“ç”¨æˆ·ä¸ªæ€§æ¡£æ¡ˆä¿¡æ¯>& ç»“æœ);
+	bool å–é¢‘é“ç”¨æˆ·èµ„æ–™(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“ç”¨æˆ·Id, é¢‘é“ç”¨æˆ·ä¿¡æ¯& ç»“æœ);
+	bool åˆ·æ–°é¢‘é“åˆ—è¡¨ç¼“å­˜(std::int64_t æ¡†æ¶QQ);
+	nlohmann::json  å–é¢‘é“åˆ—è¡¨_ä»ç¼“å­˜(std::int64_t æ¡†æ¶QQ);
+	std::string å–é¢‘é“ç”¨æˆ·æ˜µç§°_ä»ç¼“å­˜(std::int64_t é¢‘é“ç”¨æˆ·Id);
+	std::string å–é¢‘é“åç§°_ä»ç¼“å­˜(std::int64_t é¢‘é“Id);
+	std::string å–å­é¢‘é“åç§°_ä»ç¼“å­˜(std::int64_t é¢‘é“Id,std::int64_t å­é¢‘é“Id);
+	std::string å–é¢‘é“æ˜µç§°_ä»ç¼“å­˜(std::int64_t é¢‘é“Id,std::int64_t é¢‘é“ç”¨æˆ·Id);
+	std::int32_t å–å­é¢‘é“åˆ†ç»„åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t å­é¢‘é“Id, std::vector<å­é¢‘é“åˆ†ç»„ä¿¡æ¯>& ç»“æœ);
+	nlohmann::json å–ç§ä¿¡é¢‘é“åˆ—è¡¨_ä»ç¼“å­˜(std::int64_t æ¡†æ¶QQ);
+	std::string ä¸Šä¼ é¢‘é“æ–‡ä»¶(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::string æ–‡ä»¶è·¯å¾„, std::int32_t ä¸Šä¼ è¿›åº¦å›è°ƒå‡½æ•°/*void func(int64 æ¡†æ¶QQ,int64 é¢‘é“Id,int64 å­é¢‘é“Id,eString æœ¬åœ°æ–‡ä»¶è·¯å¾„,int32 æ€»é•¿åº¦,int32 å·²ä¸Šä¼ é•¿åº¦),é”™è¯¯çš„å‡½æ•°æ ¼å¼å°†å¯¼è‡´å´©æºƒ*/, std::int32_t å›¾ç‰‡å®½åº¦, std::int32_t å›¾ç‰‡é«˜åº¦);
+	bool æ›´æ”¹é¢‘é“æ¶ˆæ¯å†…å®¹(std::int32_t æ•°æ®æŒ‡é’ˆ, std::string æ–°æ¶ˆæ¯å†…å®¹);
+	std::string Emojiè½¬é¢‘é“EmojiId(std::string Emojiä»£ç );
+	std::string é¢‘é“EmojiIdè½¬Emoji(std::string é¢‘é“EmojiId);
+	std::string Emojiè½¬QQç©ºé—´EmId(std::string Emojiä»£ç );
+	std::string QQç©ºé—´EmIdè½¬Emoji(std::string QQç©ºé—´EmId);
+	std::string å°é»„è±†Idè½¬QQç©ºé—´EmId(std::string å°é»„è±†Id);
+	std::string QQç©ºé—´EmIdè½¬å°é»„è±†Id(std::string QQç©ºé—´EmId);
+	std::int32_t å–ç‰¹å®šèº«ä»½ç»„æˆå‘˜åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t èº«ä»½ç»„Id/*1æ™®é€šäºº,2é¢‘é“ç®¡ç†å‘˜,4åˆ›å»ºè€…,5å­é¢‘é“ç®¡ç†å‘˜,å…¶ä»–èº«ä»½ç»„Idé€šè¿‡APIã€å–é¢‘é“èº«ä»½ç»„åˆ—è¡¨ã€‘å–*/, std::vector<ç‰¹å®šèº«ä»½ç»„æˆå‘˜ä¿¡æ¯>& ç»“æœ, std::int32_t å¼€å§‹ä½ç½®);
+	nlohmann::json å–å­é¢‘é“åˆ†ç»„ç»“æ„(std::int64_t æ¡†æ¶QQ,std::int64_t é¢‘é“Id);
+	nlohmann::json è®¾ç½®å­é¢‘é“åˆ†ç»„ç»“æ„(std::int64_t æ¡†æ¶QQ,std::int64_t é¢‘é“Id,std::string å­é¢‘é“åˆ†ç»„ç»“æ„);
+	bool åˆ é™¤å­é¢‘é“_æ‰¹é‡(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::vector<std::int64_t> å­é¢‘é“Idåˆ—è¡¨);
+	bool åˆ›å»ºå­é¢‘é“(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::string åŸå§‹å­é¢‘é“åˆ†ç»„ç»“æ„, std::string å­é¢‘é“åç§°, std::int32_t æ¶ˆæ¯æé†’è®¾ç½®/*1å¯¹æˆå‘˜æ‰“å¼€æ¶ˆæ¯æé†’ 2ä¸å¯¹æˆå‘˜æ‰“å¼€æ¶ˆæ¯æé†’,é»˜è®¤2*/, std::int32_t å­é¢‘é“ç±»å‹/*1è®¨è®ºé¢‘é“ 2è¯­éŸ³é¢‘é“ 5ç›´æ’­é¢‘é“ 6åº”ç”¨é¢‘é“ 7è¯é¢˜é¢‘é“,é»˜è®¤1*/, std::int32_t å­é¢‘é“å­ç±»å‹ /*0é—²èŠ,1å…¬å‘Š,2æ”»ç•¥,é»˜è®¤0,å½“å­é¢‘é“ç±»å‹ä¸ä¸º1æ—¶,æ’ä¸º0*/, std::int32_t åº”ç”¨Id /*å½“å­é¢‘é“ç±»å‹ä¸º6æ—¶è®¾ç½®,1000050æ—¥ç¨‹æé†’ 1000010è…¾è®¯æŠ•ç¥¨ 1000000ç‹è€…å¼€é»‘å¤§å… 1000001äº’åŠ¨å°æ¸¸æˆ 1000070CoDMå¼€é»‘å¤§å… 1000051é£è½¦å¼€é»‘å¤§å… 1010000å’Œå¹³ç²¾è‹±å¼€é»‘å¤§å…*/, std::int32_t å¯è§†ç±»å‹/*1å…¨éƒ¨æˆå‘˜å¯çœ‹,2æŒ‡å®šæˆå‘˜å¯çœ‹,é»˜è®¤1*/, std::vector<std::int64_t> æŒ‡å®šæˆå‘˜é¢‘é“ç”¨æˆ·Idåˆ—è¡¨, std::vector<std::int64_t> æŒ‡å®šèº«ä»½ç»„Id, std::int32_t æ‰€å±åˆ†ç»„index, std::int32_t åˆ†ç»„å†…ä½ç½®);
+	std::string æ„é€ å¡ç‰‡æ¶ˆæ¯æ–‡æœ¬ä»£ç (std::string å¡ç‰‡ä»£ç , std::int32_t ç±»å‹/*0xml,1json,é»˜è®¤xml*/, bool å¼ºåˆ¶å‘é€);
+	bool åˆ†äº«éŸ³ä¹_é¢‘é“(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::string æ­Œæ›²å, std::string æ­Œæ‰‹å, std::string è·³è½¬åœ°å€, std::string å°é¢åœ°å€, std::string æ–‡ä»¶åœ°å€, std::int32_t åº”ç”¨ç±»å‹);
+	bool ä¿®æ”¹é¢‘é“æ’åº(std::int64_t æ¡†æ¶QQ, std::vector<std::int64_t> é¢‘é“Idåˆ—è¡¨);
+	bool å¤„ç†é¢‘é“åŠ å…¥ç”³è¯·(std::int64_t æ¡†æ¶QQ, std::string é¢‘é“ç”¨æˆ·æ ‡è¯†, std::int32_t æ“ä½œ/*0æ‹’ç» 1åŒæ„*/);
+	nlohmann::json æŸ¥è¯¢ç¾¤è®¾ç½®(std::int64_t æ¡†æ¶QQ, std::int64_t ç¾¤å·);
+	std::int32_t å–å­é¢‘é“ç®¡ç†åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::vector<ç‰¹å®šèº«ä»½ç»„æˆå‘˜ä¿¡æ¯>& ç»“æœ);
+	bool è®¾ç½®å­é¢‘é“ç®¡ç†(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::vector<std::int64_t> é¢‘é“ç”¨æˆ·Idåˆ—è¡¨, bool æ˜¯å¦å–æ¶ˆå­é¢‘é“ç®¡ç†);
+	bool è®¾ç½®æŒ‡å®šèº«ä»½ç»„å­é¢‘é“è§‚çœ‹æƒé™(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t èº«ä»½ç»„Id, std::vector<std::int64_t> æ¬²è®¾ç½®çš„å­é¢‘é“Idåˆ—è¡¨, bool æ˜¯å¦å–æ¶ˆè§‚çœ‹æƒé™);
+	bool è®¾ç½®æŒ‡å®šèº«ä»½ç»„å­é¢‘é“å‘è¨€æƒé™(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t èº«ä»½ç»„Id, std::vector<std::int64_t> æ¬²è®¾ç½®çš„å­é¢‘é“Idåˆ—è¡¨, bool æ˜¯å¦å–æ¶ˆå‘è¨€æƒé™);
+	bool è®¾ç½®ç›´æ’­å­é¢‘é“ä¸»æ’­(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t ç›´æ’­å­é¢‘é“Id, std::vector<std::int64_t> æ¬²è®¾ç½®çš„é¢‘é“ç”¨æˆ·Idåˆ—è¡¨, bool æ˜¯å¦å–æ¶ˆä¸»æ’­èº«ä»½);
+	std::string è·å–é¢‘é“åˆ†äº«é“¾æ¥(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id);
+	std::string è·å–å­é¢‘é“åˆ†äº«é“¾æ¥(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id,std::int64_t å­é¢‘é“Id);
+	bool å­é¢‘é“æ¶ˆæ¯é€šçŸ¥è®¾ç½®(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, bool å¼€å¯æ¶ˆæ¯é€šçŸ¥);
+	std::string è·å–çº¢åŒ…é¢†å–è¯¦æƒ…s(std::int64_t æ¡†æ¶QQ, std::int64_t çº¢åŒ…æ¥æº, std::int64_t å­é¢‘é“Id, std::string çº¢åŒ…æ–‡æœ¬ä»£ç , std::int32_t çº¢åŒ…ç±»å‹/*1:å¥½å‹,2:ç¾¤èŠ,3:è®¨è®ºç»„,4:ç¾¤ä¸´æ—¶,5:å­é¢‘é“*/, std::int32_t èµ·å§‹ä½ç½®);
+	std::int32_t å–è¯é¢˜å­é¢‘é“å¸–å­åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t è¯é¢˜å­é¢‘é“Id, std::vector<è¯é¢˜å¸–å­ä¿¡æ¯>& ç»“æœ, std::string& ç¿»é¡µä¿¡æ¯);
+	std::int32_t è·å–æ—¥ç¨‹åˆ—è¡¨(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t æ—¥ç¨‹å­é¢‘é“Id, std::int64_t æ—¶é—´æˆ³, std::vector<æ—¥ç¨‹ä¿¡æ¯>& ç»“æœ);
+	std::string è·å–æ—¥ç¨‹é“¾æ¥(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t æ—¥ç¨‹å­é¢‘é“Id, std::int64_t æ—¥ç¨‹Id);
+	bool å–æ—¥ç¨‹ä¿¡æ¯(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t æ—¥ç¨‹å­é¢‘é“Id, std::int64_t æ—¥ç¨‹Id, æ—¥ç¨‹ä¿¡æ¯& ä¿¡æ¯);
+	bool åˆ›å»ºæ—¥ç¨‹(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t æ—¥ç¨‹å­é¢‘é“Id, std::string æ—¥ç¨‹å, std::string æ—¥ç¨‹æè¿°, std::int64_t å¼€å§‹æ—¶é—´æˆ³, std::int64_t ç»“æŸæ—¶é—´æˆ³, std::int32_t æé†’, std::int64_t å¼€å§‹æ—¶è·³è½¬çš„å­é¢‘é“Id, æ—¥ç¨‹ä¿¡æ¯& ä¿¡æ¯);
+	std::string å–QQå¤´åƒKå€¼(std::int64_t æ¡†æ¶QQ, std::int64_t å¯¹æ–¹QQ);
+	bool åˆ é™¤æ—¥ç¨‹(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t æ—¥ç¨‹å­é¢‘é“Id, æ—¥ç¨‹ä¿¡æ¯& ä¿¡æ¯);
+	bool å‘é€é€šè¡Œè¯åˆ°ç¾¤(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t ç¾¤å·, std::int32_t é€šè¡Œè¯æ•°é‡);
+	bool å‘é€é€šè¡Œè¯åˆ°å¥½å‹(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å¯¹æ–¹QQ);
+	bool å±è”½é¢‘é“ç”¨æˆ·ç§ä¿¡(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“ç”¨æˆ·Id, bool è§£é™¤å±è”½);
+	bool é¢‘é“ç”¨æˆ·ç§ä¿¡å…æ‰“æ‰°(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“ç”¨æˆ·Id, bool å…³é—­å…æ‰“æ‰°);
+	std::string QQåˆ—è¡¨_æ·»åŠ QQ(std::int64_t QQ, std::string å¯†ç , std::string æ‰‹æœºå“ç‰Œ, std::string æ‰‹æœºå‹å·, std::int32_t åè®®/*0 å®‰å“QQ,1 ä¼ç‚¹QQ,2 QQaPad,3 ä¼ä¸šQQ,4 æ‰‹æœºTim,5 æ‰‹è¡¨QQ,6 QQiPad,7 è‹¹æœQQ 8 MacQQ,æ™®é€šQQæ— æ³•ç™»å½•ä¼ä¸š/ä¼ç‚¹*/, std::string guid);
+	std::string QQåˆ—è¡¨_åˆ é™¤QQ(std::int64_t QQ, bool å½»åº•åˆ é™¤);
+	bool ç™»å½•æŒ‡å®šQQ_äºŒæ¬¡ç™»å½•(std::int64_t æ¡†æ¶QQ);
+	bool æ˜¯å¦å·²è®¾ç½®QQå¯†ç (std::int64_t æ¡†æ¶QQ);
+	nlohmann::json å–æ¡†æ¶æ’ä»¶åˆ—è¡¨();
+	std::string å–åœ¨çº¿ç§»åŠ¨è®¾å¤‡åˆ—è¡¨(std::int64_t æ¡†æ¶QQ);
+	bool è®¾ç½®é¢‘é“å…¨å±€å…¬å‘Š_æŒ‡å®šæ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::int32_t æ¶ˆæ¯req);
+	std::string å–é¢‘é“å·(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id);
+	bool è®¾ç½®ä½ç½®å…±äº«s(std::int64_t æ¡†æ¶QQ, std::int64_t ç›®æ ‡, double ç»åº¦, double çº¬åº¦, bool æ˜¯å¦å¼€å¯, std::int32_t ç±»å‹/*0ç¾¤,1å¥½å‹,é»˜è®¤ç¾¤*/);
+	bool ä¸ŠæŠ¥å½“å‰ä½ç½®s(std::int64_t æ¡†æ¶QQ, std::int64_t ç›®æ ‡, double ç»åº¦, double çº¬åº¦, double æŒ‡é’ˆåè§’);
+	bool ç§»åŠ¨å¥½å‹åˆ†ç»„(std::int64_t æ¡†æ¶QQ, std::int64_t å¥½å‹QQ, std::int32_t åˆ†ç»„Id);
+	bool ä¿®æ”¹å¥½å‹åˆ†ç»„å(std::int64_t æ¡†æ¶QQ, std::int64_t åˆ†ç»„Id, std::string åˆ†ç»„å/*æ”¯æŒemoji*/);
+	bool åˆ é™¤å¥½å‹åˆ†ç»„(std::int64_t æ¡†æ¶QQ, std::int64_t åˆ†ç»„Id);
+	nlohmann::json å–å¥½å‹åˆ†ç»„åˆ—è¡¨(std::int64_t æ¡†æ¶QQ);
+	std::int32_t æ–°å¢å¥½å‹åˆ†ç»„(std::int64_t æ¡†æ¶QQ, std::string åˆ†ç»„å/*æ”¯æŒemoji*/);
+	nlohmann::json å–é¢‘é“çº¢åŒ…pre_grap_token(std::int64_t æ¡†æ¶QQ, std::int64_t é¢‘é“Id, std::int64_t å­é¢‘é“Id, std::string çº¢åŒ…listid, std::string çº¢åŒ…authkey, std::string çº¢åŒ…channel, std::int64_t çº¢åŒ…å‘é€äººé¢‘é“ç”¨æˆ·Id);
+	nlohmann::json è¯­éŸ³çº¢åŒ…åŒ¹é…(std::int64_t æ¡†æ¶QQ, std::int64_t çº¢åŒ…æ¥æ”¶å¯¹è±¡, std::string çº¢åŒ…æ ‡é¢˜, std::string åŒ¹é…è¯­éŸ³hash, std::string çº¢åŒ…listid, std::string çº¢åŒ…authkey, std::int64_t çº¢åŒ…å‘é€è€…QQ, std::string çº¢åŒ…æ¥æºç±»å‹/*0:ç¾¤èŠçº¢åŒ…,1:å¥½å‹çº¢åŒ…,é»˜è®¤0*/);
+	std::string ä¸Šä¼ ç¾¤èŠè¯­éŸ³çº¢åŒ…åŒ¹é…è¯­éŸ³(std::int64_t æ¡†æ¶QQ, std::int64_t çº¢åŒ…æ¥æºç¾¤å·, std::int8_t* audio);
+	std::string å–åˆå¹¶è½¬å‘æ¶ˆæ¯å†…å®¹(std::int64_t æ¡†æ¶QQ, std::string resId);
+	std::string ä¸Šä¼ åˆå¹¶è½¬å‘æ¶ˆæ¯(std::int64_t æ¡†æ¶QQ, std::string æ¶ˆæ¯æ¥æº/*"xxxçš„èŠå¤©è®°å½•",å¯å¡«å¦‚:ç¾¤èŠã€Aå’ŒB*/, std::string æ¶ˆæ¯å°é¢/*å®šä¹‰å°é¢æ¶ˆæ¯å†…å®¹,å¤šæ¡æ¶ˆæ¯ç”¨ç¬¦å·"<[#]>"åˆ†éš”,å¦‚ A: å·´æ‹‰å·´æ‹‰<[#]>B: å·´æ‹‰å·´æ‹‰<[#]>C: å·´æ‹‰å·´æ‹‰*/, std::string åˆå¹¶è½¬å‘æ¶ˆæ¯å†…å®¹/*jsonæ ¼å¼,æ•°æ®ç»“æ„å¯å‚ç…§APIã€å–åˆå¹¶è½¬å‘æ¶ˆæ¯å†…å®¹ã€‘çš„è¿”å›ç»“æœ,"MultiMsg"æ˜¯æœ€å¤–å±‚çš„æ¶ˆæ¯,åµŒå¥—ä½¿ç”¨filenameä½œä¸ºç´¢å¼•*/);
+	std::string è¯­éŸ³è½¬æ–‡å­—(std::int64_t æ¡†æ¶QQ, std::string è¯­éŸ³hash, std::string è¯­éŸ³token);
+	bool å‘é€åŠŸèƒ½åŒ…(std::int64_t æ¡†æ¶QQ, std::string åŠŸèƒ½cmd, std::int32_t æœ€å¤§ç­‰å¾…æ—¶é•¿, std::int8_t*& æ•°æ®);
+	std::string äºŒç»´ç æ‰«ä¸€æ‰«æˆæƒç™»å½•å…¶ä»–åº”ç”¨(std::int64_t æ¡†æ¶QQ, std::string kå€¼);
+	nlohmann::json å–å†å²ç™»å½•è®¾å¤‡guidåˆ—è¡¨(std::int64_t æ¡†æ¶QQ);
+	std::string äºŒç»´ç æ‰«ä¸€æ‰«æˆæƒå…¶ä»–è®¾å¤‡èµ„æ–™è¾…åŠ©éªŒè¯ç™»å½•(std::int64_t æ¡†æ¶QQ, std::string str_url);
+	bool å…³é—­è®¾å¤‡é”(std::int64_t æ¡†æ¶QQ);
+	bool æ¢å¤è®¾å¤‡é”(std::int64_t æ¡†æ¶QQ);
+	std::string ä½™é¢æç°(std::int64_t æ¡†æ¶QQ, std::int32_t æç°é‡‘é¢, std::string æ”¯ä»˜å¯†ç , std::int32_t é“¶è¡Œå¡åºåˆ—);
+	std::string å–h5é’±åŒ…cookie(std::int64_t æ¡†æ¶QQ);
+	std::string å–QQä¼šå‘˜ä¸­å¿ƒcookie(std::int64_t æ¡†æ¶QQ);
+	bool è¯´è¯´ç‚¹èµ(std::int64_t æ¡†æ¶QQ, std::int64_t è¯´è¯´å‘å¸ƒè€…QQ, std::string è¯´è¯´feedskey, bool å–æ¶ˆç‚¹èµ);
+	bool è¯´è¯´è¯„è®º(std::int64_t æ¡†æ¶QQ, std::int64_t è¯´è¯´å‘å¸ƒè€…QQ, std::string è¯´è¯´feedskey, std::string è¯„è®ºå†…å®¹);
+	std::string å–æœ€æ–°åŠ¨æ€åˆ—è¡¨(std::int64_t æ¡†æ¶QQ);
+	std::string æœç´¢è¡¨æƒ…åŒ…(std::int64_t æ¡†æ¶QQ, std::string å…³é”®è¯);
+	std::string å‘å¸ƒè¯´è¯´(std::int64_t æ¡†æ¶QQ, std::string å†…å®¹);
+	std::string ç»çº¬åº¦å®šä½æŸ¥è¯¢è¯¦ç»†åœ°å€(std::int64_t æ¡†æ¶QQ, double ç»åº¦, double çº¬åº¦);
+	std::string å–æ’ä»¶è‡ªèº«ç‰ˆæœ¬å·();
+	std::string ä¸Šä¼ ç¾¤ä¸´æ—¶æ–‡ä»¶s(std::int64_t æ¡†æ¶QQ, std::int64_t å¥½å‹QQ, std::int64_t å¯¹æ–¹QQ, std::int64_t ç¾¤å·, std::string æ–‡ä»¶è·¯å¾„, std::uintptr_t ä¸Šä¼ è¿›åº¦å›è°ƒå‡½æ•°/*void func(int64 æ¡†æ¶QQ,int64 å¥½å‹QQ,eString æœ¬åœ°æ–‡ä»¶è·¯å¾„,int32 æ€»é•¿åº¦,int32 å·²ä¸Šä¼ é•¿åº¦),é”™è¯¯çš„å‡½æ•°æ ¼å¼å°†å¯¼è‡´å´©æºƒ*/, std::int64_t& Random, std::int32_t& Req);
+	bool åˆ é™¤è¯´è¯´(std::int64_t æ¡†æ¶QQ, std::string è¯´è¯´feedskey);
+	std::string ä¸Šä¼ QQå°é¢(std::int64_t æ¡†æ¶QQ, std::int8_t* å›¾ç‰‡);
+	std::string arkæ¶ˆæ¯ç­¾å(std::int64_t æ¡†æ¶QQ, nlohmann::json json);
+	const std::int8_t* silkè§£ç (std::string éŸ³é¢‘æ–‡ä»¶è·¯å¾„);
+	const std::int8_t* silkç¼–ç (std::string éŸ³é¢‘æ–‡ä»¶è·¯å¾„);
+	const std::int8_t* amrç¼–ç (std::string éŸ³é¢‘æ–‡ä»¶è·¯å¾„);
 private:
 	const char* pluginkey;
 	nlohmann::json apidata;
 protected:
-	const char* SDK°æ±¾ = "CSDK 1.0";
-	 std::int32_t È¡APIº¯ÊıµØÖ·(std::string º¯ÊıÃû);
+	const char* SDKç‰ˆæœ¬ = "CSDK 1.0";
+	 std::int32_t å–APIå‡½æ•°åœ°å€(std::string å‡½æ•°å);
 }static SDK;
+
+
+
+
+
+/*
+Cornerstone SDK v1.0.1
+-- é¢å‘ç°ä»£ C++ çš„ Corn SDK
+å…¼å®¹å°æ —å­æ¡†æ¶ v2.7.1-v2.7.2 å’Œ Corn SDK v2.7.1
+https://github.com/Sc-Softs/CornerstoneSDK
+ä½¿ç”¨ MIT License è¿›è¡Œè®¸å¯
+SPDX-License-Identifier: MIT
+Copyright Â© 2020 Contributors of Cornerstone SDK
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+struct earray_head
+{
+	void* data;
+	HANDLE heap;
+
+	earray_head() noexcept
+	{
+		this->heap = GetProcessHeap();
+		this->data = HeapAlloc(heap, HEAP_ZERO_MEMORY, 1);
+		reinterpret_cast<std::uint8_t*>(this->data)[0] = 1;
+	}
+
+	~earray_head() noexcept
+	{
+		HeapFree(this->heap, 0, this->data);
+	}
+
+	operator void** ()
+	{
+		return &this->data;
+	}
+};
+
+template <typename EType, typename CPPType>
+size_t earray1d2vector(const earray_head& earr, ::std::vector<CPPType>& out)
+{
+	auto srcptr = reinterpret_cast<std::int32_t*>(earr.data);
+	auto dim = srcptr[0];
+	if (dim != 1)
+		return static_cast<size_t>(-1);
+	auto size = srcptr[1];
+	if constexpr (::std::is_compound<CPPType>::value)
+	{
+		auto pptr = reinterpret_cast<EType**>(srcptr + 2);
+		out.clear();
+		out.reserve(size);
+		::std::for_each(pptr, pptr + size, [&](auto ptr) {
+			out.emplace_back(*ptr);
+			});
+	}
+	else
+	{
+		auto ptr = reinterpret_cast<EType*>(srcptr + 2);
+		out.clear();
+		out.reserve(size);
+		::std::for_each(ptr, ptr + size, [&](auto val) {
+			out.emplace_back(val);
+			});
+	}
+	return size;
+}
