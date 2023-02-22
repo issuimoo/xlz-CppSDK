@@ -33,7 +33,7 @@ int _AppEnd()
 
 int _AppUnload()
 {
-
+	SDK.卸载();
 	return 启用响应::启用响应_完成;
 }
 

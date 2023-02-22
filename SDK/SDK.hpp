@@ -20,6 +20,7 @@ class API : public API_Text
 public:
 	std::int8_t* ReadDiskFile(std::string File);
 	const char* 初始化(const char* _pluginkey, const char* _apidata, std::string 插件名称, std::string 插件作者, std::string 插件版本, std::string 插件说明,  std::int32_t 被启用处理函数,  std::int32_t 被禁用处理函数,  std::int32_t 将被卸载处理函数,  std::int32_t 插件菜单处理函数,  std::int32_t 私聊消息处理函数,  std::int32_t 群聊消息处理函数,  std::int32_t 频道推送统一处理函数,  std::int32_t 事件消息处理函数);
+	void 卸载();
 	std::string 输出日志(std::string 日志,  std::int32_t 文字颜色 = 32768,  std::int32_t 背景颜色 = 16777215);
 	std::string 发送好友消息(std::int64_t 框架QQ, std::int64_t 好友QQ, std::string 发送内容, std::int64_t& Random, std::int32_t& Req);
 	std::string 发送群消息(std::int64_t 框架QQ, std::int64_t 群号,std::string 发送内容,bool 匿名发送);
@@ -74,8 +75,8 @@ public:
 	bool 上报当前位置(std::int64_t 框架QQ, std::int64_t 群号, double 经度, double 纬度);
 	std::int64_t 是否被禁言(std::int64_t 框架QQ, std::int64_t 群号);
 	void 处理群验证事件(std::int64_t 框架QQ, std::int64_t 来源群号, std::int64_t 触发QQ, std::int64_t 消息Seq, 操作类型 操作, 群事件 事件类型, std::string 拒绝理由);
-	void 处理群验证事件(std::int64_t 框架QQ, std::int64_t 触发QQ, std::int64_t 消息Seq, 操作类型 操作);
-	void 查看转发聊天记录内容(std::int64_t 框架QQ, std::string resId, 群消息数据 消息内容);
+	void 处理好友验证事件(std::int64_t 框架QQ, std::int64_t 触发QQ, std::int64_t 消息Seq, 操作类型 操作);
+	void 查看转发聊天记录内容(std::int64_t 框架QQ, std::string resId, std::vector<群消息数据>& 消息内容);
 	std::string 上传群文件(std::int64_t 框架QQ, std::int64_t 群号, std::string 文件路径, std::string 文件夹名);
 	std::string 创建群文件夹(std::int64_t 框架QQ, std::int64_t 群号, std::string 文件夹名);
 	std::string 重命名群文件夹(std::int64_t 框架QQ, std::int64_t 群号, std::string 旧文件夹名, std::string 新文件夹名);
@@ -98,7 +99,7 @@ public:
 	std::string 取好友在线状态(std::int64_t 框架QQ, std::int64_t 对方QQ);
 	std::string 取QQ钱包个人信息(std::int64_t 框架QQ, QQ钱包信息& 数据);
 	std::string 获取订单详情(std::int64_t 框架QQ, std::string 订单号, 订单详情& 数据);
-	std::string 提交支付验证码(std::int64_t 框架QQ, 验证码信息& 信息, std::string 验证码, std::string 支付密码);
+	std::string 提交支付验证码(std::int64_t 框架QQ, 验证码信息 信息, std::string 验证码, std::string 支付密码);
 	bool 分享音乐(std::int64_t 框架QQ, std::int64_t 分享对象, std::string 歌曲名, std::string 歌手名, std::string 跳转地址, std::string 封面地址, std::string 文件地址, 音乐应用类型 应用类型, 音乐分享类型 分享类型);
 	bool 更改群聊消息内容(std::int32_t 数据指针, std::string 新消息内容);
 	bool 更改私聊消息内容(std::int32_t 数据指针, std::string 新消息内容);
