@@ -590,3 +590,105 @@ std::string API::提交支付验证码(std::int64_t 框架QQ, 验证码信息 �
 	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, 验证码信息, const char*, const char*))取API函数地址("提交支付验证码"))(pluginkey, 框架QQ, 信息, 验证码.c_str(), 支付密码.c_str());
 	return ret;
 }
+bool API::分享音乐(std::int64_t 框架QQ, std::int64_t 分享对象, std::string 歌曲名, std::string 歌手名, std::string 跳转地址, std::string 封面地址, std::string 文件地址, 音乐应用类型 应用类型, 音乐分享类型 分享类型)
+{
+	bool ret = ((bool (WINAPI*)(const char*, std::int64_t, std::int64_t, const char*, const char*, const char*, const char*, const char*, 音乐应用类型, 音乐分享类型))取API函数地址("分享音乐"))(pluginkey, 框架QQ, 分享对象, 歌曲名.c_str(), 跳转地址.c_str(), 封面地址.c_str(), 封面地址.c_str(), 文件地址.c_str(), 应用类型, 分享类型);
+	return ret;
+}
+bool API::更改群聊消息内容(std::int32_t 数据指针, std::string 新消息内容)
+{
+	bool ret = ((bool (WINAPI*)(const char*, std::int32_t, const char*))取API函数地址("更改群聊消息内容"))(pluginkey, 数据指针, 新消息内容.c_str());
+	return ret;
+}
+bool API::更改私聊消息内容(std::int32_t 数据指针, std::string 新消息内容)
+{
+	bool ret = ((bool (WINAPI*)(const char*, std::int32_t, const char*))取API函数地址("更改私聊消息内容"))(pluginkey, 数据指针, 新消息内容.c_str());
+	return ret;
+}
+std::string API::群聊口令红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 群号, std::string 口令, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码)
+{
+	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, std::int32_t, std::int32_t, std::int64_t, const char*, const char*, std::int32_t, 验证码信息&))取API函数地址("群聊口令红包"))(pluginkey, 框架QQ, 总数量, 总金额, 群号, 口令.c_str(), 支付密码.c_str(), 银行卡序列, 验证码);
+	return ret;
+}
+std::string API::群聊拼手气红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 群号, std::string 祝福语, std::int32_t 红包皮肤Id, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码)
+{
+	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, std::int32_t, std::int32_t, std::int64_t, const char*, std::int32_t, const char*, std::int32_t, 验证码信息&))取API函数地址("群聊拼手气红包"))(pluginkey, 框架QQ, 总数量, 总金额, 群号, 祝福语.c_str(), 红包皮肤Id, 支付密码.c_str(), 银行卡序列, 验证码);
+	return ret;
+}
+std::string API::群聊普通红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 群号, std::string 祝福语, std::int32_t 红包皮肤Id, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码)
+{
+	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, std::int32_t, std::int32_t, std::int64_t, const char*, std::int32_t, const char*, std::int32_t, 验证码信息&))取API函数地址("群聊普通红包"))(pluginkey, 框架QQ, 总数量, 总金额, 群号, 祝福语.c_str(), 红包皮肤Id, 支付密码.c_str(), 银行卡序列, 验证码);
+	return ret;
+}
+std::string API::群聊画图红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 群号, std::string 题目名, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码)
+{
+	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, std::int32_t, std::int32_t, std::int64_t, const char*, const char*, std::int32_t, 验证码信息&))取API函数地址("群聊画图红包"))(pluginkey, 框架QQ, 总数量, 总金额, 群号, 题目名.c_str(), 支付密码.c_str(), 银行卡序列, 验证码);
+	return ret;
+}
+std::string API::群聊语音红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 群号, std::string 语音口令, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码)
+{
+	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, std::int32_t, std::int32_t, std::int64_t, const char*, const char*, std::int32_t, 验证码信息&))取API函数地址("群聊语音红包"))(pluginkey, 框架QQ, 总数量, 总金额, 群号, 语音口令.c_str(), 支付密码.c_str(), 银行卡序列, 验证码);
+	return ret;
+}
+std::string API::群聊接龙红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 群号, std::string 接龙内容, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码)
+{
+	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, std::int32_t, std::int32_t, std::int64_t, const char*, const char*, std::int32_t, 验证码信息&))取API函数地址("群聊接龙红包"))(pluginkey, 框架QQ, 总数量, 总金额, 群号, 接龙内容.c_str(), 支付密码.c_str(), 银行卡序列, 验证码);
+	return ret;
+}
+std::string API::群聊专属红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 群号, std::string 领取人, std::string 祝福语, bool 是否均分, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码)
+{
+	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, std::int32_t, std::int32_t, std::int64_t, const char*, const char*, bool, const char*, std::int32_t, 验证码信息&))取API函数地址("群聊专属红包"))(pluginkey, 框架QQ, 总数量, 总金额, 群号, 领取人.c_str(), 祝福语.c_str(), 是否均分, 支付密码.c_str(), 银行卡序列, 验证码);
+	return ret;
+}
+std::string API::好友口令红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 对方QQ, std::string 口令, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码)
+{
+	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, std::int32_t, std::int32_t, std::int64_t, const char*, const char*, std::int32_t, 验证码信息&))取API函数地址("好友口令红包"))(pluginkey, 框架QQ, 总数量, 总金额, 对方QQ, 口令.c_str(), 支付密码.c_str(), 银行卡序列, 验证码);
+	return ret;
+}
+std::string API::好友普通红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 对方QQ, std::string 祝福语, std::int32_t 红包皮肤Id, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码)
+{
+	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, std::int32_t, std::int32_t, std::int64_t, const char*, std::int32_t, const char*, std::int32_t, 验证码信息&))取API函数地址("好友普通红包"))(pluginkey, 框架QQ, 总数量, 总金额, 对方QQ, 祝福语.c_str(), 红包皮肤Id, 支付密码.c_str(), 银行卡序列, 验证码);
+	return ret;
+}
+std::string API::好友画图红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 对方QQ, std::string 题目名, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码)
+{
+	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, std::int32_t, std::int32_t, std::int64_t, const char*, const char*, std::int32_t, 验证码信息&))取API函数地址("好友画图红包"))(pluginkey, 框架QQ, 总数量, 总金额, 对方QQ, 题目名.c_str(), 支付密码.c_str(), 银行卡序列, 验证码);
+	return ret;
+}
+std::string API::好友语音红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 对方QQ, std::string 语音口令, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码)
+{
+	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, std::int32_t, std::int32_t, std::int64_t, const char*, const char*, std::int32_t, 验证码信息&))取API函数地址("好友语音红包"))(pluginkey, 框架QQ, 总数量, 总金额, 对方QQ, 语音口令.c_str(), 支付密码.c_str(), 银行卡序列, 验证码);
+	return ret;
+}
+std::string API::好友接龙红包(std::int64_t 框架QQ, std::int32_t 总数量, std::int32_t 总金额, std::int64_t 对方QQ, std::string 接龙内容, std::string 支付密码, std::int32_t 银行卡序列, 验证码信息& 验证码)
+{
+	std::string ret = ((const char* (WINAPI*)(const char*, std::int64_t, std::int32_t, std::int32_t, std::int64_t, const char*, const char*, std::int32_t, 验证码信息&))取API函数地址("好友接龙红包"))(pluginkey, 框架QQ, 总数量, 总金额, 对方QQ, 接龙内容.c_str(), 支付密码.c_str(), 银行卡序列, 验证码);
+	return ret;
+}
+bool API::设置专属头衔(std::int64_t 框架QQ, std::int64_t 群号, std::int64_t 对方QQ, std::string 头衔)
+{
+	bool ret = ((bool (WINAPI*)(const char*, std::int64_t, std::int64_t, std::int64_t, const char*))取API函数地址("设置专属头衔"))(pluginkey, 框架QQ, 群号, 对方QQ, 头衔.c_str());
+	return ret;
+}
+bool API::下线指定QQ(std::int64_t 框架QQ)
+{
+	bool ret = ((bool (WINAPI*)(const char*, std::int64_t))取API函数地址("下线指定QQ"))(pluginkey, 框架QQ);
+	return ret;
+}
+bool API::登录指定QQ(std::int64_t 框架QQ)
+{
+	bool ret = ((bool (WINAPI*)(const char*, std::int64_t))取API函数地址("登录指定QQ"))(pluginkey, 框架QQ);
+	return ret;
+}
+std::int32_t API::取群未领红包(std::int64_t 框架QQ, std::int64_t 群号, std::vector<群未领红包数据>& 数据)
+{
+	earray_head arr;
+	std::int32_t ret = ((std::int32_t(WINAPI*)(const char*, std::int64_t, std::int64_t, void**))取API函数地址("取群未领红包"))(pluginkey, 框架QQ, 群号, arr);
+	earray1d2vector<群未领红包数据, 群未领红包数据>(arr, 数据);
+	return ret;
+}
+bool API::发送输入状态(std::int64_t 框架QQ, std::int64_t 对方QQ, 输入状态 状态)
+{
+	bool ret = ((bool (WINAPI*)(const char*, std::int64_t, std::int64_t, 输入状态))取API函数地址("发送输入状态"))(pluginkey, 框架QQ, 对方QQ, 状态);
+	return ret;
+}
