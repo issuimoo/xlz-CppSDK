@@ -699,16 +699,16 @@ bool API::发送输入状态(std::int64_t 框架QQ, std::int64_t 对方QQ, 输�
 bool API::修改资料(std::int64_t 框架QQ, std::string 昵称, 性别类型 性别, std::string 生日, 职业类型 职业, std::string 公司名, std::string 所在地, std::string 家乡, std::string 邮箱, std::string 个人说明)
 {
 	nlohmann::json json;
-	json[u8"info"][u8"昵称"] = 昵称;
-	json[u8"info"][u8"性别"] = 性别;
-	json[u8"info"][u8"生日"] = 生日;
-	json[u8"info"][u8"职业"] = 职业;
-	json[u8"info"][u8"公司名"] = 公司名;
-	json[u8"info"][u8"所在地"] = 所在地;
-	json[u8"info"][u8"家乡"] = 家乡;
-	json[u8"info"][u8"邮箱"] = 邮箱;
-	json[u8"info"][u8"个人说明"] = 个人说明;
-	const char* info = strdup((char*)json.dump().c_str());
+	json[Text::GBKTOUTF8("info")][Text::GBKTOUTF8("昵称")] = 昵称;
+	json[Text::GBKTOUTF8("info")][Text::GBKTOUTF8("性别")] = 性别;
+	json[Text::GBKTOUTF8("info")][Text::GBKTOUTF8("生日")] = 生日;
+	json[Text::GBKTOUTF8("info")][Text::GBKTOUTF8("职业")] = 职业;
+	json[Text::GBKTOUTF8("info")][Text::GBKTOUTF8("公司名")] = 公司名;
+	json[Text::GBKTOUTF8("info")][Text::GBKTOUTF8("所在地")] = 所在地;
+	json[Text::GBKTOUTF8("info")][Text::GBKTOUTF8("家乡")] = 家乡;
+	json[Text::GBKTOUTF8("info")][Text::GBKTOUTF8("邮箱")] = 邮箱;
+	json[Text::GBKTOUTF8("info")][Text::GBKTOUTF8("个人说明")] = 个人说明;
+	const char* info = strdup(json.dump().c_str());
 	bool ret = ((bool (WINAPI*)(const char*, std::int64_t, const char*))取API函数地址("修改资料"))(pluginkey, 框架QQ, info);
 	delete[] info;
 	return ret;
