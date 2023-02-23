@@ -708,7 +708,7 @@ bool API::修改资料(std::int64_t 框架QQ, std::string 昵称, 性别类型 �
 	json[u8"info"][u8"家乡"] = 家乡;
 	json[u8"info"][u8"邮箱"] = 邮箱;
 	json[u8"info"][u8"个人说明"] = 个人说明;
-	const char* info = strdup(json.dump().c_str());
+	const char* info = strdup((char*)json.dump().c_str());
 	bool ret = ((bool (WINAPI*)(const char*, std::int64_t, const char*))取API函数地址("修改资料"))(pluginkey, 框架QQ, info);
 	delete[] info;
 	return ret;
