@@ -120,7 +120,7 @@ public:
 	bool 登录指定QQ(std::int64_t 框架QQ);
 	std::int32_t 取群未领红包(std::int64_t 框架QQ, std::int64_t 群号, std::vector<群未领红包数据>& 数据);
 	bool 发送输入状态(std::int64_t 框架QQ, std::int64_t 对方QQ, 输入状态 状态);
-	bool 修改资料(std::int64_t 框架QQ, std::string 昵称, 性别类型 性别, std::string 生日, 职业类型 职业, std::string 公司名, std::string 所在地, std::string 家乡, std::string 邮箱, std::string 个人说明);
+	bool 修改资料(std::int64_t 框架QQ, std::string 昵称, 性别类型 性别, std::string 生日, 职业类型 职业, std::string 公司名, std::string 所在地/*国家代码|省份代码|市代码|区字母|区代码，如：49|13110|56|NK|51*/, std::string 家乡, std::string 邮箱, std::string 个人说明);
 	std::string 取群文件下载地址(std::int64_t 框架QQ, std::int64_t 来源群号, std::string 文件id, std::string 文件名);
 	void 打好友电话(std::int64_t 框架QQ, std::int64_t 对方QQ);
 	bool 头像双击_好友(std::int64_t 框架QQ, std::int64_t 对方QQ);
@@ -131,10 +131,10 @@ public:
 	std::string 取加群链接(std::int64_t 框架QQ, std::int64_t 群号);
 	bool 设为精华(std::int64_t 框架QQ, std::int64_t 群号, std::int32_t 消息Req, std::int64_t 消息Random);
 	bool 群权限_设置群昵称规则(std::int64_t 框架QQ, std::int64_t 群号, std::string 名片规则);
-	bool 群权限_设置群发言频率(std::int64_t 框架QQ, std::int64_t 群号, std::int32_t 名片规则);
+	bool 群权限_设置群发言频率(std::int64_t 框架QQ, std::int64_t 群号, std::int32_t 限制条数);
 	bool 群权限_设置群查找方式(std::int64_t 框架QQ, std::int64_t 群号, 查找类型 查找方式);
 	bool 邀请好友加群(std::int64_t 框架QQ, std::int64_t 目标群号, std::int64_t 对方QQ, std::int64_t 来源群号);
-	bool 置群内消息通知(std::int64_t 框架QQ, std::int64_t 群号, std::int64_t 对方QQ, std::int32_t 通知类型);
+	bool 置群内消息通知(std::int64_t 框架QQ, std::int64_t 群号, std::int64_t 对方QQ, std::int32_t 通知类型/*0不接收此人消息,1特别关注,2接收此人消息,默认2*/);
 	bool 修改群名称(std::int64_t 框架QQ, std::int64_t 群号, std::string 名称);
 	void 重载自身(std::string 新文件路径);
 	void 下线其他设备(std::int64_t 框架QQ, bool 移动设备, std::int32_t appid);
@@ -420,6 +420,8 @@ public:
 	const std::int8_t* amr编码(std::string 音频文件路径);
 private:
 	const char* pluginkey;
+	const char* pluginkey_new;
+	char* apprun_ret;
 	nlohmann::json apidata;
 protected:
 	const char* SDK版本 = "CSDK 1.0";
