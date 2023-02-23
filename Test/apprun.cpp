@@ -2,7 +2,9 @@
 
 const char* apprun(const char* _apidata, const char* _pluginkey)
 {
-	return SDK.初始化(
+	const char* ret;
+	SDK = new API(
+		ret,
 		_pluginkey,
 		_apidata,
 		"测试",
@@ -17,6 +19,7 @@ const char* apprun(const char* _apidata, const char* _pluginkey)
 		(unsigned int)&_OnGroup,
 		0,
 		0);
+	return ret;
 }
 
 int _AppStart()
@@ -33,7 +36,7 @@ int _AppEnd()
 
 int _AppUnload()
 {
-	SDK.卸载();
+	delete SDK;
 	return 启用响应::启用响应_完成;
 }
 
@@ -43,9 +46,9 @@ int _ControlPanel()
 	{
 		std::int64_t R1;
 		std::int32_t R2;
-		SDK.发送好友消息(1992724048, 1992724048, "123", R1, R2);
+		SDK->发送好友消息(1992724048, 1992724048, "123", R1, R2);
 		std::vector<好友信息> f;
-		SDK.取好友列表(1992724048, f);
+		SDK->取好友列表(1992724048, f);
 	}
 	catch (...) //事实证明并没有太大用处
 	{

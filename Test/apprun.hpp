@@ -1,5 +1,7 @@
 #include "../SDK/SDK.hpp"
 
+API *SDK;
+
 DLLOUT const char* apprun(const char* _apidata, const char* _pluginkey);
 
 int _AppStart();
