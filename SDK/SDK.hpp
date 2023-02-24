@@ -169,7 +169,7 @@ public:
 	nlohmann::json 添加群_取验证类型(std::int64_t 框架QQ, std::int64_t 群号);
 	nlohmann::json 获取红包领取详情(std::int64_t 框架QQ, std::int64_t 来源群号, std::string 红包文本代码, std::string 红包类型);
 	std::string 取好友文件下载地址(std::int64_t 框架QQ, std::string FileId, std::string FileName);
-	bool 删除群成员_批量(std::int64_t 框架QQ, std::int64_t 群号, std::vector<std::int64_t>& 群成员QQ, bool 拒绝加群申请);
+	bool 删除群成员_批量(std::int64_t 框架QQ, std::int64_t 群号, std::vector<std::int64_t> 群成员QQ, bool 拒绝加群申请);
 	std::string 取扩列资料(std::int64_t 框架QQ, std::int64_t 对方QQ);
 	std::string 取资料展示设置(std::int64_t 框架QQ, std::int64_t 对方QQ, 资料展示设置数据& 数据);
 	std::string 设置资料展示(std::int64_t 框架QQ, 资料展示设置数据 数据);
