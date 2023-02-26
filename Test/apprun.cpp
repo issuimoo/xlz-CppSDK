@@ -22,6 +22,8 @@ const char* apprun(const char* _apidata, const char* _pluginkey)
 	return ret;
 }
 
+void GroupMsgInput(群消息数据* point);
+
 int _AppStart()
 {
 	
@@ -42,24 +44,19 @@ int _AppUnload()
 
 int _ControlPanel()
 {
-	try
-	{
-		资料展示设置数据 msg;
-		SDK->取资料展示设置(1992724048, 3498896843, msg);
-		SDK->输出日志(std::to_string(msg.年龄));
-		SDK->群聊签到(1992724048, 756661453, "");
-		SDK->头像双击_群(1992724048, 3427824586, 756661453);
-	}
-	catch (...) //事实证明并没有太大用处
-	{
-
-	}
-	
 	return 启用响应::启用响应_完成;
 }
 
 int _OnGroup(群消息数据* 数据指针)
 {
-
+	群消息数据* Msg = new 群消息数据;
+	memcpy(Msg, 数据指针, sizeof 群消息数据);
+	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)GroupMsgInput, Msg, NULL, NULL);
 	return 消息处理::消息处理_忽略;
+}
+
+void GroupMsgInput(群消息数据* point)
+{
+
+	delete point;
 }
