@@ -22,8 +22,6 @@ const char* apprun(const char* _apidata, const char* _pluginkey)
 	return ret;
 }
 
-void GroupMsgInput(群消息数据* point);
-
 int _AppStart()
 {
 	
@@ -49,14 +47,21 @@ int _ControlPanel()
 
 int _OnGroup(群消息数据* 数据指针)
 {
-	群消息数据* Msg = new 群消息数据;
-	memcpy(Msg, 数据指针, sizeof 群消息数据);
-	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)GroupMsgInput, Msg, NULL, NULL);
+	if (数据指针->发送人QQ == 1992724048 && std::string(数据指针->消息内容).find("喵~") == std::string::npos)
+	{
+		SDK->发送群消息(
+			1992724048,
+			数据指针->消息群号,
+			"喵~",
+			false);
+	}
+	if (数据指针->发送人QQ != 1992724048 && std::string(数据指针->消息内容).find(std::format("[@{}]", 1992724048)) != std::string::npos)
+	{
+		SDK->发送群消息(
+			1992724048,
+			数据指针->消息群号,
+			"喵喵不知道,喵喵是一只会动的绒布球",
+			false);
+	}
 	return 消息处理::消息处理_忽略;
-}
-
-void GroupMsgInput(群消息数据* point)
-{
-
-	delete point;
 }
