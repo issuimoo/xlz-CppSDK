@@ -54,10 +54,20 @@ int _OnGroup(群消息数据* 数据指针)
 
 void GroupMsg(群消息数据* msg)
 {
-	MessageBox(NULL, std::format("msg:\n{}\n{}\n{}", msg->消息群号, msg->发送人群名片, _msize((void*)msg->匿名标识)).c_str(), "", NULL);
-	if (127047211 == msg->消息群号 && std::string(msg->消息内容).find("msg:") == std::string::npos)
+	try
 	{
-		SDK->发送群消息(1992724048, msg->消息群号, std::format("msg:\n{}\n{}\n{}", msg->消息群号, msg->发送人群名片,_msize((void*)msg->匿名标识)), false);
+		if (127047211 == msg->消息群号 && std::string(msg->消息内容).find("msg:") == std::string::npos)
+		{
+			SDK->发送群消息(1992724048, msg->消息群号, std::format("msg:\n{}\n{}\n{}", msg->消息群号, msg->发送人群名片, _msize((void*)msg->匿名标识)), false);
+		}
+	}
+	catch (const std::exception& e)
+	{
+
+	}
+	catch (...)
+	{
+
 	}
 	delete msg;
 }

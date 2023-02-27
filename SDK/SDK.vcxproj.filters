@@ -27,6 +27,9 @@
     <ClCompile Include="Text\Text.cpp">
       <Filter>Text</Filter>
     </ClCompile>
+    <ClCompile Include="e2c.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDK.hpp">
@@ -40,6 +43,12 @@
     </ClInclude>
     <ClInclude Include="Text\Text.hpp">
       <Filter>Text</Filter>
+    </ClInclude>
+    <ClInclude Include="e2c.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="enum.hpp">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

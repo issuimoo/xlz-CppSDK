@@ -163,10 +163,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="e2c.cpp" />
     <ClCompile Include="SDK.cpp" />
     <ClCompile Include="Text\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="e2c.hpp" />
+    <ClInclude Include="enum.hpp" />
     <ClInclude Include="json\json.hpp" />
     <ClInclude Include="SDK.hpp" />
     <ClInclude Include="Data_type.hpp" />
