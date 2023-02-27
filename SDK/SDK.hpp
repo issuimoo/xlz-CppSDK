@@ -2,6 +2,8 @@
 #include <direct.h>
 #include <fstream>
 #include <io.h>
+#include <string>
+#include <vector>
 
 #include "Data_type.hpp"
 #include "json.hpp"
@@ -419,9 +421,7 @@ public:
 	const std::int8_t* silk编码(std::string 音频文件路径);
 	const std::int8_t* amr编码(std::string 音频文件路径);
 private:
-	const char* pluginkey;
-	const char* pluginkey_new;
-	char* apprun_ret;
+	std::string pluginkey;
 	nlohmann::json apidata;
 protected:
 	const char* SDK版本 = "CSDK 1.0";

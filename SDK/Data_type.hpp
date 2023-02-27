@@ -1,4 +1,11 @@
-﻿enum emoji : std::int32_t
+﻿#include <Windows.h>
+#include <direct.h>
+#include <fstream>
+#include <io.h>
+#include <string>
+#include <vector>
+
+enum emoji : std::int32_t
 {
 	惊讶
 };
@@ -816,10 +823,38 @@ struct __declspec(align(4)) 群消息数据
 	std::int32_t 群聊等级;
 	std::int32_t 挂件Id;
 	const char* 匿名昵称;   //消息是匿名消息时,此为对方的匿名昵称,否则为空
-	const std::uint8_t* 匿名标识;   //可用于禁言等
+	std::uint8_t* 匿名标识;   //可用于禁言等
 	const char* 保留参数;   //暂时保留
 	std::int64_t 框架QQ匿名Id;   //用于判断框架开启匿名时,收到的消息是否为自身的消息
 	std::int32_t 字体Id;
+	群消息数据(群消息数据* info)
+	{
+		this->来源群名称 = strdup(info->来源群名称);
+		this->发送人群名片 = strdup(info->发送人群名片);
+		this->发送人群头衔 = strdup(info->发送人群头衔);
+		this->消息内容 = strdup(info->消息内容);
+		this->回复对象消息内容 = strdup(info->回复对象消息内容);
+		this->匿名昵称 = strdup(info->匿名昵称);
+		this->保留参数 = strdup(info->保留参数);
+		int address = *(int*)info->匿名标识;
+		int size = ((int*)address)[1];
+		this->匿名标识 = new std::uint8_t[size];
+		for (size_t i = 0; i < size; i++)
+		{
+			this->匿名标识[i] = ((std::uint8_t*)address)[i + 8];
+		}
+	}
+	~群消息数据()
+	{
+		free((void*)this->来源群名称);
+		free((void*)this->发送人群名片);
+		free((void*)this->发送人群头衔);
+		free((void*)this->消息内容);
+		free((void*)this->回复对象消息内容);
+		free((void*)this->匿名昵称);
+		free((void*)this->保留参数);
+		delete[] this->匿名标识;
+	}
 };
 
 struct __declspec(align(4)) 群卡片信息

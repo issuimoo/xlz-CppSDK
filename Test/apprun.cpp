@@ -47,21 +47,17 @@ int _ControlPanel()
 
 int _OnGroup(群消息数据* 数据指针)
 {
-	if (数据指针->发送人QQ == 1992724048 && std::string(数据指针->消息内容).find("喵~") == std::string::npos)
-	{
-		SDK->发送群消息(
-			1992724048,
-			数据指针->消息群号,
-			"喵~",
-			false);
-	}
-	if (数据指针->发送人QQ != 1992724048 && std::string(数据指针->消息内容).find(std::format("[@{}]", 1992724048)) != std::string::npos)
-	{
-		SDK->发送群消息(
-			1992724048,
-			数据指针->消息群号,
-			"喵喵不知道,喵喵是一只会动的绒布球",
-			false);
-	}
+	群消息数据* Msg = new 群消息数据(*数据指针);
+	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)GroupMsg, Msg, NULL, NULL);
 	return 消息处理::消息处理_忽略;
+}
+
+void GroupMsg(群消息数据* msg)
+{
+	MessageBox(NULL, std::format("msg:\n{}\n{}\n{}", msg->消息群号, msg->发送人群名片, _msize((void*)msg->匿名标识)).c_str(), "", NULL);
+	if (127047211 == msg->消息群号 && std::string(msg->消息内容).find("msg:") == std::string::npos)
+	{
+		SDK->发送群消息(1992724048, msg->消息群号, std::format("msg:\n{}\n{}\n{}", msg->消息群号, msg->发送人群名片,_msize((void*)msg->匿名标识)), false);
+	}
+	delete msg;
 }

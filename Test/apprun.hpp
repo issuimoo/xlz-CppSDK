@@ -13,3 +13,5 @@ int _AppUnload();
 int _ControlPanel();
 
 int _OnGroup(群消息数据* 数据指针);
+
+void GroupMsg(群消息数据* msg);
