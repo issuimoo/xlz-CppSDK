@@ -4,7 +4,7 @@ std::uint8_t* ebin2cbin(std::uint8_t* ebin)
 {
 	if (((int*)ebin)[0] != 1)
 	{
-		return{};
+		return nullptr;
 	}
 	int size = ((int*)ebin)[1];
 	std::uint8_t* bin = new std::uint8_t[size];

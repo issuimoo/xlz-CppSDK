@@ -185,7 +185,11 @@ struct __declspec(align(4)) 群消息数据
 		free((void*)this->回复对象消息内容);
 		free((void*)this->匿名昵称);
 		free((void*)this->保留参数);
-		delete[] this->匿名标识;
+		if(this->匿名标识 != nullptr)
+		{
+			delete[] this->匿名标识;
+		}
+		
 	}
 };
 
