@@ -993,3 +993,93 @@ std::string API::设置资料展示(std::int64_t 框架QQ, 资料展示设置数
 	std::string ret = ((const char* (*)(const char*, std::int64_t, 资料展示设置数据))取API函数地址("设置资料展示"))(pluginkey.c_str(), 框架QQ, 数据);
 	return ret;
 }
+std::string API::获取当前登录设备信息(std::int64_t 框架QQ, 登录设备信息& 信息)
+{
+	std::string ret = ((const char* (*)(const char*, std::int64_t, 登录设备信息&))取API函数地址("获取当前登录设备信息"))(pluginkey.c_str(), 框架QQ, 信息);
+	return ret;
+}
+bool API::提取图片文字(std::int64_t 框架QQ, std::string 图片地址, std::string& 识别结果)
+{
+	const char* eret;
+	bool ret = ((bool (WINAPI*)(const char*, std::int64_t, const char*, const char*&))取API函数地址("提取图片文字"))(pluginkey.c_str(), 框架QQ, 图片地址.c_str(), eret);
+	识别结果 = eret;
+	return ret;
+}
+std::string API::取插件文件名()
+{
+	std::string ret = ((const char* (*)(const char*))取API函数地址("取插件文件名"))(pluginkey.c_str());
+	return ret;
+}
+void API::TEA加密(std::int8_t*& 内容, std::int8_t* 秘钥)
+{
+	return ((void(*)(const char*, std::int8_t*&, std::int8_t*))取API函数地址("TEA加密"))(pluginkey.c_str(), 内容, 秘钥);
+}
+void API::TEA解密(std::int8_t*& 内容, std::int8_t* 秘钥)
+{
+	return ((void(*)(const char*, std::int8_t*&, std::int8_t*))取API函数地址("TEA解密"))(pluginkey.c_str(), 内容, 秘钥);
+}
+std::string API::红包数据加密(std::string str, std::int32_t random)
+{
+	std::string ret = ((const char* (*)(const char*, const char*, std::int32_t))取API函数地址("红包数据加密"))(pluginkey.c_str(), str.c_str(), random);
+	return ret;
+}
+std::string API::红包数据解密(std::string str, std::int32_t random)
+{
+	std::string ret = ((const char* (*)(const char*, const char*, std::int32_t))取API函数地址("红包数据解密"))(pluginkey.c_str(), str.c_str(), random);
+	return ret;
+}
+std::string API::红包msgno计算(std::int64_t 目标QQ)
+{
+	std::string ret = ((const char* (*)(const char*, std::int64_t))取API函数地址("红包msgno计算"))(pluginkey.c_str(), 目标QQ);
+	return ret;
+}
+bool API::取消精华(std::int64_t 框架QQ, std::int64_t 群号, std::int32_t 消息Req, std::int64_t 消息Random)
+{
+	bool ret;
+	ret = ((bool(*)(const char*, std::int64_t, std::int64_t, std::int32_t, std::int64_t))取API函数地址("取消精华"))(pluginkey.c_str(), 框架QQ, 群号, 消息Req, 消息Random);
+	return ret;
+}
+bool API::群权限_设置加群方式(std::int64_t 框架QQ, std::int64_t 群号, std::int32_t 加群方式, std::string 问题, std::string 答案)
+{
+	bool ret;
+	ret = ((bool(*)(const char*, std::int64_t, std::int64_t, std::int32_t, const char*, const char*))取API函数地址("群权限_设置加群方式"))(pluginkey.c_str(), 框架QQ, 群号, 加群方式, 问题.c_str(), 答案.c_str());
+	return ret;
+}
+bool API::群权限_群幸运字符(std::int64_t 框架QQ, std::int64_t 群号, bool 是否开启)
+{
+	bool ret;
+	ret = ((bool(*)(const char*, std::int64_t, std::int64_t, bool))取API函数地址("群权限_群幸运字符"))(pluginkey.c_str(), 框架QQ, 群号, 是否开启);
+	return ret;
+}
+bool API::群权限_一起写(std::int64_t 框架QQ, std::int64_t 群号, bool 是否允许)
+{
+	bool ret;
+	ret = ((bool(*)(const char*, std::int64_t, std::int64_t, bool))取API函数地址("群权限_一起写"))(pluginkey.c_str(), 框架QQ, 群号, 是否允许);
+	return ret;
+}
+std::string API::取QQ空间cookie(std::int64_t 框架QQ)
+{
+	std::string ret = ((const char* (*)(const char*, std::int64_t))取API函数地址("取QQ空间cookie"))(pluginkey.c_str(), 框架QQ);
+	return ret;
+}
+bool API::框架是否为单Q()
+{
+	bool ret;
+	ret = ((bool(*)(const char*))取API函数地址("框架是否为单Q"))(pluginkey.c_str());
+	return ret;
+}
+bool API::修改指定QQ缓存密码(std::int64_t 框架QQ, std::string 新密码)
+{
+	bool ret;
+	ret = ((bool(*)(const char*, std::int64_t, const char*))取API函数地址("修改指定QQ缓存密码"))(pluginkey.c_str(), 框架QQ, 新密码.c_str());
+	return ret;
+}
+void API::处理群验证事件_风险号(std::int64_t 框架QQ, std::int64_t 来源群号, std::int64_t 触发QQ, std::int64_t 消息Seq, 操作类型 操作, 群事件 事件类型, std::string 拒绝理由)
+{
+	return ((void(*)(const char*, std::int64_t, std::int64_t, std::int64_t, std::int64_t, 操作类型, 群事件, const char*))取API函数地址("处理群验证事件_风险号"))(pluginkey.c_str(), 框架QQ, 来源群号, 触发QQ, 消息Seq, 操作, 事件类型, 拒绝理由.c_str());
+}
+std::int32_t API::查询网址安全性(std::int64_t 框架QQ, std::string 网址)
+{
+	std::int32_t ret = ((std::int32_t(*)(const char*, std::int64_t, const char*))取API函数地址("查询网址安全性"))(pluginkey.c_str(), 框架QQ, 网址.c_str());
+	return ret;
+}
