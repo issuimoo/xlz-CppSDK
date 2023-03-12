@@ -12,5 +12,6 @@ std::uint8_t* ebin2cbin(std::uint8_t* ebin)
 	{
 		bin[i] = ((std::uint8_t*)ebin)[i + 8];
 	}
+	MessageBox(NULL, std::format("{}", _msize(bin)).c_str(), "", NULL);
 	return bin;
 }

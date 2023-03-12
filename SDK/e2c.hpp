@@ -1,4 +1,5 @@
-﻿#include <Windows.h>
+﻿
+#include <Windows.h>
 #include <direct.h>
 #include <fstream>
 #include <io.h>
@@ -7,7 +8,7 @@
 #include <algorithm>
 #include <format>
 
-std::uint8_t* ebin2cbin(std::uint8_t* bin);
+extern std::uint8_t* ebin2cbin(std::uint8_t* bin);
 
 /*
 Cornerstone SDK v1.0.1
